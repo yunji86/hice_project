@@ -1,6 +1,7 @@
 package com.greedy.coffee.qna.service;
   
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -12,6 +13,7 @@ import com.greedy.coffee.qna.dto.QnaDTO;
 import com.greedy.coffee.qna.entity.Qna;
 import com.greedy.coffee.qna.repository.QnaRepository;
 import com.greedy.coffee.reply.dto.ReplyDTO;
+import com.greedy.coffee.reply.entity.Reply;
 import com.greedy.coffee.reply.repository.ReplyRepository;
   
 public class QnaService {
@@ -57,23 +59,37 @@ public class QnaService {
 	
 	public void registQna(QnaDTO qna) {
 		
+		qnaRepository.save(modelMapper.map(qna, Qna.class));
+		
 	}
 	
 	public void removeQna(QnaDTO removeQna) {
+		
+		Qna foundQna = qnaRepository.findByQnaCode(removeQna.getQnaCode());
+		
+		foundQna.setQnaStatus("N");
 		
 	}
 	
 	public void registReply(ReplyDTO registReply) {
 		
+		replyRepository.save(modelMapper.map(registReply, Reply.class));
+		
 	}
 	
 	public List<ReplyDTO> loadReply(ReplyDTO loadReply) {
 		
-		return "asdf";
+		List<Reply> replyList = replyRepository.findByQnaCodeandReplyStatus(loadReply.getQnaCode(), ACTIVE_STATUS);
+		
+		return replyList.stream().map(reply -> modelMapper.map(reply, ReplyDTO.class)).collect(Collectors.toList());
 		
 	}
 	
 	public void removeReply(ReplyDTO removeReply) {
+		
+		Reply foundReply = replyRepository.findByReplyNo(removeReply.getReplyNo());
+		
+		foundReply.setReplyStatus("N");
 		
 	}
 	

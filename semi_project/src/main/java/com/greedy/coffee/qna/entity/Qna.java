@@ -3,16 +3,34 @@ package com.greedy.coffee.qna.entity;
 import java.sql.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicInsert;
 
 import com.greedy.coffee.member.dto.MemberDTO;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "TBL_QNA")
+@SequenceGenerator(name = "QNA_SEQ_GENERATOR", sequenceName = "SEQ_QNA_NO", initialValue = 1, allocationSize = 1)
+@DynamicInsert
 public class Qna {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REV_SEQ_GENERATOR")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "QNA_SEQ_GENERATOR")
 	@Column(name = "QNA_CODE")
 	private Long qnaCode;
 	
@@ -34,7 +52,8 @@ public class Qna {
 	@Column(name = "QNA_STATUS")
 	private String qnaStatus;
 	
-	@Column(name = "QNA_WRITER")
+	@ManyToOne
+	@JoinColumn(name = "QNA_WRITER")
 	private MemberDTO writer;
 	
 }

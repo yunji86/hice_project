@@ -18,9 +18,5 @@ public class ReplyDTO {
 	private MemberDTO writer;
 	private Long revCode;
 	private Long qnaCode;
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> refs/remotes/origin/Zoo
 }

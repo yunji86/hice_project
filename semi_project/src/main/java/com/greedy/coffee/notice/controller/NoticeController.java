@@ -114,7 +114,7 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/noticeModify")
-<<<<<<< HEAD
+
 	public String noticeModify(@ModelAttribute NoticeDTO noticeModify,
 			@AuthenticationPrincipal NoticeDTO notice, RedirectAttributes rttr) {
 		
@@ -146,7 +146,7 @@ public class NoticeController {
 		
 		return "redirect:/";
 	}
-=======
+
 	public String noticeModify(@ModelAttribute NoticeDTO noticeModify, RedirectAttributes rttr) {
 		
 		log.info("[MemberController] modifyMember request Member : {}", noticeModify);
@@ -160,29 +160,7 @@ public class NoticeController {
 		return "redirect:/notice/noticeList";
 	}
 	
-	
-	@GetMapping("/noticeDelete")
-	public String noticeDelete(NoticeDTO notice, RedirectAttributes rttr) {
-		
-		log.info("[NoticeController] noticeDelete ==============================");
-		log.info("[NoticeController] notice : " + notice);
-		
-		noticeService.removeNotice(notice);
-		
-		rttr.addFlashAttribute("message", messageSourceAccesor.getMessage("notice.delete"));
-		
-		log.info("[NoticeController] noticeDelete ==============================");
-		
-		return "redirect:/";
-	}
-	
-	// 메인에서 하단에 more 버튼 누를 시 공지시항으로 이동이 안됨.(경로 재설정?)
-	 
-	// 삭제 시 메세지창 뜨지 않음.(일단 대기)
-	
-	// 삭제하면 오류는 안나는데, 아무것도 이뤄지지 않음.(html)
-	
-	// 리스트에 페이징바 만들어야 함.(html)
->>>>>>> refs/remotes/origin/Zoo
+
+
 
 }
