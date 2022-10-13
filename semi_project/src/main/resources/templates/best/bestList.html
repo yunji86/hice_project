@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/kj.js}"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+        <div class="beanMain">
+
+            <div class="beanHeader">
+             
+                    <div class="title">
+                        <h1>베스트 원두</h1>
+                        <hr class="underLine">
+                    </div>
+        
+                   <div class="box">
+                        <ul class="bStrength">
+                        	<li><a th:onclick="<!-- |location.href='@{js/kj.js}'| -->" class="sec4Bt addClasssec4Bt">ALL</a></li>
+                            <li><a th:onclick="<!-- |location.href='@{js/kj.js}'| -->" class="sec4Bt">진함</a></li>
+                            <li><a th:onclick="<!-- |location.href='@{js/kj.js}'| -->" class="sec4Bt">보통</a></li>
+                            <li><a th:onclick="<!-- |location.href='@{js/kj.js}'| -->" class="sec4Bt">연함</a></li>
+                        
+                        </ul>
+                    </div> 
+               
+            </div>
+    
+            <div class="beanBody">
+                
+                <ul class="fixedclear">
+                    <li>
+                        <div class="bean">
+                           	<span><img th:src="@{/img/케냐국기-removebg-preview 1.png}" alt="케냐"></span>
+                            <strong>케냐AA</strong>
+                            <p>
+                                강도 : 강함<br>
+                                묵직한 바디감과 오묘한 과일향,<br/>가볍지 않은 신맛이 특징
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bean">
+                            <span><img th:src="@{/img/에티오피아_국기-removebg-preview 1.png}" alt="에티오피아"></span>
+                            <strong>에티오피아</strong>
+                            <p>
+                                강도 : 약함<br>
+                                짙은 꽃향기와 부드러운 바디,<br/>달콤한 신맛이 특징
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bean">
+                           <span><img th:src="@{/img/콜롬비아_국ㄱ-removebg-preview 1.png}" alt="콜롬비아"></span>
+                            <strong>콜롬비아</strong>
+                            <p>
+                                강도 : 보통<br>
+                                묵직한 무난하고 튀지않는 맛,<br/>마일드커피의 대명사
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bean">
+                            <span><img th:src="@{/img/브라질_국기-removebg-preview 1.png}" alt="브라질"></span>
+                            <strong>브라질산토스</strong>
+                            <p>
+                                강도 : 보통<br>
+                                묵직한 부드러운 맛과 신맛,<br/>쓴맛까지 적당히 어우러진 중성적
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bean">
+                           <span><img th:src="@{/img/과테말라_메디나_안티구아_국기-removebg-preview 1.png}" alt="과테말라메디나"></span>
+                            <strong>과테말라</strong>
+                            <p>
+                                강도 : 강함<br>
+                                풍부한 바디감과,<br/>스모키한 향이 특징
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bean">
+                            <span><img th:src="@{/img/인도네시아_국기-removebg-preview 1.png}" alt="인도리아"></span>
+                            <strong>인도네시아</strong>
+                            <p>
+                                강도 : 보통<br>
+                                부드러우면서 묵직한 향을 가지고,<br/>단맛이 깊고 고소함
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bean">
+                            <!-- <span><img th:src="" alt=""></span> -->
+                            <strong>다방커피</strong>
+                            <p>
+                                강도 : 약함<br>
+                                엄청나게 달달하고,<br/>대중적인 입맛이 좋아함
+                            </p>
+                            <span><a th:href="@{/}">구매하기</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="bodyUnder">
+    
+                <p class="offShop"><a href="#">오프라인 구매처</a></p>
+    
+            </div>
+    
+        </div>
+
+</body>
+</html>

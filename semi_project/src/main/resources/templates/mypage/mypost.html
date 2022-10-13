@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta  charset="UTF-8">
+     <link rel="stylesheet" th:href="@{/css/index.css}">	
+     <link rel="stylesheet" th:href="@{/css/userPage.css}">	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/event.js}"></script>
+	<script>
+	    const message = '[[${message}]]';
+	    message && alert(message);
+	</script> 
+<title>My page</title>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+<!-- ============ 기능 =================  ============ 기능 =================  ============ 기능 =================-->
+ 
+ 
+ 
+        <section class="mySection" >
+            <ul class="orExplain">
+                <li> * 작성글로 이동하기 버튼을 클릭하시면 해당글로 이동합니다.</li>
+                <li> * 문의글의 답변은 댓글을 확인해 주세요</li>
+            </ul>
+            <h5 >My review</h5>
+            <table id="myTeble">                
+                <tr id="myTr1">
+                    <th width="150px">글번호</th>
+                    <th width="150px">카테고리</th>
+                    <th width="400px">제목</th>
+                    <th width="150px">작성자</th>
+                    <th width="150px">작성일</th>
+                    <th width="200px">게시글로 이동</th>
+                </tr>
+                    <tr id="myTr2">
+                        <td align="center">0150</td>
+                        <td  align="center">리뷰</td>
+                        <td > 또 구매할게요. </td>
+                        <td  align="center">만수</td>
+                        <td  align="center">2022-10-02</td>
+                        <td  align="center">
+                            <button class="myButton" id="mypost_Btn">작성글로 이동하기</button></td>
+                    </tr>
+                   
+            </table>
+                  <p class="myMessage">게시물이 없습니다.</p>
+        </section>
+
+	        
+
+	
+	
+<!-- ============ 기능 =================  ============ 기능 =================  ============ 기능 =================-->
+	
+	<!-- <div th:replace="main/section.html"></div> -->
+    <div th:replace="main/footer.html"></div>
+
+            
+
+
+
+
+</body>
+</html>

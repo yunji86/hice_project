@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	
+</head>
+
+<body>
+
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+    <!-- 메인 내용 -->
+
+    <section class="base_Section">
+      <!-- <div align="center">
+        <img src="/images/2단계.PNG" class="logintopImg" />
+      </div> -->
+      
+      <div>
+      
+      <div class="signup_top">
+        <h2>회원가입</h2>
+        <h2><span style="color: rgb(182, 0, 0)">*</span> 필수 입력사항</h2>
+      </div>
+
+      <form th:action="@{/member/regist}" method="post">
+        <table align="center" id="myInfoTable">
+          <tr>
+            <td class="infoTd1">
+              아이디 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2">
+              <input
+                type="text"
+                minlength="8"
+                maxlength="15"
+                id="memId"
+                name="memId"
+                placeholder="아이디를 입력하세요"
+              />
+              <input
+                type="button"
+                id="idRedupCheck"
+                name="idRedupCheck"
+                value="중복확인"
+                style=" margin-top: 10px;"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="infoTd1">
+              비밀번호 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2">
+              <input type="password" name="memPwd" required="required" minlength="4" maxlength="10"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="infoTd1">
+              비밀번호 확인 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2">
+              <input type="password" name="memPwd2" required="required" minlength="4" maxlength="10"/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="infoTd1">
+              이름 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2"><input type="text" name="memName" /></td>
+          </tr>
+          <tr>
+            <td class="infoTd1">
+              연락처 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2">
+              <select name="memPhone1">
+                <option value="010">010</option>
+                <option value="016">016</option>
+                <option value="017">017</option>
+                <option value="018">018</option>
+                <option value="019">019</option>
+              </select>
+
+              -
+              <input
+                type="text"
+                name="memPhone2"
+                size="4"
+                maxlength="4"
+                required="required"
+                onkeydown="this.value=this.value.replace(/[^0-9]/g, '');"
+              />
+
+              -
+              <input
+                type="text"
+                name="memPhone3"
+                size="4"
+                maxlength="4"
+                required="required"
+                onkeydown="this.value=this.value.replace(/[^0-9]/g, '');"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="infoTd1">생년월일</td>
+            <td class="infoTd2"><input type="text" name="memDate" class="form-control" placeholder="생년월일(yyMMdd)"></td>
+          </tr>
+          <tr>
+            <td class="infoTd1">
+              이메일 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2">
+              <input
+                type="text"
+                name="memEmail"
+                size="30"
+                id="memEmail"
+                required="required"
+                placeholder="email@gmail.com"
+              />
+              <input
+                type="button"
+                name="memEmailSend"
+                id="memEmailSend"
+                value="인증번호 전송"
+                style=" margin-top: 10px;"
+
+              /><br /><br />
+            </td>
+            
+          </tr>
+          <tr>
+            <td class="infoTd1">
+              이메일 인증 번호 <span style="color: rgb(182, 0, 0)">*</span>
+            </td>
+            <td class="infoTd2">
+              <input
+                type="text"
+                name="memMailConfirm"
+                id="memMailConfirm"
+                placeholder="인증번호를 입력해 주세요."
+              />
+              <input
+                type="button"
+                name="memMailConfirmPwd"
+                id="memMailConfirmPwd"
+                value="확인"
+                style=" margin-top: 10px;"
+
+              /><br /><br />
+            </td>
+          </tr>
+        </table>
+
+        <br />
+        <div class="infoBtnDiv1" align="center">
+          <input
+            type="submit"
+            class="login_btn"
+            value="가입하기"
+          />
+          <input
+            type="button"
+            onclick="window.location.href='/'"
+            class="login_btn"
+            value="취소"
+      
+          />
+        </div>
+      </form>
+      
+      </div>
+      
+    </section>
+
+    <!-- 하단 -->
+    
+    <script type="text/javascript" th:src="@{/js/member.js}"></script>
+    <div th:replace="main/footer.html"></div>
+    
+  </body>
+</html>

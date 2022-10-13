@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta  charset="UTF-8">
+     <link rel="stylesheet" th:href="@{/css/index.css}">	
+     <link rel="stylesheet" th:href="@{/css/userPage.css}">	  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/event.js}"></script>
+	<script>
+	    const message = '[[${message}]]';
+	    message && alert(message);
+	</script> 
+<title>My page</title>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+<!-- ============ 기능 =================  ============ 기능 =================  ============ 기능 =================-->
+        <section class="mySection" >
+            <h5 >My basket</h5>
+            <table id="myTeble">                
+                <tr id="myTr1">
+                    <th width="150px"><input type="checkbox"></th>
+                    <th width="500px" >상품정보</th>
+                    <th width="100px">수량</th>
+                    <th width="150px">상품금액</th>
+                    <th width="150px">합계</th>
+                    <th width="150px">배송비</th>
+                    <th width="200px">선택</th>
+                </tr>
+                    <tr id="myTr2">
+                        <td align="center"><input type="checkbox"></td>
+                        <td >원두원두</td>
+                        <td align="center">2</td>
+                        <td align="center">10,000</td>
+                        <td align="center">20,000</td>
+                        <td align="center">무료배송</td>
+                        <td align="center"><button class="my_border_Btn " > X 삭제 </button>
+                            <button class="my_color_Btn "> 주문 하기</button></td>
+                    </tr>
+            </table>
+            <!-- <p class="myMessage">장바구니가 비었습니다.</p> -->
+            <div class="mybasket_total">	
+                <h5>[기본배송]</h5>
+                <h5> 상품구매금액 20,000 + 배송비 0 (무료) = 합계 :   <span style="font-size: larger ;">20,000원</span></h5>
+            </div>
+            <div>
+            <button class="my_border_btn" align="right">장바구니 비우기</button>
+            <button class="my_color_btn" style="float: right;">전체 상품 주문</button><br>
+            <button class="my_border_btn" style="float: right;">선택 상품 주문</button>
+            </div>
+            <br>
+
+            <br><br>
+            <br>
+            <br>
+            
+            <br><br>
+            <br>
+            <br>
+            
+            <br><br>
+            <br>
+            <br>
+
+              </section>
+	        
+	        
+
+	
+	
+<!-- ============ 기능 =================  ============ 기능 =================  ============ 기능 =================-->
+	
+	<!-- <div th:replace="main/section.html"></div> -->
+    <div th:replace="main/footer.html"></div>
+
+            
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- admin 권한에서 볼 수 있는 bt 같이 넣어놓음 => 추후 수정 -->
+
+        <div class="storeMain">
+
+            <div class="storeHeader">
+
+                <div class="headerTitle">
+                    <h1>매장 조회</h1>
+                </div>
+
+                <div class="headerSearch">
+                    <form name="searchBox">
+
+                        <input type="text" name="textBox" placeholder="지역명을 입력하세요">
+                        <button type="submit" class="search2">조회</button>
+
+                    </form>
+                    <p><a th:href="@{/storeRegist.html}">등록</a></p>
+                </div>
+            </div>
+
+            <div class="storeBody">
+
+                <strong>벤더 커피</strong>
+                <p>취급 원두: 케냐AA, 인도네시아 만델링</p>
+                <img th:src="@{/img/오프라인 매장.png}" alt=""><br><br>
+                <a th:href="@{/}">삭제</a>
+                <a th:href="@{/}">수정</a>
+
+            </div>
+            <br><br><hr class="storeUnder">
+            <div class="storeBody">
+
+                <strong>벤더 커피</strong>
+                <p>취급 원두: 케냐AA, 인도네시아 만델링</p>
+                <img th:src="@{/img/오프라인 매장.png}" alt=""><br><br>
+                <a th:href="@{/}">삭제</a>
+                <a th:href="@{/}">수정</a>
+
+            </div>
+
+            <div class="pageNumber">
+                <p><a th:href="@{/}"><<</a></p>
+                <p><a th:href="@{/}"><</a></p>
+                <p><a th:href="@{/}">1</a></p>
+                <p><a th:href="@{/}">2</a></p>
+                <p><a th:href="@{/}">3</a></p>
+                <p><a th:href="@{/}">4</a></p>
+                <p><a th:href="@{/}">5</a></p>
+                <p><a th:href="@{/}">></a></p>
+                <p><a th:href="@{/}">>></a></p>
+            </div>
+
+
+        </div>
+
+
+
+</body>
+</html>

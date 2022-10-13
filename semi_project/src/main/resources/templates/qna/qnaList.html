@@ -1,0 +1,166 @@
+<!-- 사용자로 로그인 시에 '공지사항등록' 버튼이 보이지 않도록 개발(타임리프) -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https//www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}">	  
+    <link rel="stylesheet" th:href="@{/css/notice.css}">	  
+
+    <!-- 제이쿼리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        
+    <script>
+        // 권한부여, AJAX 통신 후 코드 수정해야함
+        const message = '[[${message}]]';
+		message && alert(message);
+    </script>
+    
+    <title>Hice Coffee</title>
+</head>
+
+<body>
+ 
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+	
+    <!-- 개발진행 -->
+            <div id="notice-main">
+            <div id="notice-section">
+                <h1 align="center">공지 사항 게시판</h1>
+                <!-- 캡션 추가 BY JAYTEE-->
+                <div id="notice-btn-box">
+                    <div id="notice-btn1" onclick="location.href = './noticeRegist'">
+                        공지 사항 등록
+                    </div>
+                    <!-- <br><br><br><br> -->
+                </div>
+                <div id="notice-potn">
+                    <table border="1">
+
+                        <tr class="notice-tr">
+                            <td class="notice-td1">NO</td>
+                            <td class="notice-td2">제목</td>
+                            <td class="notice-td3">작성자</td>
+                            <td class="notice-td4">등록일</td>
+                        </tr>
+                        <tr th:each="notice : ${ noticeList }"
+                        	th:onclick="|location.href='/notice/noticeDetail?notCode=${notice.notCode}'|"
+                        	style="cursor:pointer;">
+                            <td th:text="${ notice.notCode }"></td> 
+                            <td th:text="${ notice.notTitle }"></td>
+                            <td th:text="${ notice.member.memId }"></td>
+                            <td th:text="${ notice.notDate }"></td> 
+                        </tr>
+
+                        <tr class="notice-tr1">
+                            <td>1</td>
+                            <td><a href="/notice/noticeDetail">재구매 고객 1+1 이벤트! (10월31일까지)</a></td>
+                            <td>HICE</td>
+                            <td>2022-10-01</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>2</td>
+                            <td><a href="/notice/noticeDetail">10월 배송 일정 (9월16일 ~ 10월15일 주문건)</a></td>
+                            <td>HICE</td>
+                            <td>2022-09-27</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>3</td>
+                            <td><a href="/notice/noticeDetail">9월 배송 일정 (8월16일 ~ 9월15일 주문건)</a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>4</td>
+                            <td><a href="/notice/noticeDetail">여름 휴가 막바지 이벤트! (8월1일 ~ 8월15일 주문건)</a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>5</td>
+                            <td><a href="/notice/noticeDetail">8월 배송 일정 (7월16일 ~ 8월15일 주문건)</a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>6</td>
+                            <td><a href="/notice/noticeDetail">신규 오픈 이벤트! (첫 구매 고객 대상 전체)</a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>7</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>8</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>9</td>
+                            <td><a href="/board/notice/readNotice.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>10</td>
+                            <td><a href="/board/notice/readNotice.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>11</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>12</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>13</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>14</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                        <tr class="notice-tr1">
+                            <td>15</td>
+                            <td><a href=".\public\web.html"></a></td>
+                            <td>HICE</td>
+                            <td>2022-08-16</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+     <div th:replace="main/section.html"></div>
+    <div th:replace="main/footer.html"></div>
+</body>
+<footer>
+    
+</footer>
+
+</html>

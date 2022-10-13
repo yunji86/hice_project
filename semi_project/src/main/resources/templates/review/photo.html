@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+		<div class="review-tb">
+	                     
+	            <h1>PHOTO REVIEW</h1>
+	            
+	            <div class="box" align="center">
+	            <span>
+	            <a>필터</a>
+	            <a href="/board/review/review.html">전체목록</a>
+	            <a href="/board/review/rev_photo.html">포토리뷰</a>
+	            <a href="/board/review/rev_best.html">베스트리뷰</a>
+	            <select>
+	                <option>상품명</option>
+	            </select>
+	            </span>
+	            </div>
+	            
+	 <div th:replace="main/footer.html"></div>           
+</body>
+</html>
