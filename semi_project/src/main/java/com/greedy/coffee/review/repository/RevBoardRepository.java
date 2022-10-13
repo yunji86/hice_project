@@ -7,9 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.greedy.coffee.like.entity.Like;
-import com.greedy.coffee.member.dto.MemberDTO;
-import com.greedy.coffee.member.entity.Member;
 import com.greedy.coffee.review.entity.RevBoard;
 
 
@@ -31,7 +28,7 @@ public interface RevBoardRepository extends JpaRepository<RevBoard, Long> {
 	
 	RevBoard findByRevCodeAndRevStatus(Long revCode, String acitveStatus);
 
-	Like findByLoginIdAndLikeStatus(MemberDTO loginId, String acitveStatus);
+	
 
 	
 	

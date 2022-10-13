@@ -8,8 +8,8 @@ window.onload = function() {
 
  	
     if(document.getElementById("deleteRev")) {
-        const $update = document.getElementById("deleteRev");
-        $update.onclick = function() {
+        const $deleteRev = document.getElementById("deleteRev");
+        $deleteRev.onclick = function() {
             location.href = "/review/delete";
         }
     }

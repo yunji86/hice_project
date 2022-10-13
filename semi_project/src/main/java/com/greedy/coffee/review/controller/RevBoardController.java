@@ -1,6 +1,7 @@
 package com.greedy.coffee.review.controller;
 
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -182,25 +183,26 @@ public class RevBoardController {
 	}
 	
 	@PostMapping("/update")
-	public String updateRevBoard(@ModelAttribute RevBoardDTO updateRev, RedirectAttributes rttr) {
+	public String updateRevBoard(@RequestParam MultipartFile revFile,
+			@ModelAttribute RevBoardDTO updateRev, RedirectAttributes rttr) {
 		
 		log.info("[RevBoardCotroller] =======================================");
 		log.info("[updateRevBoard] pdateRev request : {}", updateRev);
 		
 		
 		revBoardService.updateRevBoard(updateRev);
-		rttr.addFlashAttribute("modifySuccessMessage", messageSourceAccessor.getMessage("rev.update"));
+		rttr.addFlashAttribute("Message", messageSourceAccessor.getMessage("rev.update"));
 		return "redirect:/review/list";
 	}
 	
-	@GetMapping("/delete")
-	public String deleteRev (@ModelAttribute RevBoardDTO revBoard, RedirectAttributes rttr) {
+	@PostMapping("/delete")
+	public String deleteRev (Long revCode, RedirectAttributes rttr) {
 		
-		log.info("[updateRevBoard] revBoard request : {}", revBoard);
+		log.info("[deleteRev] revBoard request : {}", revCode);
 		
-		revBoardService.deleteRev(revBoard);
+		revBoardService.deleteRev(revCode);
 		
-		rttr.addFlashAttribute("modifySuccessMessage", messageSourceAccessor.getMessage("rev.delete"));
+		rttr.addFlashAttribute("Message", messageSourceAccessor.getMessage("rev.delete"));
 		
 		return "redirect:/review/list";
 	}
