@@ -114,7 +114,11 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/noticeModify")
-	public String noticeModify(@ModelAttribute NoticeDTO noticeModify, RedirectAttributes rttr) {
+
+	public String noticeModify(@ModelAttribute NoticeDTO noticeModify,
+			@AuthenticationPrincipal NoticeDTO notice, RedirectAttributes rttr) {
+		
+		noticeModify.setNotCode(notice.getNotCode());
 		
 		log.info("[MemberController] modifyMember request Member : {}", noticeModify);
 		
@@ -124,7 +128,7 @@ public class NoticeController {
 		
 		log.info("[MemberController] modifyMember ==============================");
 		
-		return "redirect:/notice/noticeList";
+		return "redirect:/";
 	}
 	
 	
@@ -142,14 +146,22 @@ public class NoticeController {
 		
 		return "redirect:/";
 	}
-	// 형상관리에 집중하자.
+
+	public String noticeModify(@ModelAttribute NoticeDTO noticeModify, RedirectAttributes rttr) {
+		
+		log.info("[MemberController] modifyMember request Member : {}", noticeModify);
+		
+		noticeService.modifyMember(noticeModify);
+		
+		rttr.addFlashAttribute("message", messageSourceAccesor.getMessage("notice.modify"));
+		
+		log.info("[MemberController] modifyMember ==============================");
+		
+		return "redirect:/notice/noticeList";
+	}
+
 	
-	// 메인에서 하단에 more 버튼 누를 시 공지시항으로 이동이 안됨.(경로 재설정?)
-	 
-	// 삭제 시 메세지창 뜨지 않음.(일단 대기)
-	
-	// 삭제하면 오류는 안나는데, 아무것도 이뤄지지 않음.(html)
-	
-	// 리스트에 페이징바 만들어야 함.(html)
+
+
 
 }

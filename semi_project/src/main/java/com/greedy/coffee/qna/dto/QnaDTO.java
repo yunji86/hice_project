@@ -9,13 +9,14 @@ import lombok.Data;
 @Data
 public class QnaDTO {
 
-	private Long revCode;
-	private String revTitle;
-	private String revContents;
-	private Date revDate;
-	private Date revEditDate;
-	private Date revDeleteDate;
-	private String revStatus;
+
+	private Long qnaCode;
+	private String qnaTitle;
+	private String qnaContents;
+	private Date qnaDate;
+	private Date qnaEditDate;
+	private Date qnaDeleteDate;
+	private String qnaStatus;
 	private MemberDTO writer;
 	
 }
