@@ -142,6 +142,7 @@ public class NoticeController {
 		
 		return "redirect:/";
 	}
+	// 형상관리에 집중하자.
 	
 	// 메인에서 하단에 more 버튼 누를 시 공지시항으로 이동이 안됨.(경로 재설정?)
 	 
