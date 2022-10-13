@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+<title>Insert title here</title>
+</head>
+<body>
+
+    <div class="releaseMain">
+                     
+        <h1>매장 정보 등록</h1>
+        
+       	<div class="releaseDetail">
+
+            <form class="detailWrrap" name="detailWrrap" method="post">
+
+             
+                <label>매장 명 : </label>
+                <input type="text" class="textBx"><br><br>
+                <label>원두 명 : </label>
+                <input type="text" class="textBx"><br><br>
+                <label>주소지 : </label>
+                <input type="text" class="textBx"><br><br>
+
+        
+
+                <button type="submit" class="regist2">등록</button>
+                <button type="reset" class="regist2">취소</button>
+
+            </form>
+
+       	</div>
+        
+    </div>
+    <br><br><br><br>
+
+
+</body>
+</html>

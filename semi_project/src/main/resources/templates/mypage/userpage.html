@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta  charset="UTF-8">
+     <link rel="stylesheet" th:href="@{/css/index.css}">	
+     <link rel="stylesheet" th:href="@{/css/userPage.css}">		  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/event.js}"></script>
+	<script>
+	    const message = '[[${message}]]';
+	    message && alert(message);
+	</script> 
+<title>My page</title>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+	
+	
+	
+<!-- ============ 기능 =================  ============ 기능 =================  ============ 기능 =================-->
+	       
+       <section class="mySection">
+                <h5 >My page</h5>
+                <div class="myPage1">
+                    <img src="../images/memberPage-icon-user.png" alt="user아이콘" class="iconImg">
+<pre>
+안녕하세요. <b>user01 </b> 회원님 
+                            
+저희 하이스커피를 이용해 주셔서 감사합니다.
+</pre>
+                </div>
+
+                <div class="myPage2" align="center">
+                    <button class="myBtn" id="myBtn1"> <a onclick="location.href='/mypage/myorder'">주문 / 배송현황</a></button>
+                    <button class="myBtn"> <a onclick="location.href='/mypage/mybag'">장바구니</a></button>
+                    <button class="myBtn"> <a onclick="location.href='/mypage/myorder'">교환 / 반품 현황</a></button>
+                    <button class="myBtn"> <a onclick="location.href='/mypage/mypost'">작성글 관리</a></button>
+                </div>        
+        </section>
+
+        <section class="mySection" >
+            <div class = "myiInfo1">
+                <h5>기본정보</h5>
+                <h5><span style="color : rgb(182, 0, 0);">*</span> 필수 입력사항</h5>
+            </div>
+          
+            <form th:action="@{/member/update}" method="post">
+                <table align="center" id="myInfoTable" >
+                    <tr>
+                        <td class="infoTd1"> 아이디 </td>
+                        <td class="infoTd2"> user 01</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1"> 비밀번호 <span style="color : rgb(182, 0, 0);">*</span></td>
+                        <td class="infoTd2"><input type="password" name="pass" equired="required"></td>
+                
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">비밀번호 확인 <span style="color : rgb(182, 0, 0);">*</span> </td>
+                        <td class="infoTd2"><input type="password"  name="checkPass" equired="required"></td>
+                    
+                    </tr>
+                    
+                    <tr>
+                        <td class="infoTd1">이름 </td>
+                        <td class="infoTd2">추만수</td>
+                     
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">연락처 <span style="color : rgb(182, 0, 0);">*</span>  </td>
+                        <td class="infoTd2">
+                        <select name="cellphone1" >
+                            <option value="010">010
+                            <option value="016">016
+                            <option value="017">017
+                            <option value="018">018
+                            <option value="019">019
+                        </select>
+                         - <input type="text" name="cellphone2" size="10" maxlength="4" equired="required">
+                         
+                         - <input type="text" name="cellphone3" size="10" maxlength="4" equired="required">
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">생년월일  </td>
+                        <td class="infoTd2"><input type="date"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">이메일 <span style="color : rgb(182, 0, 0);">*</span> </td>
+                        <td class="infoTd2"> <input type="text" name = "email1" size="30" required="required"> </td>
+                    </tr>
+                </table>
+
+                <br>
+                <div class="infoBtnDiv">
+                    <div class="infoBtnDiv1" align="center">
+                        <input type="submit" class="my_color_btn" value="내 정보 수정" id="infoBtn1">
+                        <input type="reset"class="my_border_btn" value="취소" id="infoBtn2">  
+                    </div>
+                    <input type="button"  class="my_border_btn" value="회원탈퇴" id="infoBtn3">
+                </div>
+                
+           
+            </form>
+            </section>
+
+            
+
+
+
+<!-- ============ 기능 =================  ============ 기능 =================  ============ 기능 =================-->
+	
+	<!-- <div th:replace="main/section.html"></div> -->
+    <div th:replace="main/footer.html"></div>
+
+            
+
+
+
+
+</body>
+</html>

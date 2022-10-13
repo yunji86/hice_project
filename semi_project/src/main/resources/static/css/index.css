@@ -1,0 +1,331 @@
+@charset "UTF-8";
+/* common */
+body{
+    margin: 0;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration-line: none;
+    color: black;
+}
+/* 헤더 */
+.header {
+    height: 100px;
+    /* background-color: lightgray; */
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+#header-menu{
+    /* background-color: green; */
+    width: 1600px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+/* 왼쪽 상단 메뉴*/
+#header-menu1 {
+    /* background-color: blue; */
+    float: left;
+}
+#header-menu1 li{
+    float: left;
+    margin-left: 15px;
+    /* border-right: 1px solid black; */
+}
+#header-menu1 li a:hover{
+    background: rgb(70, 56, 56);
+    color: #fff;
+}
+/* 중단 로고 이미지*/
+#header-menu2 {
+    margin: 0 auto;
+}
+#header-menu2 img{
+    margin-right: 100px;
+}
+/* 오른쪽 상단 검색창 */
+#header-menu3 {
+    /* background-color: red; */
+    float: right;
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid black;
+}
+.scr-bar{
+    margin-left: 10px;
+}
+.scr-bar img{
+    width: 17px;
+    float: right;
+    margin-top: 3px;
+    margin-right: 7px;
+}
+/* 메인 배너 이미지 */
+.article {
+    /* background-color: beige; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+#banner img{
+    width: 1600px;
+    height: 500px;
+    margin: 0 auto;
+}
+/* 메뉴 바 */
+nav {
+    /* background-color: yellowgreen; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* border-bottom: 1px solid black;  */
+    margin-top: 20px;
+}
+#menu {
+    margin: 0px auto;
+    /* background-color: rgb(184, 213, 130); */
+    width: 1600px;
+}
+#menulist li{
+    float: left;
+}
+#menulist1 {
+    float: left;
+    width: 150px;
+    /* background-color: skyblue; */
+}
+#menulist1 li{
+    margin-top: 5px;
+    margin-right: 10px;
+    float: right;
+}
+#menulist2 {
+    float: left;
+    /* background-color: brown; */
+    width: 1450px;
+    height: 30px;
+}
+#menulist2 li{
+    margin-top: 5px;
+    margin-left : 160px;
+}
+.menulist2 li a:hover{
+    background: rgb(70, 56, 56);
+    color: #fff;
+}
+/* 드롭다운 메뉴 */
+*{
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #57523E;
+  }
+  #menu{
+    position:relative;
+    z-index: 99;
+    background-color: white;
+    height: 50px;
+    text-align: center;
+  }
+[class*="menulist"] {
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+  }
+  [class*="menulist"] ul { /* 드롭다운 박스 크기 부분 */
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #57523E;
+    height: 350px;
+  }
+  .menulist{
+    padding-left: 0px;
+     height: 100%;
+    width: 1600px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .menulist>li {
+    float: left;
+    width: 200px;
+    line-height: 50px;
+    position: relative;
+  }
+  .menulist li a:hover{
+    background: rgb(70, 56, 56);
+    color: #fff;
+}
+  .menulist>li:hover .menulist2 {
+    left: 0;
+  }
+  .menulist>li a {
+    display: block;
+  }
+  .menulist>li a:hover {
+    font-weight: bold;
+  }
+  .menulist2 {
+    width:110%;
+    position: absolute;
+    top: 50px;
+    left: -9999px;
+    width: 100%;
+    padding: 0px;
+  }
+  .menulist2>li {
+    position: relative;
+  }
+/* 퀵메뉴 */
+.quickmenu {
+    position: absolute;
+    width: 150px;
+    top: 0;
+    /* margin-top: -50px; */
+    right: 0;
+    background: #fff;
+}
+.quickmenu ul {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    *display: inline;
+    border: 1px solid #ddd;
+}
+.quickmenu ul li {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    display: inline-block;
+    *display: inline;
+}
+.quickmenu ul li a {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+    font-size: 9.5pt;
+}
+.quickmenu ul li a:hover {
+    color: #000;
+}
+.quickmenu ul li:last-child {
+    border-bottom: 0;
+}
+.content {
+    position: relative;
+    min-height: 1000px;
+}
+div,
+ul,
+li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.buy-review > a{
+    border-bottom: 1px solid black;
+}
+.shipping-check > a{
+    border-bottom: 1px solid black;
+}
+.call-center {
+    border-bottom: 1px solid black;
+}
+.kakaomenu1 img {
+    width: 20px;
+    height: 20px;
+    float: right;
+    padding-right: 50px;
+    list-style-position: inside;
+    list-style-type: disc;
+    text-align: center;
+}
+.kakaomenu1 {
+    text-align: center;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 메인 내용 */
+#main {
+    /* background-color: rgb(172, 167, 167); */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+#main-section {
+    width: 1600px;
+    /* height: 1000px; */
+    margin: 0 auto;
+    /* background-color: rgb(203, 203, 142); */
+}
+/* 하단 영역 */
+.footer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+#foot-section {
+    /* background-color: rgb(73, 73, 178); */
+    width: 1600px;
+    margin: 0 auto;
+}
+/* 공지사항 부분 */
+#notice {
+    /* background-color: rgb(94, 130, 118); */
+    border-right: 1px solid black;
+    width: 400px;
+    height: 200px;
+    float: left;
+}
+.notice-btn {
+    float: right;
+    margin-right: 5px;
+}
+/* 하단 로고 부분 */
+#logo{
+    /* background-color:rgb(106, 57, 57); */
+    width: 800px;
+    height: 200px;
+    float: left;
+}
+#logo img {
+    width: 800px;
+    height: 170px;
+}
+#logo li{
+    float: left;
+    margin-left: 65px;
+}
+#logo li a:hover{
+    background: rgb(70, 56, 56);
+    color: #fff;
+}
+/* 하단 우측 부분 */
+#information{
+    /* background-color: rgb(163, 119, 204); */
+    border-left: 1px solid black;
+    width: 400px;
+    height: 200px;
+    float: left;
+}
+#information li{
+	margin-left: 10px;
+	
+}
