@@ -1,0 +1,290 @@
+@charset "UTF-8";
+
+/* ========= 공통 ========= */
+
+.mySection {
+  background-color: #ffffff;
+  width: 65%;
+  align-content: center;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+#myTeble {
+  display: flex;
+  justify-content: center;
+  border-collapse: collapse;
+}
+
+#myTr1 {
+  border-top: 1px solid rgb(148, 95, 51);
+  border-bottom: 1px solid rgb(231, 231, 231);
+  background-color: rgb(248, 243, 240);
+  height: 70px;
+  font-weight: bold;
+}
+
+.myButton {
+  background-color: white;
+  border: 1px solid rgb(136, 136, 136);
+  padding: 6px 15px;
+  margin: 10px 5px 10px 10px;
+  font-size: smaller;
+  cursor: pointer;
+}
+
+#myTr2 {
+  border-bottom: 1px solid rgb(204, 204, 204);
+  font-size: small;
+  /* display: none; */
+}
+
+.my_color_Btn {
+  margin: 10px;
+  border: 1px solid rgb(88, 55, 9);
+  color: white;
+  font-weight: bold;
+  padding: 5px 13px;
+  background-color: rgb(88, 55, 9);
+  cursor: pointer;
+}
+.my_border_Btn {
+  border: 1px solid rgb(88, 55, 9);
+  color: rgb(88, 55, 9);
+  background-color: white;
+  padding: 5px 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.my_color_btn {
+  background-color: #4d3829;
+  border: 1px solid #4d3829;
+  padding: 4px 30px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.my_border_btn {
+  background-color: white;
+  border: 1px solid #4d3829;
+  padding: 4px 30px;
+  border-radius: 4px;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* ========= My Page ========= */
+.myPage1 {
+  /* background-color: rgb(243, 243, 243); */
+  background-color: rgb(248, 243, 240);
+  padding: 1.7%;
+  font-size: small;
+}
+
+.iconImg {
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
+  padding-right: 20px;
+  padding-left: 30px;
+  display: flex;
+  float: left;
+}
+
+.myPage2 {
+  margin: 30px 0px;
+  padding: 10px;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  /* border-top: 1px solid  rgb(148, 95, 51); */
+  /* border-bottom: 1px solid  rgb(148, 95, 51); */
+}
+
+#myBtn1 {
+  border-left: none;
+}
+
+.myBtn {
+  width: 24%;
+  height: 50px;
+  font-weight: bold;
+  color: rgb(53, 53, 53);
+
+  background-color: white;
+  border-right: none;
+  /* border-left: 1px solid  rgb(148, 95, 51); */
+
+  border-left: 1px solid #999;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* 회원정보수정 */
+
+.myiInfo1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#myInfoTable {
+  width: 100%;
+  /* border-top: 1.5px solid rgb(153, 153, 153) ; */
+  /* border-bottom:  1.5px solid #999; */
+  border-top: 1.5px solid rgb(148, 95, 51);
+  border-bottom: 1.5px solid rgb(148, 95, 51);
+  border-collapse: collapse;
+}
+
+.infoTd1 {
+  /* background-color: rgb(243, 243, 243); */
+
+  background-color: rgb(248, 243, 240);
+  padding-left: 30px;
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+  font-size: small;
+}
+
+.infoTd2 {
+  padding-left: 20px;
+  font-size: small;
+}
+
+/* 버튼 ( 수정 취소 탈퇴 ) */
+.infoBtnDiv {
+  padding-top: 20px;
+  padding-bottom: 120px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.infoBtnDiv1 {
+  align-content: center;
+  width: 1500px;
+  padding-left: 150px;
+}
+
+/*=========주문내역=========*/
+
+.orExplain {
+  padding-top: 50px;
+  color: rgb(82, 82, 82);
+  font-weight: bold;
+  font-size: small;
+}
+
+/* ============모달창================== */
+
+.popup-wrap {
+  background-color: rgba(0, 0, 0, 0.397);
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  display: none;
+  /* display: flex; */
+}
+
+.popup {
+  width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #b58e72;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.popup-head {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
+.popup-body {
+  width: 100%;
+  background-color: #ffffff;
+}
+.body-content {
+  width: 100%;
+  padding: 30px;
+  padding-left: 38px;
+}
+
+.body-titlebox {
+  text-align: right;
+  margin-top: 30px;
+  padding-right: 20px;
+}
+
+.body-contentbox {
+  word-break: break-word;
+  overflow-y: auto;
+  min-height: 300px;
+  max-height: 500px;
+}
+
+.popup-foot {
+  width: 100%;
+  height: 50px;
+}
+.pop-btn {
+  display: inline-flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  color: #ffffff;
+  cursor: pointer;
+}
+.pop-btn.confirm {
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+.refundButton {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+/* =========== 메세지=========== */
+.myMessage {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 50px 0;
+  text-align: center;
+  color: #3d3d3d;
+  font-weight: bold;
+  margin-bottom: 500px;
+}
+
+/* ========= 장바구니 ============ */
+
+.mybasket_total {
+  border-bottom: 1px solid rgb(148, 95, 51);
+  background-color: rgb(248, 243, 240);
+  height: 70px;
+  justify-content: space-between;
+  display: flex;
+  align-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}

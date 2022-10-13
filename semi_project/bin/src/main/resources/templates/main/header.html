@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/main/header.css">
+    <link rel="stylesheet" href="/main/main.css">
+    <link rel="stylesheet" href="/main/common.css">
+    
+</head>
+<body>
+   <div th:fragment="footerFragment" class="header">
+        <div id="header-menu">
+            <div id="header-menu1">
+            
+            	<div>
+            		
+            	<th:block sec:authorize="isAnonymous()">
+            
+                	<li><a href="/member/login">로그인</a></li>
+                	<li><a href="/member/terms">회원가입</a></li>
+                	<li><a href="#">장바구니</a></li>
+                	<li><a onclick="location.href='mypage/userpage'">마이페이지</a></li>
+
+				</th:block>
+            		
+            	</div>
+            
+            	<div>
+            
+				<th:block sec:authorize="isAuthenticated()">
+					<li><span sec:authentication="principal.username"></span>님 환영합니다.</li>
+					<li><a onclick="location.href='mypage/userpage'">마이페이지</a></li>
+					<li><a onclick="location.href='member/logout'" id="logout" >로그아웃</a></li>
+				<th:block sec:authorize="isAuthenticated()">
+                
+                </div>
+                
+            </div>
+            <div id="header-menu2">
+                <a href="/main/main.html">
+                    <img src="/images/로고편집2.png" alt="HOME">
+                </a>
+            </div>
+            <div id="header-menu3">
+                <div class="scr-bar">검색어를 입력하세요.
+                    <a href="#"><img src="/images/돋보기.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

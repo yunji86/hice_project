@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/main/footer.css">
+    <link rel="stylesheet" href="/main/main.css">
+    <link rel="stylesheet" href="/main/common.css">
+
+</head>
+<body>
+    <!-- 하단 -->
+   <div th:fragment="footerFragment" class="footer">
+        <div id="foot-section">
+            <div id="notice">
+                <li style="float: left">notice</li>
+                <li class="notice-btn"><a href="/board/notice/notice.html">
+                        <img src="/images/btn_more.png" alt="더보기"></a>
+                </li>
+            </div>
+            <div id="logo">
+                <a href="/main/main.html"><img src="/images/로고편집2.png" alt="하단로고"></a>
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">광고/제휴문의</a></li>
+                </ul>
+            </div>
+            <div id="information">
+                <li>information</li>
+                <br>
+                <li>상호명 : 하이스커피</li>
+                <li>대표 : 문앞조</li>
+                <li>사업자등록번호 : 123-45-67890</li>
+                <li>통신판매업신고번호 : 2022-서울종로-0917</li>
+                <li>주소 : 서울특별시 종로구 인사동길12 대일빌딩 15층</li>
+                <li>메일 : team-front-door@naver.com</li>
+                <li>개인정보 관리자 : </li>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

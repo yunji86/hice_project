@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+	<link rel="stylesheet" th:href="@{/css/login.css}">	  
+	<script type="text/javascript" th:src="@{/js/member.js}"></script>
+	<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+
+<body>
+    <!-- 헤더 부분 -->
+	<!-- <div th:replace="main/header.html"></div>
+    메인 배너 이미지
+    <article>
+        <div id="banner">
+            <div id="banner-img">
+                <img src="/images/메인이미지2.jpg">
+            </div>
+        </div>
+    </article>
+
+    메뉴 바
+    <nav>
+        <div id="menu">
+            <div id="menulist">
+                <div id="menulist1">
+                    <img src="/images/카테고리.png">
+                    <li><a href="#">CATEGORY</a></li>
+                </div>
+                <div id="menulist2">
+                    <li><a href="../board/best/best.html">BEST</a></li>
+                    <li><a href="../board/mall/mall.html">MALL</a></li>
+                    <li><a href="../board/review/review.html">REVIEW</a></li>
+                    <li><a href="/store/store.html">STORE</a></li>
+                    <li><a href="../event/event.html">EVENT</a></li>
+                    <li><a href="../board/notice/notice.html">NOTICE</a></li>
+                    <li><a href="../board/qna/qna.html">Q&A</a></li>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    퀵 메뉴 스크롤
+    <script>
+        $(document).ready(function () {
+            var currentPosition = parseInt($(".quickmenu").css("top"));
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+
+                $(".quickmenu").stop().animate({
+                    // top : position + currentPosition + "px"
+                    top: position + "px"
+                    // top : 140
+                }, 1000);
+
+            });
+        });
+    </script>
+
+    퀵 메뉴
+    <div class="quickmenu">
+        <ul>
+            <div class="kakaomenu1">
+                <a href="#">카카오톡<br>실시간채팅<br>ID : HICE
+                    <img src="/images/카카오톡.jpg"></a>
+            </div>
+
+
+            <li><a href="/board/notice/notice.html">공지사항</a></li>
+            <li><a href="/event/event.html">이벤트</a></li>
+            <li><a href="/board/qna/qna.html">상품문의</a></li>
+            <li class="buy-review"><a href="/board/review/review.html">구입후기</a></li>
+
+            <li><a href="#">적립금</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">주문조회</a></li>
+            <li class="shipping-check"><a href="#">배송조회</a></li>
+
+            <h4>CALL CENTER</h4>
+            <h3>070-1234-5678</h3>
+            <h6 class="call-center">평일 : AM10시 ~ PM18시<br>
+                점심 : PM12시 ~ PM13시<br>
+                토, 일, 공휴일은 휴무입니다.</h6>
+            
+            <h4>BANK ACCOUNT</h4>
+            <h4>123-4567-9811-05</h4>
+            <h5>KB국민 / 하이스커피</h5>
+        </ul>
+    </div> -->
+
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+    <!-- 메인 내용 -->
+    <section class="base_Section">
+
+	<div>
+    
+    <form th:action="@{/member/login}" method="post" class="login_body" align="center">
+
+        <img src="/images/memberPage-icon-user.png" alt="" width="60px" height="60px" align="center">
+       
+            <table align="center" class="login_tb">
+        
+            <tr>
+            
+            	<td> <input id="memId" type="text" name="memId" placeholder="아이디"  class="login_input"></td>
+    
+        	</tr>
+        
+        <tr >
+
+            <td class="login_td2"> <input id="memPwd" type="password" name="memPwd" placeholder="비밀번호"  class="login_input"></td>
+            
+        </tr>
+
+        </table>
+        
+        
+        <font size="1">아이디 저장</font><input type="checkbox" name="s1" id="s1"/></a>
+        <font size="1">자동 로그인</font><input type="checkbox" name="s2" id="s2"/></a>
+        <br>
+   
+		
+
+        <div class="login_btn_div">
+        	<input type="submit" class="login_btn" value="로그인" id="loginSubmit">
+        </div>
+        
+        <div class="login-signUp">
+            <a href="/member/findId" id="findId">아이디 찾기</a>
+            <a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
+            <a href="/member/findPassword" id="findPwd">비밀번호 찾기</a>
+            <a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
+            <a href="/member/terms">회원가입</a>
+        </div>
+
+    </form>
+
+    <br><hr>
+    
+    </div>
+    
+</section>
+
+	<div th:replace="main/footer.html"></div>
+
+    <!-- 하단 -->
+    <!-- <footer>
+        <div id="foot-section">
+            <div id="notice">
+                <li style="float: left">notice</li>
+                <li class="notice-btn"><a href="/board/notice/notice.html">
+                        <img src="/images/btn_more.png" alt="더보기"></a>
+                </li>
+            </div>
+            <div id="logo">
+                <a href="/main/main.html"><img src="/images/로고편집2.png" alt="하단로고"></a>
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">광고/제휴문의</a></li>
+                </ul>
+            </div>
+            <div id="information">
+                <li>information</li>
+                <br>
+                <li>상호명 : 하이스커피</li>
+                <li>대표 : 문앞조</li>
+                <li>사업자등록번호 : 123-45-67890</li>
+                <li>통신판매업신고번호 : 2022-서울종로-0917</li>
+                <li>주소 : 서울특별시 종로구 인사동길12 대일빌딩 15층</li>
+                <li>메일 : team-front-door@naver.com</li>
+                <li>개인정보 관리자 : </li>
+
+            </div>
+        </div>
+    </footer> -->
+</body>
+
+</html>
