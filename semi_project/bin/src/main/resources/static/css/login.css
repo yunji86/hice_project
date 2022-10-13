@@ -1,0 +1,132 @@
+.base_Section {
+  background-color: #ffffff;
+  width: 65%;
+  align-content: center;
+  margin: 0 auto;
+  padding-top: 30px;
+  /* justify-content: center; */
+  justify-items: center;
+}
+
+.login-signUp {
+  text-align: center;
+}
+
+.loginTop {
+  color: rgb(54, 54, 54);
+  font-size: x-large;
+}
+
+.input {
+  display: none;
+}
+
+.logintopImg {
+  width: 60%;
+}
+
+/* ==========로그인================== */
+.login_body {
+  border: 1px solid rgb(214, 214, 214);
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 100px;
+  width: 1000px;
+}
+
+.login_td1 {
+  text-align: left;
+  width: 100px;
+  height: 50px;
+  font-size: smaller;
+}
+
+.login_input {
+  border-bottom: 1px solid rgb(222, 201, 195);
+  width: 280px;
+  height: 50px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-bottom: 10px;
+}
+
+.login_tb {
+  padding: 10px;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.login-signUp {
+  font-size: small;
+}
+
+.login_btn {
+  background-color: rgb(121, 89, 89);
+  border: 1px solid;
+  width: 280px;
+  height: 50px;
+  margin: 10px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* =============회원가입=============== */
+
+.myiInfo1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#myInfoTable {
+  width: 100%;
+  border-top: 1.5px solid rgb(148, 95, 51);
+  border-bottom: 1.5px solid rgb(148, 95, 51);
+  border-collapse: collapse;
+}
+
+.infoTd1 {
+  background-color: rgb(248, 243, 240);
+  padding-left: 30px;
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+  font-size: small;
+}
+
+.infoTd2 {
+  padding-left: 20px;
+  font-size: small;
+}
+/* 가입하기 취소하기 버튼 */
+.infoBtnDiv1 {
+  padding-top: 10px;
+  margin-bottom: 200px;
+}
+
+#infoBtn1 {
+  border: 1px solid rgb(88, 55, 9);
+  color: rgb(255, 255, 255);
+  background-color: rgb(88, 55, 9);
+  padding: 5px 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#infoBtn2 {
+  border: 1px solid rgb(88, 55, 9);
+  color: rgb(88, 55, 9);
+  background-color: white;
+  padding: 5px 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#infoBtn3 {
+  border: 1px solid rgb(88, 55, 9);
+  color: rgb(255, 255, 255);
+  background-color: rgb(88, 55, 9);
+  padding: 1px 13px;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -1,0 +1,47 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: C##HICECOFFEE
+    password: HICECOFFEE
+    hikari:
+      auto-commit: false
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: oracle
+    properties:
+      hibernate:
+        '[format_sql]': true     
+  thymeleaf:
+    cache: false # 기본 값 true / 개발 중 변경 사항 즉시 확인하기 위해 캐시 false
+ 
+#  mail:
+#    host: smtp.naver.com #smtp 서버 주소
+#    port: 465 # 메일 인증서버 포트
+#    username: wndydtmd #네이버 아이디
+#    password: dlgkwjd2@ #네이버 비밀번호
+#    properties:
+#      mail:
+#        smtp:
+#          starttls:
+#            enable: true
+##            required: true
+#          auth: true
+##          connectiontimeout: 5000
+##          timeout: 5000
+##          writetimeout: 5000
+#          ssl:
+#            #trust: smtp.naver.com
+#            enable: true #반드시 필요 -> SSL 필요로 되어있으면 
+ 
+ 
+logging:
+  level:
+    root: info
+
+
+

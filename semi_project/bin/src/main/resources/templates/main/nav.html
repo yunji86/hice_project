@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+</head>
+<body>
+    <!-- 메뉴 바 -->
+    <div th:fragment="footerFragment" class="nav">
+    <nav id="menu">
+        <ul class="menulist">
+            <li style="border: none;"><a href="#"><b style="font-size: 20px;"><span
+                            style="font-size: 20px;">≡</span>
+                        CATEGORY</b></a>
+                <ul class="menulist2">
+                    <li><a href="#">BEST</a></li>
+                    <li><a href="#">MALL</a></li>
+                    <li><a href="#">REVIEW</a></li>
+                    <li><a href="#">STORE</a></li>
+                    <li><a href="#">EVENT</a></li>
+                    <li><a href="/notice/noticeList">NOTICE</a></li>
+                    <li><a href="/qna/qnaList">Q&A</a></li>
+                </ul>
+            </li>
+            <li><a href="#">BEST</a></li>
+            <li><a href="#">MALL</a></li>
+            <li><a href="#">REVIEW</a></li>
+            <li><a href="#">STORE</a></li>
+            <li><a th:href="@{event/eventPage.html}">EVENT</a></li>
+            <li><a href="/notice/noticeList">NOTICE</a></li>
+            <li><a href="/qna/qnaList">Q&A</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- 퀵 메뉴 스크롤 -->
+    <script>
+        $(document).ready(function () {
+            var currentPosition = parseInt($(".quickmenu").css("top"));
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+                $(".quickmenu").stop().animate({
+                    // top : position + currentPosition + "px"
+                    top: position + "px"
+                    // top : 140
+                }, 1000);
+            });
+        });
+    </script>
+    <!--퀵 메뉴 -->
+    <div class="quickmenu">
+        <ul>
+            <div class="kakaomenu1">
+                <a href="#">카카오톡<br>실시간채팅<br>ID : HICE
+                    <img src="/images/카카오톡.jpg"></a>
+            </div>
+            <li><a href="/notice/noticeList">공지사항</a></li>
+            <li><a href="/event/event.html">이벤트</a></li>
+            <li><a href="/board/qna/qna.html">상품문의</a></li>
+            <li class="buy-review"><a href="/board/review/review.html">구입후기</a></li>
+            <li><a href="#">적립금</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">주문조회</a></li>
+            <li class="shipping-check"><a href="#">배송조회</a></li>
+            <h4>CALL CENTER</h4>
+            <h3>070-1234-5678</h3>
+            <h6 class="call-center">평일 : AM10시 ~ PM18시<br>
+                점심 : PM12시 ~ PM13시<br>
+                토, 일, 공휴일은 휴무입니다.</h6>
+            <h4>BANK ACCOUNT</h4>
+            <h4>123-4567-9811-05</h4>
+            <h5>KB국민 / 하이스커피</h5>
+        </ul>
+    </div>
+</body>
+</html>

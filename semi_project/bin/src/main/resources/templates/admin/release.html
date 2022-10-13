@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+<title>Insert title here</title>
+</head>
+<body>
+
+	    <div class="notice">
+                     
+        <h1>상품 출고</h1>
+        
+        <div>
+            <table class="orderTable" align="center">
+                
+                <tr class="notice-tr10">
+                    <td class="notice">상품명</td>
+                    <td class="notice">수량</td>
+                    <td class="notice">회원ID</td>
+                    <td class="notice">출고</td>   
+                </tr>
+                
+                <tr class="notice-tr1">
+                    <td>에티오피아 예가체프</td>
+                    <td>5</td>
+                    <td>shin123</td>
+                    <td><a th:href="@{/ReleaseNt.html}">Release</a></td>
+                </tr>
+                <tr class="notice-tr1">
+                    <td>가찌아 비바 프레스티지 커피머신</td>
+                    <td>1</td>
+                    <td>hiiiee99</td>
+                    <td><a th:href="@{/ReleaseNt.html}">Release</a></td>
+                </tr>
+                <tr class="notice-tr1">
+                    <td>과테말라 안티구아</td>
+                    <td>3</td>
+                    <td>hiiiee99</td>
+                    <td><a th:href="@{/ReleaseNt.html}">Release</a></td>
+                </tr>
+                <tr class="notice-tr1">
+                    <td>브라질 산토스</td>
+                    <td>6</td>
+                    <td>hiiiee99</td>
+                    <td><a th:href="@{/ReleaseNt.html}">Release</a></td>
+                </tr>
+                <tr class="notice-tr1">
+                    <td>과테말라 안티구아</td>
+                    <td>3</td>
+                    <td>breeez1</td>
+                    <td><a th:href="@{/ReleaseNt.html}">Release</a></td>
+                </tr>
+
+                
+            </table>
+        </div>
+
+        <div class="pageNumber">
+            <p><a th:href="@{/}"><<</a></p>
+            <p><a th:href="@{/}"><</a></p>
+            <p><a th:href="@{/}">1</a></p>
+            <p><a th:href="@{/}">2</a></p>
+            <p><a th:href="@{/}">3</a></p>
+            <p><a th:href="@{/}">4</a></p>
+            <p><a th:href="@{/}">5</a></p>
+            <p><a th:href="@{/}">></a></p>
+            <p><a th:href="@{/}">>></a></p>
+        </div>
+        
+    </div>
+    <br><br><br><br>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<script type="text/javascript" th:src="@{/js/review.js}"></script>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	   
+            <h1 align="center">BEST REVIEW</h1>
+            
+            	<div class="rev-create">
+		           <form id="revCreateForm" th:action="@{/review/create}" method="post" enctype="multipart/form-data">
+		              <div class = "rev-wirte">
+		            	<table sable align="center">
+		            		<!-- <tr>
+		            			<td><select name="${ pro.proCode}">
+				                	<option value="1">원두</option>
+				                	<option value="2">맛있는 원두</option>
+				                	<option value="3">맛있는 원두</option>
+				            	</select></td>
+		            		 </tr> -->
+		            		 	
+		            		 <tr>
+		            		 	<td><input type="text" name="revTitle" placeholder="제목을 입력하세요"  style="width:715px;"></td>
+		            		 </tr>
+				             <tr>
+				            	<td><textarea name="revContents" rows="15" cols="100" placeholder="내용을 입력하세요" ></textarea></td>
+				             </tr>
+				             <tr>
+				             	<td>사진을 올려주세요(선택)</td>
+				             	<br>
+				             	<td>
+				             		<div class="image-area">
+				             			<img style="width: 100px; height: 100px;">
+				             		</div>
+				             	</td>
+				             	<td>
+				             		<div class="image-area">
+				             			<img style="width: 100px; height: 100px;">
+				             		</div>
+				             	</td>
+				             	<td>
+				             		<div class="image-area">
+				             			<img style="width: 100px; height: 100px;">
+				             		</div>
+				             	</td>
+				             	<td>
+				             		<div class="image-area">
+				             			<img style="width: 100px; height: 100px;">
+				             		</div>
+				             	</td>
+				             	<td>
+				             		<div class="image-area">
+				             			<img style="width: 100px; height: 100px;">
+				             		</div>
+				             	</td>
+				             </tr>
+						</table>
+				        <br>
+				        
+				        <div class="thumbnail-file-area" style="display: none;">
+				        	<input type="file" name="revFile"
+				        		accept="image/gif,image/jpeg,image/png"> 
+				        	<input type="file" name="revFile"
+				        		accept="image/gif,image/jpeg,image/png">
+				        	<input type="file" name="revFile"
+				        		accept="image/gif,image/jpeg,image/png">
+				        	<input type="file" name="revFile"
+				        		accept="image/gif,image/jpeg,image/png">
+				        	<input type="file" name="revFile"
+				        		accept="image/gif,image/jpeg,image/png">				
+				        </div>	
+				       
+				        <div class="rev-button1" align="center">
+				            <button type="reset">취소</button>
+				            <button type="submit"> 등록 </button>   
+				            
+				        </div>
+				   </form>
+			 </div>
+		</div>	  
+			       
+	 <div th:replace="main/footer.html"></div>    
+</body>
+</html>

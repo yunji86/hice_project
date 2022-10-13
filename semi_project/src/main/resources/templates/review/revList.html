@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<script type="text/javascript" th:src="@{/js/review.js}"></script>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	      <div class="review-tb">
+               <h1>PHOTO REVIEW</h1>
+	           
+	            <div class="box" align="center">
+		            <a>필터</a>
+		            <a href="/board/review/review.html">전체목록</a>
+		            <a href="/board/review/rev_photo.html">포토리뷰</a>
+		            <a href="/board/review/rev_best.html">베스트리뷰</a>
+           		
+           		<form id="rev-searchForm" th:action="@{/review/list}" method="get" >
+	           		<th:block th:if="${ revSearchValue != null }">
+	           			<input type="search" id="revSearchValue" name="revSearchValue"
+	           				th:value="${ revSearchValue }">
+	           		</th:block>
+	           		<th:block th:if="${ revSearchValue == null }">
+	           			<input type="search" id="revSearchValue" name="revSearchValue">
+	           		</th:block>
+	           		<button class="rev-button" type="submit">검색</button>	
+           		</form>		
+         	    </div>
+             </div>   
+	           
+	            <div class="Photo-area" id="PhotoArea"
+	            	style="width: 1080px; margin: auto; display: flex; justify-content: center; flex-wrap: wrap;">
+	            	<th:block th:each=" revBoard : ${ revBoardList }">
+	            		<div class="Photo-list" align="center" style="margin: 20px; cursor:pointer;"
+	            			 th:onclick="|location.href='/review/view?revCode=${ revBoard.revCode }'|">
+	            			
+	            				<div>
+		            				<th:block th:each="revList : ${ revBoard.fileList }" >
+		            					
+		            					<img th:if="${ revList.fileType == 'REVTITLE' }"
+		            						 th:src="${ revList.fileThumPath }" width="300px" height="300px">
+		            						 
+		            				</th:block>
+	            				</div>
+	            				<p>
+	            					No. <label th:text="${ revBoard.revCode }"></label>
+	            					<span th:text="${ revBoard.revTitle }"></span><br>
+	            					좋아요 : 
+	            				</p>
+	            			</div>	
+	            		</th:block>	 		 
+	         		</div>
+	         		<!-- <th:block sec:authorize="isAuthenticated()"> -->
+	         		<button id="writeBoard">글쓰기</button> 
+	         		</th:block>
+		<div id="paging" align="center">
+			
+		  <!-- 리뷰 페이징 바 /-->
+        <div id="paging" align="center" style="margin-top:20px;">
+        	
+        	<!-- 기본 페이징 바 -->
+        	<th:block th:if="${ param.revSearchValue == null || param.revSearchValue.isEmpty()}">
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.startPage}} +'\''">&lt;&lt;</button>
+        			
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' +@{${paging.currentPage - 1}} +  '\''"
+        			th:disabled = "${ revBoardList.first }" >&lt;</button>    
+        		
+        		<th:block
+        			th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage )}">
+        			<button
+        				th:onclick="'location.href=\'/review/list?page=' + @{${page}} +  '\''"
+        				th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+        			</button>					
+        		</th:block>		
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.currentPage + 1}} + '\''"
+        			th:disabled="${ revBoardList.last}"> > </button>
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.endPage}} + '\''"> >> </button>
+        	</th:block>	    
+        </div>
+        	
+        	
+        	<!-- 리뷰 검색  -->
+        	<th:block th:if="${ serchValue != null }">
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' 
+        			+ @{${paging.startPage}} + '&revSearchValue=' + @{${revSearchValuee}} + '\''">&lt;&lt;</button>
+        			
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' +@{${paging.currentPage - 1}} + '&revSearchValue=' + @{${revSearchValue}} + '\''"
+        			th:disabled = "${ revBoardList.first }" >&lt;</button>    
+        		
+        		<th:block
+        			th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage )}">
+        			<button
+        				th:onclick="'location.href=\'/review/list?page=' + @{${page}} + '&revSearchValue=' + @{${revSearchValue}} + '\''"
+        				th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+        			</button>					
+        		</th:block>		
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.currentPage + 1}} + '&revserchValue=' + @{${revsearchValue}} + '\''"
+        			th:disabled="${ revBoardList.last}"> > </button>
+        		
+        		<button
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.endPage}} + '&revserchValue=' + @{${revsearchValue}} + '\''">
+        			>> </button>
+        	</th:block>	    
+        </div>
+     <div th:replace="main/footer.html"></div>   
+</body>
+</html>

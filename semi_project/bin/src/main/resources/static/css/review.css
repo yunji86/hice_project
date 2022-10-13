@@ -1,0 +1,158 @@
+
+.review-tb .review-potn {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.review-potn table {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-collapse:collapse;
+}
+
+.review-tb h1{
+    text-align: center;
+    font-size: xxx-large;
+    padding-top: 80px;
+}
+
+.review-tr{
+    text-align: center;
+    background-color: lightgray;
+}
+
+.review-td1 {
+    width: 50px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: non
+}
+
+.review-td2 {
+    width: 1000px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: no;
+}
+
+.review-td3 {
+    width: 150px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: non; 
+}
+
+.review-td4 {
+    width: 150px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: non; 
+}
+
+.review-tr1 td{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: center;
+}
+
+.review-tr2 td{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: center;
+}
+
+.review-tr3 td{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: center;
+}
+
+.box a{
+    margin-inline-start: 50px;
+    color: rgb(107, 71, 53);
+}
+.box a:hover{
+    color: rgb(107, 71, 53);
+    font-weight: bolder;
+}
+
+.box select{
+    margin-inline-start: 50px;
+    color: rgb(107, 71, 53);;
+}
+
+.box span{
+    width: 680px;
+    height: 50px;
+    background-color: white;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px;
+    box-shadow: 5px 5px 5px lightgray;
+     
+}
+
+.rev-page hr{
+    border: 1px solid  rgb(107, 71, 53);
+    align: center;
+    width: 930px;    
+}
+
+.rev-page h2 {
+    color: rgb(107, 71, 53);
+    padding-left: 20em;
+}
+
+.rev-page pre{
+    color: rgb(107, 71, 53);
+    padding-left: 30em;
+}
+
+.rev-page a{
+    color: rgb(107, 71, 53);
+    padding-left: 80em;
+    font-weight: bold;
+}
+.button2{
+    align : center;
+    border: none;
+    background-color: white;
+    color: rgb(107, 71, 53);
+    padding-left: 36em;
+    font-weight: bold; 
+}
+
+.button1{
+    float: right;
+    margin-right: 20em ;
+    margin-top: 20px;
+}
+
+h1{
+    color: rgb(71, 42, 28);
+}
+
+.review-potn a{
+    color: rgb(71, 42, 28);
+}
+
+.rev-page{
+    margin-top: 5em;
+}
+
+.rev-page h1{
+    margin-bottom: 80px;
+}
+
+
+
