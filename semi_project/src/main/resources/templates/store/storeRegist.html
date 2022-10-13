@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+    <div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+	
+
+	 <div class="releaseMain">
+                     
+        <h1>매장 정보 등록</h1>
+        
+       	<div class="releaseDetail">
+
+            <form class="detailWrrap" th:action="@{/store/storeRegist}" name="detailWrrap" method="post">
+
+                    <label>매장 명 : </label>
+                    <input type="text" class="textBx" name="stoName"><br><br>
+                    <!--<label>원두 명 : </label>
+                    <input type="text" class="textBx"><br><br>-->
+                    <label>주소지 : </label>
+                    <input type="text" class="textBx" name="stoAdd"><br><br>
+					<label>화면 표시 여부 : </label>
+					<select name="stoStatus">
+						<option value="Y">표시</option>
+						<option value="N">숨김</option>
+					</select><br><br>
+					
+					<button type="button" th:onclick="'location.href=\'/store/storeList\''">목록</button>
+                	<button type="submit">등록</button>
+                	<button type="reset">취소</button>
+					
+            </form>
+
+       	</div>
+        
+    </div>
+    
+
+    <!-- 하단 -->
+    
+    <div th:replace="main/footer.html"></div>
+
+</body>
+</html>

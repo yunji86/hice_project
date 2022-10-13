@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	<script type="text/javascript" th:src="@{/js/member.js}"></script>
+</head>
+
+<body>
+    
+    <div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+    <!-- 메인 내용 -->
+    <section class="base_Section">
+    
+    <div>
+    
+      <form action="writepage.html" method="get" id="form1">
+        <div align="center" class="login_body">
+          <div class="signup_welcome">
+          <!-- <img src="/images/welcome4.png" width="50%"  /> -->
+          <h3>회원가입을 진심으로 환영합니다.</h3>
+            <pre>이제부터 하이스커피의 서비스를 이용하실 수있습니다. 
+전국의 믿을 수 있는 커피들을 찾아 소개해드릴게요.</pre>
+          </div>
+          <button
+            type="button"
+            th:onclick="'location.href=\'/member/login\''"
+            class="login_btn ">
+            로그인으로 이동
+          </button>
+          <br />
+        </div>
+      </form>
+
+      <br />
+      <hr />
+      <br />
+      
+      </div>
+      
+    </section>
+
+    <!-- 하단 -->
+    
+    <div th:replace="main/footer.html"></div>
+
+  </body>
+</html>

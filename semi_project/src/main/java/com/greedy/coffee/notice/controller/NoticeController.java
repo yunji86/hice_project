@@ -159,6 +159,7 @@ public class NoticeController {
 		
 		return "redirect:/notice/noticeList";
 	}
+
 	
 
 

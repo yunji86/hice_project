@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- <script type="text/javascript" th:src="@{/js/storeRemove.js}"></script> -->
+</head>
+<body>
+    <div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+	
+
+	 <div class="releaseMain">
+                     
+        <h1>매장 정보 수정</h1>
+        
+       	<div class="releaseDetail">
+
+            <form class="detailWrrap" th:action="@{/store/storeUpdate}" name="detailWrrap" method="post">
+            		<label>매장 코드 : </label>
+                    <input type="number" class="textBx" name="stoCode" id="stoCode"><br><br>
+            		<label>매장 명 : </label>
+                    <input type="text" class="textBx" name="stoName" id="stoName"><br><br>
+                    <label>주소지 : </label>
+                    <input type="text" class="textBx" name="stoAdd" id="stoAdd"><br><br>
+					<label>화면 표시 여부 : </label>
+					<select name="stoStatus" style="cursor:pointer;">
+						<option value="Y">표시</option>
+						<option value="N">숨김</option>
+					</select><br><br>
+					
+					<button type="button" style="cursor:pointer;" th:onclick="'location.href=\'/store/storeList\''">목록</button>
+					<input type="submit" style="cursor:pointer;" value="수정">
+                	<button type="reset" style="cursor:pointer;">취소</button>
+            </form>
+            
+            
+
+       	</div>
+        
+    </div>
+  
+    <!-- 하단 -->
+    
+    <div th:replace="main/footer.html"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/kj.css}">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+
+	<div class="releaseMain" align="center">
+                     
+        <h1>매장 삭제</h1>
+        
+       	<div class="releaseDetail">
+
+            <form class="detailWrrap" th:action="@{/store/storeRemove}" name="detailWrrap" method="post">
+            		<label>매장 코드 : </label>
+                    <input type="number" class="textBx" name="stoCode" id="stoCode"><br><br>
+					
+					<button type="button" th:onclick="'location.href=\'/store/storeList\''">목록</button>
+					<input type="submit" id="removeStore" style="cursor:pointer;" value="삭제">
+                	<button type="reset">취소</button>
+            </form>
+            
+            
+
+       	</div>
+        
+    </div>
+
+
+
+    <!-- 하단 -->
+    
+    <div th:replace="main/footer.html"></div>
+
+
+</body>
+</html>
