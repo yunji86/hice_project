@@ -50,6 +50,7 @@ public class RevReplyService {
 	public void removeRevReply(ReplyDTO removeReply) {
 		
 		 Reply foundReply = revReplyRepository.findByReplyNo(removeReply.getReplyNo());
+		 
 		 foundReply.setReplyStatus("N");
 				 
 		

@@ -1,0 +1,354 @@
+@charset "UTF-8";
+
+/* best 원두 페이지 */
+
+.beanMain {
+    text-align: center;
+    height: 1700px;
+}
+
+/* 타이틀 */
+.beanHeader {
+    margin-top: 50px;
+}
+
+.title {
+    color: #604638;
+    font-size: 25px;
+}
+
+.underLine {
+    background-color: #887B73;
+    width: 30%;
+}
+ 
+
+/* 원두 강도 네비 */
+.box {
+    display: inline-block;
+    width: 500px;
+    height: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px lightgray;
+    margin-top: 15px;
+}
+
+.bStrength {
+    display: flex;                  
+    align-items: center;            
+    justify-content: center; 
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.bStrength>a {
+    /*padding-left: 6%;*/
+    padding-right: 6%;
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.bean {
+   /* width:100%;*/
+    margin-top: 100px;
+    margin-left: 10%;
+}
+
+
+.beanDetail2 {
+    outline:8px solid #593521;
+    background-color: #887B73;
+    width: 20%;
+    float:left;
+    padding: 20px;
+    margin: 20px;
+}
+
+.beanDetail2>a {
+	color: silver;
+	font-weight: bold;
+}
+
+.beanDetail2>a:hover {
+	color: black;
+	background: white;
+	transition: all 0.8s;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 0px 5px;
+}
+
+.beanTitle {
+    font-size: 20px;
+}
+
+
+/* 오프라인 구매 Bt */
+.bodyUnder {
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px lightgray;
+    margin-top: 335px;
+    margin-left: 900px;
+}
+
+.offShop {
+    /*padding-left: 6%;
+    padding-right: 6%;*/
+    font-size: 18px;
+    font-weight: 1000;
+}
+
+
+
+/* -------------------------------------------------------------------- */
+
+
+/* store 페이지 + admin 버튼 - 매장찾기 */
+
+/* 매장 조회 상단 */
+.storeMain {
+    height: auto;
+}
+
+.storeUnder {
+    width: 1000px;
+    color: brown;
+}
+
+.storeHeader {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.headerSearch>p{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px lightgray;
+    padding: 5px;
+    width: 50px;
+    margin-left: 80%;   
+}
+
+.headerSearch>p:hover {
+    background-color: lightgray;
+    transition: 0.7s;
+}
+
+
+/* 매장 정보 상세 */
+.table {
+    font-size: 20px;
+    margin-left: 300px;
+    margin-right: 250px;
+    padding-top: 15px;
+    display: flex;
+}
+
+
+.storeMain>a {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px lightgray;
+    padding: 5px;
+    width: 60px;
+    font-size: 15px;
+}
+
+.storeMain>a:hover {
+    background-color: lightgray;
+    transition: 0.7s;
+}
+
+/*.storeBody>img {
+    width: 900px;
+    height: 400px;
+    margin-left: 50px;
+}*/
+
+.storeBody>p {
+	margin-left: 50px;
+}
+
+/* paging */
+.pageNumber {
+    font-size: 20px;
+    margin: 50px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.pageNumber>p {
+    padding-left: 20px;
+}
+
+
+/* ------------------------------------------------------------------- */
+
+/* storeRegist - 매장 정보 등록 */
+.releaseMain {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* input 구문 */
+.detailWrrap {
+    width: 50%;
+    margin-left: 23%;
+    margin-top: 60px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px lightgray;
+    padding: 30px;
+    font-size: 20px;
+}
+
+label {
+	font-size: 22px
+}
+
+.textBx {
+    width: 500px;
+    height: 30px;
+}
+
+.regist2 {
+    margin-left: 5px;
+    margin-top: 50px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+/* 주문 목록 조회 */
+
+.notice {
+    text-align: center;
+}
+
+.notice>h1 {
+    margin-top: 60px;
+}
+
+/* 주문목록 테이블 */
+.orderTable {
+    width: 65%;
+    background-color: white;
+    margin-top: 50px;
+}
+
+tr, td {
+    border: 1px solid #444444;
+}
+
+.notice-tr1 {
+    height: 40px;
+}
+
+.notice-tr10 {
+    background-color: antiquewhite;
+}
+
+/* paging */
+.pageNumber {
+    font-size: 20px;
+    margin: 50px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.pageNumber>p {
+    padding-left: 20px;
+}
+
+
+/* ----------------------------------------------------------------- */
+
+/* release - 출고 화면 */
+
+.notice {
+    text-align: center;
+}
+
+.notice>h1 {
+    margin-top: 60px;
+}
+
+.orderTable {
+    width: 65%;
+    background-color: white;
+    margin-top: 50px;
+}
+
+tr, td {
+    border: 1px solid #444444;
+}
+
+.notice-tr1 {
+    height: 40px;
+}
+
+.notice-tr10 {
+    background-color: antiquewhite;
+}
+
+.pageNumber {
+    font-size: 20px;
+    margin: 50px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.pageNumber>p {
+    padding-left: 20px;
+}
+
+.notice-tr1>td>a {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px lightgray;
+    padding: 5px;
+}
+
+.notice-tr1>td>a:hover {
+    background-color: lightgray;
+    transition: 0.7s;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* releaseNt - 출고처리 화면 */
+.releaseMain {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.detailWrrap {
+    width: 50%;
+    margin-left: 23%;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px lightgray;
+    padding: 30px;
+}
+
+.detailInfo {
+    padding: 30px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.release2 {
+    margin-left: 80%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+

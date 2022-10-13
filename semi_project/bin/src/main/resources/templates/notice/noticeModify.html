@@ -37,6 +37,19 @@
             <div id="notice-section">
                 <h1 align="center">공지 사항 수정 / 삭제</h1>
                 <form id="noticeRegistForm" th:action="@{/notice/noticeModify}" method="post">
+<<<<<<< HEAD
+                    <div class="title-box">
+                    <div class="textArea1">
+                       <label>제목</label> <input class="areaInput1" type="text" th:value="${ notice.notTitle }">
+                      </div>
+                      <div class="textArea2">
+                       <label class="areaLabel">내용</label> <input class="areaInput2" type="text" th:value="${ notice.notContent }">
+                        </div>
+                    </div>
+                    <div class="notice-btn-box-bottom">
+                        <button type="submit" id="btnForChange" th:onclick="|location.href='/notice/detail?notCode=${notice.notCode}'|">수정</button>
+                        <button type="reset" onclick="location.href='/notice/noticeList'">삭제</button>
+=======
                 	<input type="hidden" name="notCode" th:value="${ notice.notCode }">
                     <div class="title-box">
                     <div class="textArea1">
@@ -49,6 +62,7 @@
                     <div class="notice-btn-box-bottom">
                         <button type="submit" id="btnForChange">수정</button>
                         <button type="button" name="notStatus" onclick="location.href='/notice/noticeList'">삭제</button>
+>>>>>>> refs/remotes/origin/Zoo
                     </div>
                 </form>
             </div>

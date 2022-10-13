@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>REVIEW</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<script type="text/javascript" th:src="@{/js/review.js}"></script>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+		 <div class="rev-page">         
+	         <h1 align="center">REVIEW</h1>
+	            
+	            	<div class="rev-view" align="center">
+	            		<table class="rev-ditail">
+	            			<tr><!-- 리뷰 제목  -->
+				            	<td><p th:text="${ revBoard.revTitle }"> </p> </td> 
+				            </tr>
+				            <tr><!-- 리뷰 좋아요  -->	
+				            	<td><button id="revLike"> 좋아요 들어감</button></td> 
+							</tr>
+							<tr> <!-- 리뷰 작성자  -->
+								  <td colspan="3"><p th:text="${ revBoard.writer.memId }"></p></td> 
+							</tr>
+							<tr>
+								<td><p  th:text="${ revBoard.revDate }"></p></td>
+							</tr>  
+							<!-- <tr>
+								<td><p  th:text="${ pro.proCode}"></p></td>
+							</tr> -->
+							<table class="rev-ditail">
+							<tr>
+								<th:block th:if="${ revBoard.fileList.size() > 1}" th:each="index : ${ #numbers.sequence(0, revBoard.fileList.size() -1)}">
+									<td>
+										<div class="detailImgArea">
+											<img class="detailImg" width ="100" height="100"
+												 th:src="${ revBoard.fileList[index].filePath + revBoard.fileList[index].fileSaveName }"/>
+											<br>
+												
+										</div>
+									</td>
+								</th:block>	
+							</tr>
+							</table>
+							<tr><!-- 리뷰 내용  -->
+								<td><textarea rows="15" cols="80" readonly th:text="${ revBoard.revContents }"></textarea></td> 
+							</tr>
+						 </table>         
+			
+						 <div class="button4">   
+							   <button th:onclick="|location.href='/review/edit?revCode=${ revBoard.revCode }'|">수정</button>
+							   <input type="button" value="삭제" id="deleteRev">
+						 	
+						 		 
+						 
+						 <!-- 댓글 입력  -->         
+						 <table id="revReplyWrite" style="margin:auto;">
+								<input type="hidden" id="revCode" th:value="${ revBoard.revCode }"/>
+									<tr>
+										<label for="content">admin comment</label>
+										<td><textarea rows="2"  cols="75" id="replyContents" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
+									    <br>
+									     <td><button type="button" id="registRevReply">등록</button></td>
+								    </tr>  
+						  </table>
+							 <!-- 댓글 출력--> 
+							 <table id="revReplyResult" style="margin:auto;"></table>
+						</div>
+				 </div>			 
+		
+		
+		<!-- 댓글 핸들러 -->      
+		<script>
+		loadReply();
+		
+	 	function loadReply(){
+	 		
+	 		if(document.getElementById("revCode")){
+	 			
+	 			fetch("/reply/loadRevReply?revCode=" + document.getElementById("revCode").value)
+	 			.then(result => result.json())
+	 			.then(data => {
+	 				makeReplyTable(data);
+	 				
+	 			})
+	 			.catch(error => console.log(error));
+	 		}
+	 	}
+		
+			if(document.getElementById("registRevReply")){
+				
+				const $registRevReply = document.getElementById("registRevReply");
+				const $replyContents = document.getElementById("replyContents");
+				
+				$registRevReply.onclick = function(){
+					
+					if(!$replyContents.value.trim()){
+						alert("댓글을 입력해주세요");
+						return;
+					}
+				
+					const revCode = document.getElementById("revCode").value;
+					const replyContents = $replyContents.value;
+					console.log(revCode);
+					console.log(replyContents);
+					
+					fetch("/reply/registRevReply", {
+						method : "POST",
+						headers : {
+							'Content-Type': 'application/json; charset=UTF-8'
+						},
+						body: JSON.stringify({
+							revCode : revCode,
+							replyContents : replyContents
+						})
+					})
+					.then(data => {
+						console.log(data);
+						$replyContents.value = '';
+						loadReply();
+					})
+					.catch(error => console.log(error));
+				}
+			}	
+			
+		 	
+			
+		 	function makeReplyTable(revReplyList){
+		 		
+		 		const $table = document.querySelector("#revReplyResult");
+		 		$table.innerHTML = '';
+		 		
+		 		revReplyList.forEach(reply => {
+		 			const $tr = document.createElement('tr');
+		 			const $replyContentsTd = document.createElement('td');
+		 			const $writerTd  = document.createElement('td');
+		 			const $replyDateTd  = document.createElement('td');
+		 		    const $buttonTd = document.createElement('td'); 
+		 			
+		 			$replyContentsTd.textContent = reply.replyContents;
+					  $writerTd.textContent = reply.writer.memId;
+					$replyDateTd.textContent = reply.replyDate;
+					
+					if('[[${#authentication.principal.memId}]]' == reply.writer.memId) {
+				    $buttonTd.innerHTML = `<button type = 'button' onclick='removeReply(${reply.replyNo})'> 댓글 삭제 </button>` 
+					}
+					$tr.append($replyContentsTd, $writerTd, $replyDateTd, $buttonTd)
+					$table.append($tr);
+		 			
+		 		});
+		 	}	
+		 	
+		 	function removeReply(replyNo){
+		 		
+		 		fetch("/reply/removeReply",{
+		 			method:"POST",
+		 			headers: {
+				        'Content-Type': 'application/json; charset=UTF-8'
+					},
+					body: JSON.stringify({
+						  replyNo: replyNo
+						})
+					})
+					.then(result => {
+						console.log(result);
+						loadReply();
+					})
+					.catch(error => console.log(error));
+		 	}
+		 
+		 	/* 좋아요 */
+		 	
+		 	const 
+		 	
+		 	
+		</script>
+		<br> 
+		<br> 
+		 
+</body>
+</html>

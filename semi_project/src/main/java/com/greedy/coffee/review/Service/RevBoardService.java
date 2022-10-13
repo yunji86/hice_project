@@ -39,6 +39,7 @@ public class RevBoardService {
 	public static final int REV_PAGE_SIZE = 9;
 	public static final String SORT_BY = "revCode";
 	public static final String ACITVE_STATUS = "Y";
+	public static final String DELETE_STATUS = "N";
 	public static final int PHOTO_BOARD_TYPE = 1;
 
 	public Page<RevBoardDTO> selectRevBoardList(int page, String revSearchValue) {
@@ -67,7 +68,7 @@ public class RevBoardService {
 	}
 
 	
-	public void updateRevBoard(@ModelAttribute RevBoardDTO updateRev) {
+	public void updateRevBoard(RevBoardDTO updateRev) {
 
 		RevBoard savedRev = revBoardRepository.findByRevCode(updateRev.getRevCode());
 		savedRev.setRevTitle(updateRev.getRevTitle());
@@ -75,9 +76,10 @@ public class RevBoardService {
 		savedRev.setRevEditDate(updateRev.getRevDate());
 	}
 
-	public void deleteRev(RevBoardDTO revBoard) {
+	public void deleteRev(Long revCode) {
 		
-		RevBoard savedRevBoard = revBoardRepository.findByRevCode(revBoard.getRevCode());
+		RevBoard savedRevBoard = revBoardRepository.findByRevCode(revCode);
+		
 		savedRevBoard.setRevStatus("N");
 		
 	}
