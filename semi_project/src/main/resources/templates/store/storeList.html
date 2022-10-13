@@ -3,13 +3,20 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 <link rel="stylesheet" th:href="@{/css/kj.css}">
-﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <title>Insert title here</title>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
 </head>
 <body>
+    <div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
 
-	<!-- admin 권한에서 볼 수 있는 bt 같이 넣어놓음 => 추후 수정 -->
 
         <div class="storeMain">
 
@@ -19,53 +26,110 @@
                     <h1>매장 조회</h1>
                 </div>
 
-                <div class="headerSearch">
-                    <form name="searchBox">
-
-                        <input type="text" name="textBox" placeholder="지역명을 입력하세요">
-                        <button type="submit" class="search2">조회</button>
-
-                    </form>
-                    <p><a th:href="@{/storeRegist.html}">등록</a></p>
-                </div>
+                
+                <div class="search-area" align="center" style="margin-top:20px;">
+					<!-- 검색 -->
+					<form id="searchForm" th:action="@{/store/storeList}" method="get" style="display: inline-block">
+						<th:block th:if="${ searchValue != null }">
+							<input type="search" id="searchValue" name="searchValue" th:value="${ searchValue }" placeholder="지역명을 입력하세요">
+						</th:block>
+						<th:block th:if="${ searchValue == null }">
+							<input type="search" id="searchValue" name="searchValue" placeholder="지역명을 입력하세요">
+						</th:block>
+						<button class="btn btn-bs" type="submit" style="cursor:pointer;">조회</button>
+					</form>
+					
+					<!-- 등록, 수정 화면넘기기 -->
+					<th:block sec:authorize="isAuthenticated()">
+						<button class="btn btn-or" id="writeStore" onclick="location.href='/store/storeRegist'" style="cursor:pointer;">등록</button>
+						<button th:onclick="'location.href=\'/store/storeUpdate\''" style="padding-left:3px; cursor:pointer;">수정</button>
+						<button th:onclick="'location.href=\'/store/storeRemove\''" style="padding-left:3px; cursor:pointer;">삭제</button>
+					</th:block>
+				</div>
             </div>
+						
 
-            <div class="storeBody">
+			<table align="center" id="storeResult">
+					<th>매장코드</th>
+					<th>매장 명</th>
+					<th>취급 원두</th>
+					<th>주소지</th>
+					<th>등록자</th>
+					<tr id="storeBody" class="storeBody" th:each="store : ${ storeList }">
+						<td th:text="${ store.stoCode }"></td>
+		                <td th:text="${ store.stoName }"></td>
+		                <td th:text="${ store.stoAdd }"></td>
+		                <td th:text="${ store.memId.memName }"></td>
+					</tr>
+			</table><br>
+			
+			
+           	<!-- kakao - localhost view -->
+	        <div id="map" style="width:70%;height:600px;margin-left:15%;margin-bottom:15%"></div> 
+            <div class="storeMap" align="center">
+            <div th:each="store : ${storeList}">
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d5703a35df5262a246dbc762c939d873&libraries=services"></script>
+				<script  type="text/javascript" th:inline="javascript">
+			  		/*<![CDATA[*/
+			  		
+			  		
+							var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						    mapOption = {
+						        center: new kakao.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
+						        level: 9 // 지도의 확대 레벨 
+						    };  
+					    
+					    
+							// 지도를 생성합니다    
+							var map = new kakao.maps.Map(mapContainer, mapOption); 
+							
+							// 주소-좌표 변환 객체를 생성합니다
+							var geocoder = new kakao.maps.services.Geocoder();
+							
+							// 주소로 좌표를 검색합니다
+							geocoder.addressSearch('[[${store.stoAdd}]]', function(result, status) {
+							
+							 // 정상적으로 검색이 완료됐으면 
+							  if (status === kakao.maps.services.Status.OK) {
+							
+							        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+							
+							        // 결과값으로 받은 위치를 마커로 표시합니다
+							        var marker = new kakao.maps.Marker({
+							            map: map,
+							            position: coords
+							        });
+							
+							        // 인포윈도우로 장소에 대한 설명을 표시합니다
+							        var infowindow = new kakao.maps.InfoWindow({
+							            content: ('<div style="width:150px;text-align:center;padding:6px 0;">[[${store.stoName}]]</div>')
+							        });
+							        infowindow.open(map, marker);
+							
+							        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+							        map.setCenter(coords);
+							        
+									
+							      	}
+							   });
+							   
+							   
+				/*]]>*/
 
-                <strong>벤더 커피</strong>
-                <p>취급 원두: 케냐AA, 인도네시아 만델링</p>
-                <img th:src="@{/img/오프라인 매장.png}" alt=""><br><br>
-                <a th:href="@{/}">삭제</a>
-                <a th:href="@{/}">수정</a>
 
-            </div>
-            <br><br><hr class="storeUnder">
-            <div class="storeBody">
+			</script>  
 
-                <strong>벤더 커피</strong>
-                <p>취급 원두: 케냐AA, 인도네시아 만델링</p>
-                <img th:src="@{/img/오프라인 매장.png}" alt=""><br><br>
-                <a th:href="@{/}">삭제</a>
-                <a th:href="@{/}">수정</a>
+			</div>
 
-            </div>
-
-            <div class="pageNumber">
-                <p><a th:href="@{/}"><<</a></p>
-                <p><a th:href="@{/}"><</a></p>
-                <p><a th:href="@{/}">1</a></p>
-                <p><a th:href="@{/}">2</a></p>
-                <p><a th:href="@{/}">3</a></p>
-                <p><a th:href="@{/}">4</a></p>
-                <p><a th:href="@{/}">5</a></p>
-                <p><a th:href="@{/}">></a></p>
-                <p><a th:href="@{/}">>></a></p>
-            </div>
-
-
-        </div>
+			
+		</div>
 
 
 
+       </div>
+
+    <!-- 하단 -->
+    
+    <div th:replace="main/footer.html"></div>
 </body>
 </html>
