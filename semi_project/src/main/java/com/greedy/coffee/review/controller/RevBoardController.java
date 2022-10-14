@@ -71,7 +71,16 @@ public class RevBoardController {
 		
 		return "review/revList";
 	}
-	
+	@GetMapping("/viewCount")
+	public String revViewCount(@RequestParam(defaultValue="1") int page, Model model) {
+		
+		Page<RevBoardDTO> revBoardList = revBoardService.selectRevBoardList(page);
+		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(revBoardList);
+		model.addAttribute("revBoardList", revBoardList);
+		model.addAttribute("paging", paging);
+		
+		return "review/revList";
+	}
 	@GetMapping("/view")
 	public String selectBoardView(Model model, Long revCode) {
 		

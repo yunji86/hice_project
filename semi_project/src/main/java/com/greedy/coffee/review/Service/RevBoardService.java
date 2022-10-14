@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.greedy.coffee.file.entity.File;
 import com.greedy.coffee.member.entity.Member;
 import com.greedy.coffee.member.repository.MemberRepository;
 import com.greedy.coffee.review.dto.RevBoardDTO;
@@ -41,6 +42,7 @@ public class RevBoardService {
 	public static final String ACITVE_STATUS = "Y";
 	public static final String DELETE_STATUS = "N";
 	public static final int PHOTO_BOARD_TYPE = 1;
+	public static final String REV_SORT_BY = "revCount";
 
 	public Page<RevBoardDTO> selectRevBoardList(int page, String revSearchValue) {
 
@@ -54,7 +56,15 @@ public class RevBoardService {
 		}
 		return revBoardList.map(Board -> modelMapper.map(Board, RevBoardDTO.class));
 	}
+	
 
+	public Page<RevBoardDTO> selectRevBoardList(int page) {
+		
+		Pageable pagable = PageRequest.of(page -1, REV_PAGE_SIZE, Sort.by(REV_SORT_BY).descending());
+		Page<RevBoard> revBoardList = revBoardRepository.findByRevStatus( ACITVE_STATUS, pagable);
+		
+		 return revBoardList.map(Board -> modelMapper.map(Board, RevBoardDTO.class));
+	}
 
 	public void createRevBoard(RevBoardDTO revBoard) {
 		
@@ -84,4 +94,6 @@ public class RevBoardService {
 		savedRevBoard.setRevStatus("N");
 		
 	}
+
+
 }
