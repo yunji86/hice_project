@@ -23,7 +23,7 @@
                     <li><a href="#">MALL</a></li>
                     <li><a href="/review/list">REVIEW</a></li>
                     <li><a href="#">STORE</a></li>
-                    <li><a href="#">EVENT</a></li>
+                    <li><a href="/event/eventPage">EVENT</a></li>
                     <li><a href="/notice/noticeList">NOTICE</a></li>
                     <li><a href="/qna/qnaList">Q&A</a></li>
                 </ul>
@@ -32,13 +32,36 @@
             <li><a href="#">MALL</a></li>
             <li><a href="/review/list">REVIEW</a></li>
             <li><a href="#">STORE</a></li>
-            <li><a th:href="@{event/eventPage.html}">EVENT</a></li>
+            <li><a href="/event/eventPage">EVENT</a></li>
             <li><a href="/notice/noticeList">NOTICE</a></li>
             <li><a href="/qna/qnaList">Q&A</a></li>
         </ul>
       </nav>
     </div>
-    <!-- 퀵 메뉴 스크롤 -->
+    <!--왼쪽 퀵메뉴 스크롤 -->
+    <script>
+        $(document).ready(function () {
+            var currentPosition = parseInt($(".quickmenu1").css("top"));
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+                $(".quickmenu1").stop().animate({
+                    // top : position + currentPosition + "px"
+                    top: position + "px"
+                    // top : 140
+                }, 1200);
+            });
+        });
+    </script>
+    <!-- 왼쪽 퀵메뉴 -->
+    <div class="quickmenu1">
+        <ul>
+            <li><img src="/images/웰스.png"><a href="/event/eventPage"></a></li>
+            
+        </ul>
+        <li class="quick-font"><a href="/event/eventPage"><b>커피머신한달 무료체험</b></a></li>
+    </div>
+    
+    <!-- 오른쪽 퀵 메뉴 스크롤 -->
     <script>
         $(document).ready(function () {
             var currentPosition = parseInt($(".quickmenu").css("top"));
@@ -52,15 +75,12 @@
             });
         });
     </script>
-    <!--퀵 메뉴 -->
+    <!-- 오른쪽 퀵 메뉴 -->
     <div class="quickmenu">
         <ul>
-            <div class="kakaomenu1">
-                <a href="#">카카오톡<br>실시간채팅<br>ID : HICE
-                    <img src="/images/카카오톡.jpg"></a>
-            </div>
+            
             <li><a href="/notice/noticeList">공지사항</a></li>
-            <li><a href="/event/event.html">이벤트</a></li>
+            <li><a href="/event/eventPage">이벤트</a></li>
             <li><a href="/board/qna/qna.html">상품문의</a></li>
             <li class="buy-review"><a href="/board/review/review.html">구입후기</a></li>
             <li><a href="#">적립금</a></li>
