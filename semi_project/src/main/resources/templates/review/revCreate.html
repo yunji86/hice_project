@@ -19,52 +19,57 @@
             	<div class="rev-create">
 		           <form id="revCreateForm" th:action="@{/review/create}" method="post" enctype="multipart/form-data">
 		              <div class = "rev-wirte">
-		            	<table sable align="center">
-		            		<!-- <tr>
-		            			<td><select name="${ pro.proCode}">
-				                	<option value="1">원두</option>
-				                	<option value="2">맛있는 원두</option>
-				                	<option value="3">맛있는 원두</option>
-				            	</select></td>
-		            		 </tr> -->
-		            		 	
+		              	 <div class="rev-wirte1">
+		            		 <table class="rev-table">
 		            		 <tr>
-		            		 	<td><input type="text" name="revTitle" placeholder="제목을 입력하세요"  style="width:715px;"></td>
-		            		 </tr>
-				             <tr>
-				            	<td><textarea name="revContents" rows="15" cols="100" placeholder="내용을 입력하세요" ></textarea></td>
-				             </tr>
-				             <tr>
-				             	<td>사진을 올려주세요(선택)</td>
-				             	<br>
-				             	<td>
-				             		<div class="image-area">
-				             			<img style="width: 100px; height: 100px;">
-				             		</div>
-				             	</td>
-				             	<td>
-				             		<div class="image-area">
-				             			<img style="width: 100px; height: 100px;">
-				             		</div>
-				             	</td>
-				             	<td>
-				             		<div class="image-area">
-				             			<img style="width: 100px; height: 100px;">
-				             		</div>
-				             	</td>
-				             	<td>
-				             		<div class="image-area">
-				             			<img style="width: 100px; height: 100px;">
-				             		</div>
-				             	</td>
-				             	<td>
-				             		<div class="image-area">
-				             			<img style="width: 100px; height: 100px;">
-				             		</div>
-				             	</td>
-				             </tr>
+		            			<!-- <td><select>
+		            				<option>카테고리를 선택하세요.</option>
+				                	<option value="1">유리컵</option>
+				                	<option value="2">커피원두</option>
+				                	<option value="3">커피머신</option>
+				            	</select></td> -->
+		            		 </tr> 
+		            		 <thead class="rev-thead">	
+			            		 <tr>
+			            		 	<td><input type="text" name="revTitle" placeholder="제목을 입력하세요"  style="width:715px;"></td>
+			            		 </tr>
+					             <tr>
+					            	<td><textarea name="revContents" rows="15" cols="100" placeholder="내용을 입력하세요" ></textarea></td>
+					             </tr>
+				             </thead>
+				             <tfoot class="rev-tfoot">
+					             <tr>
+					             	<td>사진을 올려주세요(선택)</td>
+					             	<br>
+					             	<td>
+					             		<div class="image-area">
+					             			<img style="width: 100px; height: 100px;">
+					             		</div>
+					             	</td>
+					             	<td>
+					             		<div class="image-area">
+					             			<img style="width: 100px; height: 100px;">
+					             		</div>
+					             	</td>
+					             	<td>
+					             		<div class="image-area">
+					             			<img style="width: 100px; height: 100px;">
+					             		</div>
+					             	</td>
+					             	<td>
+					             		<div class="image-area">
+					             			<img style="width: 100px; height: 100px;">
+					             		</div>
+					             	</td>
+					             	<td>
+					             		<div class="image-area">
+					             			<img style="width: 100px; height: 100px;">
+					             		</div>
+					             	</td>
+					             </tr>
+					          </tfoot>
 						</table>
-				        <br>
+					</div><br>
 				        
 				        <div class="thumbnail-file-area" style="display: none;">
 				        	<input type="file" name="revFile"
@@ -84,10 +89,11 @@
 				            <button type="submit"> 등록 </button>   
 				            
 				        </div>
+				       </div> 
 				   </form>
-			 </div>
-		</div>	  
-			       
+				 </div> 
+	
+		       
 	 <div th:replace="main/footer.html"></div>    
 </body>
 </html>

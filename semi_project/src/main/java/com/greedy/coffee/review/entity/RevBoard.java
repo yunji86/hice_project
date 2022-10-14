@@ -64,9 +64,13 @@ public class RevBoard {
 	@JoinColumn(name="PRO_CODE")
 	private Product pro;*/
 	
+	@Column(name = "REV_COUNT")
+	private Long revCount;
+	
 	@OneToMany(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "REV_CODE")
 	private List<File> fileList;
+	
 	
 	
 }

@@ -20,6 +20,7 @@ public class RevBoardDTO {
 	private Date revDeleteDate;
 	private String revStatus;
 	private MemberDTO writer;
+	private Long revCount;
 	//private ProDTO pro;
 	private List<FileDTO> fileList;
 	

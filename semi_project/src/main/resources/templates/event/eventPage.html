@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/event.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+	<section>
+        <div id="main">
+            <div id="main-section">
+                <div id="main-section1">
+                    <img src="/images/웰스커피1.jpg">
+                    <div class="main_image_text">
+                    	<h1>welcome Wells</h1>
+                    
+                    	<button type="submit" class="main-image-btn" onclick="location.href='/event/eventRegist'">
+                    		한달 무료 체험하기
+                    	</button>
+                    	
+                    <div class="main_image_text1">
+                    	<h5>세계가 인정한 국내 1위 커피머신</h5>
+                    </div>
+                    <div class="main_image_text2">
+                    	<h5>모든 장소의 가치를 높이는</h5>
+                    </div>
+                    <div class="main_image_text3">
+                    	<h5>품격있는 커피 경험</h5>
+                    </div>
+                    <div class="main_image_text4">
+                    	<h1>지금 바로 신청하세요</h1>
+                    </div>
+                    
+                    </div>
+                </div>
+                <div id="event-font">
+                    1 MONTH EXPERIENCE
+                </div>
+                <div id="event-btn">
+                    <button type="submit" class="button"><a href="/event/eventRegist">웰스 한 달 무료 체험</a></button>
+                </div>
+                <div id="event-font1">
+                    <h1>하이스 커피의 머신을 한 달 동안 체험해 보세요.</h1>
+                    <h1>당신의 오피스에 특별한 경험을 만끽하세요.</h1>
+                </div>
+                <div class="event-font2">
+                    <a href="/event/eventRegist"><button type="submit" class="button1">한달 무료 체험하기</button></a>
+                </div>
+                <div id="event-font3">
+                    <img src="/images/신청절차.png">
+                </div>
+                <div id="event-font4">
+                    <ul>
+                        <div id="event-box">
+                            <div class="event1">
+                                <li class="event1-1"><b>주의사항</b></li>
+                            </div>
+                            <div class="event2">
+                                <li class="event2-1">1 MONTH EXPERIENCE 선정 결과는 내부 심사 후 개별 연락 드립니다.<br>
+                                신청 항목에 대한 답변과 사업자등록증 제출이 필요합니다. (법인 고객에 한하며, 개인 고객은 신청하실 수 없습니다.)</li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+	<div th:replace="main/footer.html"></div>
+</body>
+</html>
