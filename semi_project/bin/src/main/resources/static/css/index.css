@@ -24,6 +24,7 @@ a {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 /* 왼쪽 상단 메뉴*/
 #header-menu1 {
@@ -78,16 +79,20 @@ a {
 }
 /* 메뉴 바 */
 nav {
-    /* background-color: yellowgreen; */
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    /* border-bottom: 1px solid black;  */
     margin-top: 20px;
+    
 }
+
+.nav {
+	border-bottom: 1px solid black;
+}
+
+
 #menu {
     margin: 0px auto;
-    /* background-color: rgb(184, 213, 130); */
     width: 1600px;
 }
 #menulist li{
@@ -178,11 +183,14 @@ nav {
   .menulist2>li {
     position: relative;
   }
-/* 퀵메뉴 */
+  
+  
+/* 오른쪽 퀵메뉴 */
+
 .quickmenu {
     position: absolute;
     width: 150px;
-    top: 0;
+    top: 100px;
     /* margin-top: -50px; */
     right: 0;
     background: #fff;
@@ -260,13 +268,91 @@ a {
     align-items: center;
     justify-content: space-between;
 }
+
+/* 왼쪽 퀵 메뉴*/
+.quickmenu1 {
+    position: absolute;
+    width: 150px;
+    top: 70px;
+    /* margin-top: -50px; */
+    /* right: 0; */
+    /* background: #fff; */
+}
+/* .quickmenu1 ul {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    *display: inline;
+    border: 5px solid rgb(121, 89, 89);
+    border-radius: 100px;
+} */
+
+.quickmenu1 ul li {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    display: inline-block;
+    *display: inline;
+}
+.quickmenu1 ul li a {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+    font-size: 9.5pt;
+}
+
+.quick-font{
+	text-align: center;
+}
+
+.quick-font a{
+    font-size: 17pt;
+    
+    color: rgb(121, 89, 89);
+}
+.quickmenu1 ul li a:hover {
+    color: #000;
+}
+.quickmenu1 ul li:last-child {
+    border-bottom: 0;
+}
+.content {
+    position: relative;
+    min-height: 1000px;
+}
+div,
+ul,
+li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.quickmenu1 ul li img{
+    height: 130px;
+    width: 130px;
+    border-radius: 100px;
+    border: 10px solid rgb(121, 89, 89);
+    
+}
+
+
 /* 메인 내용 */
 #main {
     /* background-color: rgb(172, 167, 167); */
     height: 100%;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid black;
+    
 }
 #main-section {
     width: 1600px;
@@ -280,6 +366,7 @@ a {
     display: flex;
     justify-content: center;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
 #foot-section {
     /* background-color: rgb(73, 73, 178); */
@@ -328,4 +415,102 @@ a {
 #information li{
 	margin-left: 10px;
 	
+}
+
+/* ---------------------------------------------------------------- */
+/* section 부분 */
+#rolling {
+  width: 1600px;
+  margin: 0 auto;
+  background-color: red;
+  margin-top: 50px;
+}
+#membership{
+  width: 1400px;
+  height: 336px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#member-event img{
+  width: 650px;
+  margin: 0 auto;
+  float: left;
+}
+#review-event img{
+  width: 650px;
+  margin: 0 auto;
+  float: right;
+}
+#best-item{
+  width: 1400px;
+  margin: 0 auto;
+  background-color: yellow;
+  margin-top: 50px;
+  /* float: left; */
+  display: flex;
+}
+#best-item1{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: blue;
+  margin-top: 50px;
+  /* float: left; */
+}
+#best-item2{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: skyblue;
+  margin-top: 50px;
+}
+#best-item3{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgb(35, 35, 80);
+  margin-top: 50px;
+}
+#best-review{
+  width: 1400px;
+  margin: 0 auto;
+  background-color: yellow;
+  margin-top: 50px;
+  /* float: left; */
+  display: flex;
+}
+#best-review1{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: blue;
+  margin-top: 50px;
+  /* float: left; */
+}
+#best-review2{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: skyblue;
+  margin-top: 50px;
+}
+#best-review3{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgb(35, 35, 80);
+  margin-top: 50px;
+}
+
+#youtube {
+	width: 1600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#youtube iframe{
+	text-align: center;    
+    width: 1400px;
+    height: 700px;
+    margin-top: 5%;
 }
