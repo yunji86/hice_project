@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.greedy.coffee.best.dto.BeansDTO;
 import com.greedy.coffee.best.service.BestService;
 import com.greedy.coffee.common.Pagenation;
 import com.greedy.coffee.common.PagingButtonInfo;
+import com.greedy.coffee.product.dto.ProDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,10 +36,10 @@ public class BestController {
 		log.info("page : {}", page);
 		log.info("searchValue : {}", searchValue);
 		
-		Page<BeansDTO> bestList = bestService.selectBestList(page, searchValue);
+		Page<ProDTO> bestList = bestService.selectBestList(page, searchValue);
 		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(bestList);
 		
-		log.info("beanList : {}", bestList.getContent());
+		log.info("bestList : {}", bestList.getContent());
 		log.info("paging : {}", paging);
 
 		model.addAttribute("bestList", bestList);
@@ -48,6 +48,7 @@ public class BestController {
 		if(searchValue != null && !searchValue.isEmpty()) {
 			model.addAttribute("searchValue", searchValue);
 		}
+		
 		
 		return "best/bestList";
 	}
