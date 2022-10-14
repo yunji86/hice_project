@@ -51,7 +51,7 @@
                     </div>
                 </form>
                 
-             				<form th:action="@{/notice/delete}" method="post">
+             				<form th:action="@{/notice/noticeDelete}" method="post">
 				           	 <input type="hidden" name="notCode" th:value="${notice.notCode}"/>
 				           	 <button type="submit" class="notDelete">삭제</button>
 			           	 </form>

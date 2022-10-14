@@ -128,7 +128,7 @@ public class NoticeController {
 	}
 	
 	
-	@PostMapping("/delete")
+	@PostMapping("/noticeDelete")
 	public String noticeDelete(Long notCode, RedirectAttributes rttr) {
 		
 		log.info("[NoticeController] noticeDelete ==============================");
