@@ -38,64 +38,7 @@
         </ul>
       </nav>
     </div>
-    <!--왼쪽 퀵메뉴 스크롤 -->
-    <script>
-        $(document).ready(function () {
-            var currentPosition = parseInt($(".quickmenu1").css("top"));
-            $(window).scroll(function () {
-                var position = $(window).scrollTop();
-                $(".quickmenu1").stop().animate({
-                    // top : position + currentPosition + "px"
-                    top: position + "px"
-                    // top : 140
-                }, 1200);
-            });
-        });
-    </script>
-    <!-- 왼쪽 퀵메뉴 -->
-    <div class="quickmenu1">
-        <ul>
-            <li><img src="/images/웰스.png"><a href="/event/eventPage"></a></li>
-            
-        </ul>
-        <li class="quick-font"><a href="/event/eventPage"><b>커피머신한달 무료체험</b></a></li>
-    </div>
     
-    <!-- 오른쪽 퀵 메뉴 스크롤 -->
-    <script>
-        $(document).ready(function () {
-            var currentPosition = parseInt($(".quickmenu").css("top"));
-            $(window).scroll(function () {
-                var position = $(window).scrollTop();
-                $(".quickmenu").stop().animate({
-                    // top : position + currentPosition + "px"
-                    top: position + "px"
-                    // top : 140
-                }, 1000);
-            });
-        });
-    </script>
-    <!-- 오른쪽 퀵 메뉴 -->
-    <div class="quickmenu">
-        <ul>
-            
-            <li><a href="/notice/noticeList">공지사항</a></li>
-            <li><a href="/event/eventPage">이벤트</a></li>
-            <li><a href="/board/qna/qna.html">상품문의</a></li>
-            <li class="buy-review"><a href="/board/review/review.html">구입후기</a></li>
-            <li><a href="#">적립금</a></li>
-            <li><a href="#">장바구니</a></li>
-            <li><a href="#">주문조회</a></li>
-            <li class="shipping-check"><a href="#">배송조회</a></li>
-            <h4>CALL CENTER</h4>
-            <h3>070-1234-5678</h3>
-            <h6 class="call-center">평일 : AM10시 ~ PM18시<br>
-                점심 : PM12시 ~ PM13시<br>
-                토, 일, 공휴일은 휴무입니다.</h6>
-            <h4>BANK ACCOUNT</h4>
-            <h4>123-4567-9811-05</h4>
-            <h5>KB국민 / 하이스커피</h5>
-        </ul>
-    </div>
+    
 </body>
 </html>
