@@ -69,10 +69,13 @@ public class NoticeService {
 		savedNotice.setNotContent(noticeModify.getNotContent());
 	}
 
-	public void removeNotice(NoticeDTO notice) {
 
-		Notice savedNotice = noticeRepository.findByNotCode(notice.getNotCode());
-		savedNotice.setNotStatus("N");
+	public void deleteNot(Long notCode) {
+		
+		Notice notice = noticeRepository.findByNotCode(notCode);
+		
+		notice.setNotStatus("N");
+		
 	}
 	
 }

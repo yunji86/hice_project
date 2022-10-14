@@ -55,7 +55,10 @@
 			
 						 <div class="button4">   
 							   <button th:onclick="|location.href='/review/edit?revCode=${ revBoard.revCode }'|">수정</button>
-							   <input type="button" value="삭제" id="deleteRev">
+							   <form th:action="@{/review/delete}" method="post">
+									 <input type="hidden" name="revCode" th:value="${ revBoard.revCode }"/>
+									 <button type="submit" class="revDelete">삭제</button>
+							  </form>
 						 	
 						 		 
 						 
@@ -176,7 +179,7 @@
 		 
 		 	/* 좋아요 */
 		 	
-		 	const 
+		 	
 		 	
 		 	
 		</script>

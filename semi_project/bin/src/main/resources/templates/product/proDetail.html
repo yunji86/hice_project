@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8" />
+     <link rel="stylesheet" th:href="@{/css/index.css}">	  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/product.js}"></script>
+	<script>
+	    const message = '[[${message}]]';
+	    message && alert(message);
+	</script> 
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+	
+    <h2 align="center">상품 디테일</h2>
+    <table class="proDetail" align="center">
+    	<tr>
+    		<td>상품명</td>
+    		<td th:text="${ product.proName }"></td>
+   		<tr>
+   		<tr>
+   			<td>종류</td>
+   			<td th:text="${ product.proType }"></td>
+		</tr>
+		<tr>
+			<td>가격</td>
+			<td th:text="${ product.proPrice }"></td>
+		</tr>
+		<tr>
+			<td>상품설명</td>
+			<td th:text="${ product.proContent }"></td>
+		</tr>
+		<tr>
+			<td>썸네일</td>
+			<td>
+				<div id="titleImgArea" align="center">
+					<th:block th:if="${ product.fileList[0].fileThumPath != null }">
+						<img width="500" height="300"
+							th:src="${ product.fileList[0].fileThumPath }"/>
+						<br>
+					</th:block>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><button type="button" th:onclick="'location.href=\'/product/cart\''">장바구니</button></td>
+			<td><button type="button" th:onclick="'location.href=\'/product/pay\''">결 제</button></td>
+  	  		
+    </table>
+    
+    <div align="center">
+  	  <button th:onclick="|location.href='/product/modify/${product.proCode}'|">수정</button>
+	    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div th:replace="main/section.html"></div>
+    <div th:replace="main/footer.html"></div>
+</body>
+</html>

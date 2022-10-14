@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<script type="text/javascript" th:src="@{/js/product.js}"></script>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	  
+            <h1 align="center">상품 등록</h1>
+            	<div class="pro-create">
+     <fieldset>
+   	<legend align="center">상품 등록</legend>
+   	
+   	<form id="ProRegistForm" th:action="@{/product/newPro}" method="post" enctype="multipart/form-data">
+   	<table align="center">
+   		<tr>
+   			<td>상품명 : </td>
+   			<td><input type="text" name="proName"></td>   			
+   		</tr>
+		<tr>
+			<td>상품 구분 : </td>
+			<td><select name="proType">
+					<option>유리컵</option>
+					<option>커피원두</option>
+					<option>커피머신</option>
+				</select>
+			</td>
+		</tr>
+   		<tr>
+   			<td>상품 가격 : </td>
+   			<td><input type="number" name="proPrice"></td>
+  		</tr>
+  		<tr>
+  			<td>상품 설명 : </td>
+  			<td><textarea rows="15" cols="25" name="proContent"></textarea><td>
+ 		<tr>	
+		<tr>
+         	<td>사진을 올려주세요(선택)</td>
+          	<td>
+          		<div class="image-area">
+          			<img style="width: 100px; height: 100px;">      			
+          		</div>
+          	</td>
+          	<td>
+          		<div class="image-area">
+          			<img style="width: 100px; height: 100px;">
+          		</div>
+          	</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="상품 등록"></td>
+			<td><input type="reset" value="취 소"></td>
+		</tr>
+   	</table>
+   	
+	<div class="thumbnail-file-area" style="display: none;">
+      	<input type="file" name="proFile"
+    	accept="image/gif,image/jpeg,image/png"> 	
+   		<input type="file" name="proFile"
+   		accept="image/gif,image/jpeg,image/png">
+      					
+     </div>	
+   	</form>
+   </fieldset>
+				        		        			  
+			 </div>
+			      
+	 <div th:replace="main/footer.html"></div>
+</body>
+</html>
