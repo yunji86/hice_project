@@ -55,15 +55,16 @@ public class RevBoardService {
 		return revBoardList.map(Board -> modelMapper.map(Board, RevBoardDTO.class));
 	}
 
+
 	public void createRevBoard(RevBoardDTO revBoard) {
-		
 		
 		revBoardRepository.save(modelMapper.map(revBoard, RevBoard.class));
 	}
 
 	public RevBoardDTO RevBoardView (Long revCode) {
+		
 		RevBoard revBoard = revBoardRepository.findByRevCode(revCode);
-
+		revBoard.setRevCount(revBoard.getRevCount() + 1);
 		return modelMapper.map(revBoard, RevBoardDTO.class);
 	}
 
@@ -79,7 +80,7 @@ public class RevBoardService {
 	public void deleteRev(Long revCode) {
 		
 		RevBoard savedRevBoard = revBoardRepository.findByRevCode(revCode);
-		
+	
 		savedRevBoard.setRevStatus("N");
 		
 	}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https//www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}">	  
+    <link rel="stylesheet" th:href="@{/css/notice.css}">	  
+
+    <script>
+        const message = '[[${message}]]';
+		message && alert(message);
+    </script>
+    
+<title>Hice Coffee</title>
+</head>
+
+<body>
+ 
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+		
+		<div class="outer-event-list" style="margin-top: 100px;">
+			
+			<h1 align="center">이벤트 신청 목록</h1>
+				<div class="table-area" style="text-align: center">
+					<table id="eventListArea" style="margin: auto;">
+						<tr>
+							<th style="width: 100px">신청 번호</th>
+							<th style="width: 100px">회원 아이디</th>
+							<th style="width: 100px">신청 날짜</th>	
+					</table>
+				</div>
+		
+		</div>	
+   
+          
+                
+
+
+     <div th:replace="main/section.html"></div>
+    <div th:replace="main/footer.html"></div>
+</body>
+<footer>
+    
+</footer>
+
+</html>

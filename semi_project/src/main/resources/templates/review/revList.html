@@ -12,15 +12,16 @@
 </script>
 </head>
 <body>
-	<div th:replace="main/header.html"></div>
+		<div th:replace="main/header.html"></div>
+		<div th:replace="main/article.html"></div>
+		<div th:replace="main/nav.html"></div>
 	      <div class="review-tb">
                <h1>PHOTO REVIEW</h1>
 	           
 	            <div class="box" align="center">
-		            <a>필터</a>
-		            <a href="/board/review/review.html">전체목록</a>
-		            <a href="/board/review/rev_photo.html">포토리뷰</a>
-		            <a href="/board/review/rev_best.html">베스트리뷰</a>
+		            <a href="review/list">전체목록</a>
+		            <a href="review/list">포토리뷰</a>
+		            <a href="#">베스트리뷰</a>
            		
            		<form id="rev-searchForm" th:action="@{/review/list}" method="get" >
 	           		<th:block th:if="${ revSearchValue != null }">
@@ -52,7 +53,7 @@
 	            				<p>
 	            					No. <label th:text="${ revBoard.revCode }"></label>
 	            					<span th:text="${ revBoard.revTitle }"></span><br>
-	            					좋아요 : 
+	            					조회수 : <label th:text="${ revBoard.revCount }"></label> 
 	            				</p>
 	            			</div>	
 	            		</th:block>	 		 
@@ -123,6 +124,7 @@
         			>> </button>
         	</th:block>	    
         </div>
-     <div th:replace="main/footer.html"></div>   
+    
+    <div th:replace="main/footer.html"></div>   
 </body>
 </html>
