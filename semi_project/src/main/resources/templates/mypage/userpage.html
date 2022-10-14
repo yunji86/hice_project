@@ -7,6 +7,7 @@
      <link rel="stylesheet" th:href="@{/css/userPage.css}">		  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" th:src="@{/js/event.js}"></script>
+    <script type="text/javascript" th:src="@{/js/mypage.js}"></script>
 	<script>
 	    const message = '[[${message}]]';
 	    message && alert(message);
@@ -27,7 +28,7 @@
                 <div class="myPage1">
                     <img src="../images/memberPage-icon-user.png" alt="user아이콘" class="iconImg">
 <pre>
-안녕하세요. <b>user01 </b> 회원님 
+안녕하세요. <b><span sec:authentication="principal.memName"></span></b> 회원님 
                             
 저희 하이스커피를 이용해 주셔서 감사합니다.
 </pre>
@@ -47,28 +48,30 @@
                 <h5><span style="color : rgb(182, 0, 0);">*</span> 필수 입력사항</h5>
             </div>
           
-            <form th:action="@{/member/update}" method="post">
+            <form th:action="@{/mypage/update}" method="post">
                 <table align="center" id="myInfoTable" >
                     <tr>
                         <td class="infoTd1"> 아이디 </td>
-                        <td class="infoTd2"> user 01</td>
+                        <td class="infoTd2"> <p th:text="${ #authentication.principal.memId }"></p></td>
                     </tr>
-                    <tr>
                         <td class="infoTd1"> 비밀번호 <span style="color : rgb(182, 0, 0);">*</span></td>
-                        <td class="infoTd2"><input type="password" name="pass" equired="required"></td>
+                        <td class="infoTd2">나중에 비번수정만들어야징</td>
+                   <!--  <tr>
+                        <td class="infoTd1"> 나중에 비번수정만들어야징 <span style="color : rgb(182, 0, 0);">*</span></td>
+                        <td class="infoTd2"><input type="password" name="pass" equired="required">나중에 비번수정만들어야징</td>
                 
                     </tr>
                     <tr>
                         <td class="infoTd1">비밀번호 확인 <span style="color : rgb(182, 0, 0);">*</span> </td>
                         <td class="infoTd2"><input type="password"  name="checkPass" equired="required"></td>
                     
-                    </tr>
+                    </tr> -->
                     
                     <tr>
                         <td class="infoTd1">이름 </td>
-                        <td class="infoTd2">추만수</td>
+                        <td class="infoTd2"><input type="text" name="memName" th:value="${ #authentication.principal.memName }"></p></td>
                      
-                    </tr>
+                     </tr>
                     <tr>
                         <td class="infoTd1">연락처 <span style="color : rgb(182, 0, 0);">*</span>  </td>
                         <td class="infoTd2">
@@ -84,25 +87,24 @@
                          - <input type="text" name="cellphone3" size="10" maxlength="4" equired="required">
                         </td>
                         
-                    </tr>
+                    </tr> 
                     <tr>
                         <td class="infoTd1">생년월일  </td>
-                        <td class="infoTd2"><input type="date"></td>
-                        
+                        <td class="infoTd2"><input type="text" name="memDate" th:value="${ #authentication.principal.memDate }"></td>
                     </tr>
-                    <tr>
+                     <tr>
                         <td class="infoTd1">이메일 <span style="color : rgb(182, 0, 0);">*</span> </td>
-                        <td class="infoTd2"> <input type="text" name = "email1" size="30" required="required"> </td>
-                    </tr>
+               		    <td class="infoTd2"><input type="text" name="memEmail" th:value="${ #authentication.principal.memEmail }"></td>
+                    </tr> 
                 </table>
 
                 <br>
                 <div class="infoBtnDiv">
                     <div class="infoBtnDiv1" align="center">
-                        <input type="submit" class="my_color_btn" value="내 정보 수정" id="infoBtn1">
+                        <input type="submit" class="my_color_btn" value="내 정보 수정" id="updateMember">
                         <input type="reset"class="my_border_btn" value="취소" id="infoBtn2">  
                     </div>
-                    <input type="button"  class="my_border_btn" value="회원탈퇴" id="infoBtn3">
+                    <input type="button"  class="my_border_btn" value="회원탈퇴" id="deleteMember">
                 </div>
                 
            
