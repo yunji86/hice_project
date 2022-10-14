@@ -46,12 +46,13 @@ public class File {
 	@Column(name = "REV_CODE")
 	private Long revCode;
 	
+	@Column(name = "RE_PRO_CODE")
+	private Long proCode;
+	
 	@Column(name = "FILE_THUM_NAME")
 	private String fileThumName;
 	
 	@Column(name = "FILE_THUM_PATH")
 	private String fileThumPath;
 	
-//	@Column(name = "PRO_CODE")
-//	private Product proCode;
 }

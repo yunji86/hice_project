@@ -11,9 +11,9 @@ public class FileDTO {
 	private String filePath;
 	private String fileStatus;
 	private String fileType;
-	private Long revCode;	
+	private Long revCode;
+	private Long proCode;
 	private String fileThumName;
 	private String fileThumPath;
-	//private ProDTO proCode;
 	
 }

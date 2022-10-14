@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<script type="text/javascript" th:src="@{/js/product.js}"></script>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	      <div class="outer product-list">                    
+            <h1 align="center">PRODUCT</h1>
+                     
+            <form id="rev-searchForm" th:action="@{/product/proList}" method="get" align="center">
+           		<th:block th:if="${ proSearchValue != null }">
+           			<input type="search" id="proSearchValue" name="proSearchValue"
+           				th:value="${ proSearchValue }">
+           		</th:block>
+           		<th:block th:if="${ proSearchValue == null }">
+           			<input type="search" id="proSearchValue" name="proSearchValue">
+           		</th:block>
+           		<button class="pro-button" type="submit">검색</button>	
+           	</form>	
+                  
+                  <h1 align="center">상품</h1>       
+            <th:block th:each="product : ${ productList }">
+				<div class="pro-list" align="center" style="margin: 20px; cursor:pointer;"
+				     th:onclick="|location.href='/product/detail/${product.proCode}'|">
+					
+					 <div>
+						<th:block th:each="proList : ${ product.fileList }">						
+							<img th:if="${ proList.fileType == 'PROFILE' }" 
+							th:src="${proList.FileThumPath}" width="300px" height="300px" >	
+				
+						</th:block>
+					</div> 
+									
+					<p>
+						상품명 :<label th:text="${ product.proName }"></label><br> 
+						금액 :<label th:text="${ product.proPrice }"></label><br> 
+					</p>
+					
+					
+				</div>
+			</th:block>
+		</div>
+		
+		<div id="paging" align="center">
+			<!-- 맨 앞으로 이동 -->
+			<button
+				th:onclick="'location.href=\'/product/proList?page=' + @{${paging.startPage}} + '\''">&lt;&lt;</button>
+
+			<!-- 이전 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/product/proList?page=' + @{${paging.currentPage - 1}} + '\''"
+				th:disabled="${ productList.first }">&lt;</button>
+
+			<!-- 숫자 버튼 -->
+			<th:block
+				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+				<button
+					th:onclick="'location.href=\'/product/proList?page=' + @{${page}} + '\''"
+					th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+				</button>
+			</th:block>
+
+			<!-- 다음 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/product/proList?page=' + @{${paging.currentPage + 1}} + '\''"
+				th:disabled="${ productList.last }">></button>
+
+			<!-- 맨 끝으로 이동 -->
+			<button
+				th:onclick="'location.href=\'/product/proList?page=' + @{${paging.endPage}} + '\''">>></button>
+			</th:block>
+		</div>
+		
+		<div class="search-area" align="center" style="margin-top: 20px;">
+			<!-- 로그인 한 경우에만 버튼이 보여짐 -->
+			<th:block sec:authorize="isAuthenticated()">
+				<button id="writeBoard">작성하기</button> 
+			</th:block>
+		</div>
+		
+     <div th:replace="main/footer.html"></div>   
+</body>
+</html>
