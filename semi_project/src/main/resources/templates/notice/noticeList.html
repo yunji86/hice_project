@@ -37,24 +37,13 @@
             <div id="notice-section">
                 <h1 align="center">공지 사항 게시판</h1>
                 <!-- 캡션 추가 BY JAYTEE-->
-<<<<<<< HEAD
+               <th:block sec:authorize="hasRole('ADMIN')">
                 <div id="notice-btn-box">
                     <div id="notice-btn1" onclick="location.href = './noticeRegist'">
                         공지 사항 등록
                     </div>
-                    <!-- <br><br><br><br> -->
                 </div>
-=======
-                
-                <th:block sec:authorize="hasRole('ADMIN')">
-                <div id="notice-btn-box">
-                    <div id="notice-btn1" onclick="location.href = './noticeRegist'">
-                        공지 사항 등록
-                    </div>
-                    <!-- <br><br><br><br> -->
-                </div>
-                </th:block>>
->>>>>>> refs/remotes/origin/Zoo
+                </th:block>
                 <div id="notice-potn">
                     <table border="1">
 

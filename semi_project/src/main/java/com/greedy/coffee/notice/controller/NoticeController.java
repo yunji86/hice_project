@@ -114,39 +114,6 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/noticeModify")
-
-	public String noticeModify(@ModelAttribute NoticeDTO noticeModify,
-			@AuthenticationPrincipal NoticeDTO notice, RedirectAttributes rttr) {
-		
-		noticeModify.setNotCode(notice.getNotCode());
-		
-		log.info("[MemberController] modifyMember request Member : {}", noticeModify);
-		
-		noticeService.modifyMember(noticeModify);
-		
-		rttr.addFlashAttribute("message", messageSourceAccesor.getMessage("notice.modify"));
-		
-		log.info("[MemberController] modifyMember ==============================");
-		
-		return "redirect:/";
-	}
-	
-	
-	@GetMapping("/noticeDelete")
-	public String noticeDelete(NoticeDTO notice, RedirectAttributes rttr) {
-		
-		log.info("[NoticeController] noticeDelete ==============================");
-		log.info("[NoticeController] notice : " + notice);
-		
-		noticeService.removeNotice(notice);
-		
-		rttr.addFlashAttribute("message", messageSourceAccesor.getMessage("notice.delete"));
-		
-		log.info("[NoticeController] noticeDelete ==============================");
-		
-		return "redirect:/";
-	}
-
 	public String noticeModify(@ModelAttribute NoticeDTO noticeModify, RedirectAttributes rttr) {
 		
 		log.info("[MemberController] modifyMember request Member : {}", noticeModify);
@@ -159,9 +126,25 @@ public class NoticeController {
 		
 		return "redirect:/notice/noticeList";
 	}
-
 	
-
-
+	
+	@PostMapping("/noticeDelete")
+	public String noticeDelete(Long notCode, RedirectAttributes rttr) {
+		
+		log.info("[NoticeController] noticeDelete ==============================");
+		log.info("[NoticeController] notice : " + notCode);
+		
+		noticeService.deleteNot(notCode);
+		
+		rttr.addFlashAttribute("message", messageSourceAccesor.getMessage("notice.delete"));
+		
+		log.info("[NoticeController] noticeDelete ==============================");
+		
+		return "redirect:/notice/noticeList";
+	}
+	
+	// 레지스트에서 취소 버튼이 안됨.
+	// 삭제하면 오류는 안나는데, 아무것도 이뤄지지 않음. 
+	// 리스트에 페이징바 만들어야 함.(html)
 
 }
