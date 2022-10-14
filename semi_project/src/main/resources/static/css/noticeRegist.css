@@ -93,3 +93,18 @@ h1{
 	height: 500px;
 	margin-top: 20px;
 }
+
+.notDelete{
+	margin-bottom: 5px;
+  background-color: white;
+  vertical-align: middle;
+  color: #593521;
+  width: 150px;
+  height: 40px;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid rgb(115, 114, 114);
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
+}

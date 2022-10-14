@@ -37,7 +37,11 @@
     <div id="notice-main">
             <div id="notice-section">
                 <h1 align="center">공지 사항 수정 / 삭제</h1>
+                	<div>
+                
+                
                 <form id="noticeRegistForm" th:action="@{/notice/noticeModify}" method="post">
+                
                     <input type="hidden" name="notCode" th:value="${ notice.notCode }">
                     <div class="title-box">
                     <div class="textArea1">
@@ -49,12 +53,14 @@
                     </div>
                     <div class="notice-btn-box-bottom">
                         <button type="submit" id="btnForChange" >수정</button>
+                        
                     </div>
                 </form>
-             				<form th:action="@{/notice/noticeDelete}" method="post">
+             				<form th:action="@{/notice/noticeDelete}" method="post" style="text-align: center;">
 				           	 <input type="hidden" name="notCode" th:value="${notice.notCode}"/>
 				           	 <button type="submit" class="notDelete">삭제</button>
 			           	 </form>
+                </div>
             </div>
         </div>
         
@@ -68,7 +74,6 @@
     	
     </script>
     
-	<div th:replace="main/section.html"></div>
     <div th:replace="main/footer.html"></div>
 
 </body>

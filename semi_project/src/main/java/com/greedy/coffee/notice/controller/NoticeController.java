@@ -98,7 +98,7 @@ public class NoticeController {
 		log.info("[NoticeController] ========================================= ");
 		log.info("[MemberController] MemberRegist request : {}", member);
 		
-		if(member.getMemRole().equals("ROLE_ADMIN")) {
+		if(member != null && member.getMemRole().equals("ROLE_ADMIN")) {
 			
 			return "notice/noticeModify";
 		}
@@ -144,6 +144,8 @@ public class NoticeController {
 	}
 	
 	// 디테일 css
+	// 공지사항 수정/삭제 시 삭제버튼 css
+	// 공지사항 등록 시 내용 창의 커서
 	// 리스트에 페이징바 만들어야 함.(html)
 
 }
