@@ -47,16 +47,14 @@
                        <label class="areaLabel">내용</label> <input class="areaInput2" name="notContent" type="text" th:value="${ notice.notContent }">
                         </div>
                     </div>
-                    <div class="notice-btn-box-bottom" >
-                        <button type="submit" id="btnForChange">수정</button>
-                        <form th:action="@{/notice/noticeDelete}" method="post">
+                    <div class="notice-btn-box-bottom">
+                        <button type="submit" id="btnForChange" >수정</button>
+                    </div>
+                </form>
+             				<form th:action="@{/notice/noticeDelete}" method="post">
 				           	 <input type="hidden" name="notCode" th:value="${notice.notCode}"/>
 				           	 <button type="submit" class="notDelete">삭제</button>
 			           	 </form>
-                    </div>
-                </form>
-                
-             				
             </div>
         </div>
         
