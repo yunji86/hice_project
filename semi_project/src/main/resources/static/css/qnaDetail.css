@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+#qna-main {
+    /* background-color: rgb(172, 167, 167); */
+    
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 1px solid black; */
+    margin-bottom: 50px;
+  }
+  
+  #qna-section {
+    width: 1600px;
+    /* height: 1000px; */
+    margin: 0 auto;
+    /* background-color: rgb(203, 203, 142); */
+  }
+
+  #qna-potn{
+    width: 1400px;
+    margin: 0 auto;
+    /* background-color: pink; */
+    margin-top: 10px;
+  }
+
+
+h1 {
+    font-size: xxx-large;
+    text-align: center;
+}
+
+#qna-btn1{
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    /* float: right; */
+    border: 2px solid rgb(115, 114, 114);
+    text-align: center;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    margin-left: 1248px;
+}
+
+#qna-btn-box {
+    width: 1400px;
+    margin: 0 auto;
+    background-color: red;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+  }
+
+
+  table{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-collapse: collapse;
+    
+  }
+
+
+  table tr{
+    text-align: center;
+  }
+  
+  .qna-tr{
+    background-color:rgb(121, 89, 89);
+    color: white;
+    height: 30px;
+  }
+
+  .qna-tr td{
+    /* text-align: center; */
+    border: none;
+  }
+
+  .qna-td1{
+    width: 100px;
+  }
+
+  .qna-td2{
+    width: 1000px;
+  }
+
+  .qna-td3{
+    width: 150px;
+  }
+
+  .qna-td4{
+    width: 150px;
+  }
+
+  .qna-tr1 td{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid black;
+    height: 30px;
+  }
+
+  
+  
