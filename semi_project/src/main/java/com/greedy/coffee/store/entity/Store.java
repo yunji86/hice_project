@@ -2,7 +2,6 @@ package com.greedy.coffee.store.entity;
   
   
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
-import com.greedy.coffee.best.entity.BeansList;
+import com.greedy.coffee.best.entity.Beans;
 import com.greedy.coffee.member.entity.Member;
 
 import lombok.Getter;
@@ -64,9 +62,9 @@ public class Store {
   @JoinColumn(name = "MEM_ID")
   private Member memId;
   
-  @OneToMany
-  @JoinColumn(name = "STO_CODE")
-  private List<BeansList> beansList;
+  @ManyToOne
+  @JoinColumn(name = "BEAN_CODE")
+  private Beans bean;
   
   
 }

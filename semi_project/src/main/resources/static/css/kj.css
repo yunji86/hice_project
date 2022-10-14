@@ -115,14 +115,18 @@
     height: auto;
 }
 
-.storeUnder {
+/*.storeUnder {
     width: 1000px;
     color: brown;
-}
+}*/
 
 .storeHeader {
     margin-top: 50px;
     text-align: center;
+}
+
+.searchForm {
+	margin-bottom: 30px;
 }
 
 .headerSearch>p{
@@ -149,6 +153,9 @@
     display: flex;
 }
 
+.storeResult {
+	margin-bottom: 10px;
+}
 
 .storeMain>a {
     background-color: white;
