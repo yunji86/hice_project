@@ -51,9 +51,9 @@ public class Event {
 	@Column(name = "EVE_ROUTE")
 	private String eveRoute;
 	
-	@ManyToOne
-	@JoinColumn(name = "MEM_ID")
-	private Member memId;
+	
+	@Column(name = "MEM_ID")
+	private String memId;
 	
 	@Column(name = "EVE_DATE")
 	private Date eveDate;

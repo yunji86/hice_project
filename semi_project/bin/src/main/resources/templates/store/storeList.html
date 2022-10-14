@@ -58,6 +58,7 @@
 					<tr id="storeBody" class="storeBody" th:each="store : ${ storeList }">
 						<td th:text="${ store.stoCode }"></td>
 		                <td th:text="${ store.stoName }"></td>
+		                <td th:text="${ store.bean.beanName }"></td>
 		                <td th:text="${ store.stoAdd }"></td>
 		                <td th:text="${ store.memId.memName }"></td>
 					</tr>
