@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+#event-main {
+    /* background-color: rgb(172, 167, 167); */
+    
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 1px solid black; */
+    margin-bottom: 50px;
+  }
+  
+  #event-section {
+    width: 1600px;
+    /* height: 1000px; */
+    margin: 0 auto;
+    /* background-color: rgb(203, 203, 142); */
+  }
+
+
+
+h1 {
+    font-size: xxx-large;
+}
+
+#notice-btn1{
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    /* float: right; */
+    border: 2px solid rgb(115, 114, 114);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 1248px;
+}
+
+#notice-btn-box {
+    width: 1400px;
+    margin: 0 auto;
+    /* background-color: red; */
+    margin-top: 50px;
+    
+  }
+
+  #table-area{
+    width: 1400px;
+    margin: 0 auto;
+    /* background-color: pink; */
+    margin-top: 10px;
+  }
+
+  table{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-collapse: collapse;
+    
+  }
+
+
+  table tr{
+    text-align: center;
+  }
+  
+  .admin-eve-tr{
+    background-color:rgb(121, 89, 89);
+    color: white;
+    height: 30px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid black;
+    height: 30px;
+  }
+
+  .admin-eve-tr td{
+    /* text-align: center; */
+    border: none;
+  }
+
+  .dmin-eve-td1{
+    width: 100px;
+  }
+
+  .dmin-eve-td2{
+    width: 1000px;
+  }
+
+  .dmin-eve-td3{
+    width: 150px;
+  }
+
+  .dmin-eve-td4{
+    width: 150px;
+  }
+
+ 
+  
+  

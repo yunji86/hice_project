@@ -4,18 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/section.css}">
     <title>Document</title>
-
-    <link rel="stylesheet" href="/main/header.css">
-    <link rel="stylesheet" href="/main/main.css">
-    <link rel="stylesheet" href="/main/common.css">
     
 </head>
 <body>
+	<!-- 슬라이드 배너 쿼리문 -->
+	
+	<script>
+        let interval;
+        let activeIndex = 1;
+
+        $(document).ready(function () {
+            interval = setInterval(changeActiveIndex, 2500);
+            $('.list-button-item').on('click', function () {
+                // list button의 색상 변경
+                const index = $(this).index();
+                activeIndex = index;
+                changeActiveIndex();
+                clearInterval(interval);
+                // animation 재설정을 위해 animation을 잠시 제거한다.
+                $('.banner').css('animation', 'none');
+                // animation 재설정
+                $('.banner').animate({ marginLeft: `${-100 * index}%` }, 1, function () {
+                    //1초의 시간 여유(해당 이미지로 이동하는 animation을 위한 시간)를 두고 다시 animation을 설정한다.
+                    setTimeout(function () {
+                        $('.banner').css('animation', `animation${index + 1} 10s infinite`)
+
+                        interval = setInterval(changeActiveIndex, 2500);
+                    }, 1000)
+                })
+            })
+        })
+        function changeActiveIndex() {
+            if (activeIndex > 3) {
+                activeIndex %= 4;
+            }
+            changeActiveBtn();
+            activeIndex += 1;
+        }
+        function changeActiveBtn() {
+            $('.list-button-item').removeClass('active');
+            $(`.list-button span:eq(${activeIndex})`).addClass('active');
+        }
+    </script>
+	
    <div th:fragment="Fragment" class="section">
         <div id="main">
             <div id="main-section">
-				<h2 align="center">HI</h2>
+            <!-- 롤링 배너 만들기 -->
+                <div id="rolling">
+                    <div class="banner-container">
+                    <div class="banner">
+                        <div data-index=1><a href="#">
+                        <img src="/images/상품게시판1.jpg">
+                        </a></div>
+                        <div data-index=2><a href="#">
+                        <img src="/images/상품게시판.jpg">
+                        </a></div>
+                        <div data-index=3><a href="/event/eventPage">
+                        <img src="/images/이벤트게시판.jpg">
+                        </a></div>
+                        <div data-index=4><a href="#">
+                        <img src="/images/매장찾기.jpg">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="list-button">
+                    <span class="list-button-item active"></span>
+                    <span class="list-button-item"></span>
+                    <span class="list-button-item"></span>
+                    <span class="list-button-item"></span>
+                </div>
+                </div>
+                <div id="membership">
+                    <div id="member-event">
+                        <a href="/member/login"><img src="/images/적립금.jpg"></a>
+                    </div>
+                    <div id="review-event">
+						<a href="/review/revView"><img src="/images/리뷰.jpg"></a>
+                    </div>
+                </div>
+                
+                <div id="youtube">
+                	<iframe width="560" height="315" src="https://www.youtube.com/embed/xi8g4SwJR9U"
+                	title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+                	clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                	</iframe>
+                </div>
+                
+                <div id="best-item">
+                    <div id="best-item1">1</div>
+                    <div id="best-item2">2</div>
+                    <div id="best-item3">3</div>
+                </div>
+                <div id="best-review">
+                    <div id="best-review1">1</div>
+                    <div id="best-review2">2</div>
+                    <div id="best-review3">3</div>
+                </div>
+                <br><br><br><br>
+                <br><br><br><br>
             </div>
         </div>
     </div>

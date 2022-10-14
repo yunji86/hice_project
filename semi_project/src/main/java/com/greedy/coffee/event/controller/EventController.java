@@ -1,16 +1,20 @@
 package com.greedy.coffee.event.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.greedy.coffee.common.Pagenation;
+import com.greedy.coffee.common.PagingButtonInfo;
 import com.greedy.coffee.event.dto.EventDTO;
 import com.greedy.coffee.event.service.EventService;
-
-
+import com.greedy.coffee.member.dto.MemberDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +36,7 @@ public class EventController {
 	public void eventRegist() {}
 	
 	@PostMapping("/eventRegist")
-	public String registEvent(@ModelAttribute EventDTO event) {
+	public String registEvent(@ModelAttribute EventDTO event, @AuthenticationPrincipal MemberDTO member) {
 	
 		log.info(" ========== EventController registEvent request Event : " + event);
 		
@@ -48,7 +52,7 @@ public class EventController {
 		return "event/eventEnd";
 		
 	}
-	
+
 }
 
 

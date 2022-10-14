@@ -1,0 +1,367 @@
+@charset "UTF-8";
+
+/* event css */
+#main {
+    /* background-color: rgb(172, 167, 167); */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+#main-section {
+    width: 1600px;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    /* background-color: rgb(203, 203, 142); */
+}
+#main-section1 {
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#main-section1 img{
+    width: 1400px;
+    height: 700px;
+}
+
+.main_image_text {
+    position: absolute;
+    top: 85%;
+    left: 30%;
+    transform: translate( -50%, -50% );
+    color: white;
+    font-size: 300%;
+  }
+
+.main-image-btn{
+	width: 300px;
+    height: 70px;
+    font-size: 60%;
+    border-radius: 40px;
+    background-color: black;
+    color: white;
+    margin-left: 70px;
+}
+
+.main_image_text1 {
+    position: absolute;
+    top: 110%;
+    left: 43%;
+    transform: translate( -50%, -50% );
+    color: white;
+    font-size: 50%;
+    width: 300px;
+  }
+
+.main_image_text2 {
+    position: absolute;
+    top: 130%;
+    left: 49%;
+    transform: translate( -50%, -50% );
+    color: white;
+    font-size: 50%;
+    width: 300px;
+  }  
+
+.main_image_text3 {
+    position: absolute;
+    top: 140%;
+    left: 56%;
+    transform: translate( -50%, -50% );
+    color: white;
+    font-size: 50%;
+    width: 300px;
+  }
+  
+.main_image_text4 {
+    position: absolute;
+    top: 170%;
+    left: 57%;
+    transform: translate( -50%, -50% );
+    color: white;
+    font-size: 50%;
+    width: 500px;
+  }  
+
+
+#event-font {
+    text-align: center;
+    font-size: 600%;
+    margin: 0;
+}
+.button {
+    width: 800px;
+    height: 100px;
+    font-size: 450%;
+    background-color: black;
+}
+.button a{
+    color: white;
+}
+#event-btn {
+    width: 800px;
+    height: 100px;
+    margin: 0 auto;
+}
+#event-font1 {
+    text-align: center;
+    font-size: 150%;
+    margin: 0;
+}
+.event-font2 {
+    text-align: center;
+    margin: 0;
+}
+.button1 {
+    width: 300px;
+    height: 70px;
+    font-size: 200%;
+    border-radius: 40px;
+    background-color: black;
+    color: white;
+}
+#event-font3 {
+    text-align: center;
+    margin: 0;
+}
+#event-font3 img{
+    width: 1000px;
+    height: 200px;
+    margin-top: 20px;
+}
+#event-font4 {
+    text-align: center;
+    margin: 0;
+}
+#event-box{
+    width: 1000px;
+    background-color: yellow;
+    margin: 0 auto;
+}
+.event1 {
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 130%;
+    /* align-items: center; */
+    /* justify-content: space-around; */
+    float: left;
+    /* display: flex; */
+}
+.event1 li{
+    margin-top: 10px;
+}
+.event2 li{
+    margin-top: 5px;
+    float: left;
+}
+.event2 {
+    width: 850px;
+    height: 50px;
+    /* align-items: center; */
+    /* justify-content: space-around; */
+    float: left;
+    /* display: flex; */
+}
+
+/* ==========이벤트 완료 박스================== */
+.event_body {
+  border: 1px solid rgb(214, 214, 214);
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 100px;
+    width: 1000px;
+}
+
+.event_btn {
+  background-color: rgb(121, 89, 89);
+  border: 1px solid;
+  width: 280px;
+  height: 50px;
+  margin: 10px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ==========이벤트 레지스트 ================== */
+
+/* body {
+    background: url('/images/웰스커피2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    margin: 0 auto;
+    width: 1200px;
+    height: 2000px;
+    
+}
+
+.small-box {
+    margin: 0 auto;
+    width: 1200px;
+    background-color: brown;
+}
+
+.small-text {
+    margin: 0 auto;
+    padding: 50px;
+    width: 1200px;
+    background-color: rgb(70, 56, 56);
+}
+
+
+
+
+.small-text1-1{
+    background-color: rgb(25, 131, 173);
+    font-size: 35px;
+    color: white;
+    
+    padding: 50px;
+}
+
+.small-text1-1 b{
+    padding: 50px;
+    
+}
+
+.small-text2 {
+    background-color: green;
+    margin-top: 20px;
+    padding: 50px;
+}
+
+.small-text2-1{
+    background-color: rgb(71, 213, 71);
+    font-size: 15px;
+    color: white;
+}
+
+.small-text2-1 a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+.big-box {
+    margin: 0 auto;
+    width: 1200px;
+    background-color: white;
+}
+
+.big-text {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.big-text1 {
+    padding: 50px;
+}
+
+.big-text2 {
+    padding: 50px;
+    background-color: white;
+}
+
+.big-question {
+    padding-bottom: 35px;
+    padding-top: 35px;
+    position: relative;
+}
+
+.question-choice {
+    margin-left: 11px;
+    margin-top: 5px;
+}
+
+.answer-box {
+    height: 40px;
+    display: block;
+    box-shadow: none;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid #a6a6a6;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+    width: 100%;
+    margin-left: 11px;
+    margin-top: 10px;
+}
+
+.big-question-sub{
+    word-wrap: break-word;
+    color: rgb(62, 60, 60);
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: 5px;
+    padding: 0 0 0 20px;
+    white-space: pre-wrap;
+}
+
+.question-select select{
+    height: 40px;
+    display: block;
+    box-shadow: none;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid #a6a6a6;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+    width: 40%;
+    margin-left: 11px;
+    margin-top: 10px;
+}
+
+.box-btn {
+    
+    margin: 0 auto;
+    width: 1200px;
+    
+}
+
+.check-subbox input{
+    margin-top: 30px;
+    height: 20px;
+    width: 20px;
+}
+
+.check-subbox span{
+    font-size: 20px;
+}
+
+.big-question1 {
+    padding-bottom: 35px;
+    padding-top: 35px;
+    position: relative;
+}
+
+.send-btn {
+    padding-top: 35px;
+    position: relative;
+}
+
+.send-btn1 button{
+    height: 50px;
+    width: 200px;
+    background-color: #333;
+    color: white;
+    border: none;
+}
+ */
+
+

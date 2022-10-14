@@ -21,15 +21,11 @@
 	            		<table class="rev-ditail">
 	            			<tr><!-- 리뷰 제목  -->
 				            	<td><p th:text="${ revBoard.revTitle }"> </p> </td> 
-				            </tr>
-				            <tr><!-- 리뷰 좋아요  -->	
-				            	<td><button id="revLike"> 좋아요 들어감</button></td> 
+				            	<td colspan="3">조회수 : <p th:text="${ revBoard.revCount }"> </p><td>
 							</tr>
 							<tr> <!-- 리뷰 작성자  -->
 								  <td colspan="3"><p th:text="${ revBoard.writer.memId }"></p></td> 
-							</tr>
-							<tr>
-								<td><p  th:text="${ revBoard.revDate }"></p></td>
+								  <td><p  th:text="${ revBoard.revDate }"></p></td>
 							</tr>  
 							<!-- <tr>
 								<td><p  th:text="${ pro.proCode}"></p></td>
