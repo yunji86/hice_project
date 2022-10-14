@@ -143,8 +143,7 @@ public class NoticeController {
 		return "redirect:/notice/noticeList";
 	}
 	
-	// 레지스트에서 취소 버튼이 안됨.
-	// 삭제하면 오류는 안나는데, 아무것도 이뤄지지 않음. 
+	// 디테일 css
 	// 리스트에 페이징바 만들어야 함.(html)
 
 }
