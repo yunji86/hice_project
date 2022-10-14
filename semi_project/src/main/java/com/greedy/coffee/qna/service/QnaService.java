@@ -36,7 +36,9 @@ public class QnaService {
 		this.qnaRepository = qnaRepository;
 		this.qnaReplyRepository = qnaReplyRepository;
 		this.modelMapper = modelMapper;
-  
+
+		//
+		
 	}
   
 	public Page<QnaDTO> selectQnaList(int page, String searchValue) {
