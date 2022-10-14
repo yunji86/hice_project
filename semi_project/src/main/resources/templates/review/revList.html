@@ -19,9 +19,8 @@
                <h1>PHOTO REVIEW</h1>
 	           
 	            <div class="box" align="center">
-		            <a href="review/list">전체목록</a>
-		            <a href="review/list">포토리뷰</a>
-		            <a href="#">베스트리뷰</a>
+		            <a href="/review/list">포토 리뷰</a>
+		            <a href="/review/viewCount">조회수 순</a>
            		
            		<form id="rev-searchForm" th:action="@{/review/list}" method="get" >
 	           		<th:block th:if="${ revSearchValue != null }">
@@ -51,9 +50,12 @@
 		            				</th:block>
 	            				</div>
 	            				<p>
-	            					No. <label th:text="${ revBoard.revCode }"></label>
+	            					No. <label th:text="${ revBoard.revCode }"></label><br>
 	            					<span th:text="${ revBoard.revTitle }"></span><br>
-	            					조회수 : <label th:text="${ revBoard.revCount }"></label> 
+	            					<span th:text="${ revBoard.revDate }"></span><br>
+	            					조회수 : <label  th:text="${ revBoard.revCount }"></label > 
+	            					
+	            					
 	            				</p>
 	            			</div>	
 	            		</th:block>	 		 
