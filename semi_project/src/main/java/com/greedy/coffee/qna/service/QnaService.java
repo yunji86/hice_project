@@ -36,11 +36,13 @@ public class QnaService {
 		this.qnaRepository = qnaRepository;
 		this.qnaReplyRepository = qnaReplyRepository;
 		this.modelMapper = modelMapper;
-
-		//
 		
 	}
   
+	public void test() {
+		// commit 용
+	}
+	
 	public Page<QnaDTO> selectQnaList(int page, String searchValue) {
 		
 		Pageable pageable = PageRequest.of(page - 1, TEXT_PAGE_SIZE, Sort.by(SORT_BY).descending());
