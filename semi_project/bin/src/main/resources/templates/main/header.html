@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
     <link rel="stylesheet" href="/main/header.css">
     <link rel="stylesheet" href="/main/main.css">
     <link rel="stylesheet" href="/main/common.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
+	<title>하이스 커피</title>
     
 </head>
 <body>
@@ -39,6 +40,16 @@
 				<th:block sec:authorize="isAuthenticated()">
                 
                 </div>
+                
+                <!-- 관리자 페이지 관련 코드  -->
+                <!--  코드를 몰라서 수정을 못했어요 ㅠ -->
+                <!-- <th:block sec:authorize="isAuthenticated()">
+					<li><span sec:authentication="principal.username"></span>님 환영합니다.</li>
+					<li><a onclick="location.href='mypage/userpage'">관리자페이지</a></li>
+					<li><a onclick="location.href='member/logout'" id="logout" >로그아웃</a></li>
+				<th:block sec:authorize="isAuthenticated()">
+                
+                </div> -->
                 
             </div>
             <div id="header-menu2">

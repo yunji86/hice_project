@@ -5,15 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
-    <link rel="stylesheet" th:href="@{/css/notice.css}">	  
+    <link rel="stylesheet" th:href="@{/css/notice.css}">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
+	<title>하이스 커피</title>	  
 
     <script>
         const message = '[[${message}]]';
 		message && alert(message);
     </script>
     
-<title>Hice Coffee</title>
 </head>
 
 <body>
@@ -22,25 +24,58 @@
 	<div th:replace="main/article.html"></div>
 	<div th:replace="main/nav.html"></div>
 		
-		<div class="outer-event-list" style="margin-top: 100px;">
-			
+		<div class="event-main">
+			<div class="event-section">
 			<h1 align="center">이벤트 신청 목록</h1>
-				<div class="table-area" style="text-align: center">
-					<table id="eventListArea" style="margin: auto;">
-						<tr>
-							<th style="width: 100px">신청 번호</th>
-							<th style="width: 100px">회원 아이디</th>
-							<th style="width: 100px">신청 날짜</th>	
+				<div class="table-area">
+					<table border="1">
+						<tr class="admin-eve-tr">
+							<th class="admin-eve-td1">신청 번호</th>
+							<th class="admin-eve-td2">회원 아이디</th>
+							<th class="admin-eve-td3">신청 날짜</th>
+						</tr>
+						<tr th:each=" event : ${ eventList }">
+							<td th:text="${ event.eveCode }"></td>
+							<td th:text="${ event.memId }"></td>
+							<td th:text="${ event.eveDate }"></td>
+						</tr>	
 					</table>
 				</div>
-		
+			</div>	
 		</div>	
-   
+    	    <div id="paging" align="center" style="margin-top:20px;">
+        	
+        	
+        	<th:block th:if="${ searchValue != null }">
+        		
+        		<button
+        			th:onclick="'location.href=\'/admin/list?page=' + @{${paging.startPage}} +'\''">&lt;&lt;</button>
+        			
+        		
+        		<button
+        			th:onclick="'location.href=\'/admin/list?page=' +@{${paging.currentPage - 1}} +  '\''"
+        			th:disabled = "${ eventList.first }" >&lt;</button>    
+        		
+        		<th:block
+        			th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage )}">
+        			<button
+        				th:onclick="'location.href=\'/admin/list?page=' + @{${page}} +  '\''"
+        				th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+        			</button>					
+        		</th:block>		
+        		
+        		<button
+        			th:onclick="'location.href=\'/admin/list?page=' + @{${paging.currentPage + 1}} + '\''"
+        			th:disabled="${ eventList.last}"> > </button>
+        		
+        		<button
+        			th:onclick="'location.href=\'/admin/list?page=' + @{${paging.endPage}} + '\''"> >> </button>
+        	</th:block>	    
+        </div>
+        		
           
                 
 
-
-     <div th:replace="main/section.html"></div>
     <div th:replace="main/footer.html"></div>
 </body>
 <footer>

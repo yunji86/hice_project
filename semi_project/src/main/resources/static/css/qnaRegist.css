@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+#qna-main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#qna-section {
+  width: 1600px;
+  margin: 0 auto;
+}
+
+h1{
+  font-size: xxx-large;
+  text-align: center;
+}
+
+.qna-btn-box-bottom button {
+  margin-bottom: 5px;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  color: #593521;
+  width: 150px;
+  height: 40px;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid rgb(115, 114, 114);
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.title-box{
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.qna-title {
+  border: 1px solid black;
+  width: 1400px;
+  margin: 0 auto;
+  height: 50px;
+  margin-bottom: 30px;
+  font-size: xx-large;
+}
+
+.content-box{
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.qna-content {
+  border: 1px solid black;
+  width: 1400px;
+  height: 800px;
+  margin: 0 auto;
+  font-size: x-large;
+}
+
+.qna-btn-box-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textArea1 {
+	width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.textArea2 {
+	width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.areaLabel{
+	margin-bottom: 33.5%;
+}
+
+.areaInput1{
+	width:1000px;
+}
+
+.areaInput2{
+	width:1000px;
+	height: 500px;
+	margin-top: 20px;
+}
