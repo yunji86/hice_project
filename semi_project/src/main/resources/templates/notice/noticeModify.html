@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
     <link rel="stylesheet" th:href="@{/css/noticeRegist.css}">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
+	<title>하이스 커피</title>
 
     <!-- 제이쿼리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -23,7 +25,6 @@
 		message && alert(message);
     </script>
 
-    <title>Hice Coffee</title>
 </head>
 
 <body>
@@ -47,10 +48,9 @@
                         </div>
                     </div>
                     <div class="notice-btn-box-bottom">
-                        <button type="submit" id="btnForChange">수정</button>
+                        <button type="submit" id="btnForChange" >수정</button>
                     </div>
                 </form>
-                
              				<form th:action="@{/notice/noticeDelete}" method="post">
 				           	 <input type="hidden" name="notCode" th:value="${notice.notCode}"/>
 				           	 <button type="submit" class="notDelete">삭제</button>
