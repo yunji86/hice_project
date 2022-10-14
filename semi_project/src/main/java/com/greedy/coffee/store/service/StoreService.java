@@ -1,7 +1,5 @@
 package com.greedy.coffee.store.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -13,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.greedy.coffee.best.entity.Beans;
 import com.greedy.coffee.store.dto.StoreDTO;
 import com.greedy.coffee.store.entity.Store;
 import com.greedy.coffee.store.repository.StoreRepository;
@@ -70,6 +69,7 @@ public class StoreService {
 		Store foundStore = storeRepository.findById(store.getStoCode()).get();
 		foundStore.setStoName(store.getStoName());
 		foundStore.setStoAdd(store.getStoAdd());
+		foundStore.setBean(modelMapper.map(store.getBean(), Beans.class));	
 		foundStore.setStoStatus(store.getStoStatus());
 		
 	}
