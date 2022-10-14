@@ -38,10 +38,7 @@ public class QnaService {
 		this.modelMapper = modelMapper;
 		
 	}
-  
-	public void test() {
-		// commit 용
-	}
+ 
 	
 	public Page<QnaDTO> selectQnaList(int page, String searchValue) {
 		
