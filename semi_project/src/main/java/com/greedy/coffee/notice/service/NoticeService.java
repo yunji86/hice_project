@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 public class NoticeService {
 	
-	public static final int TEXT_PAGE_SIZE = 10;
+	public static final int TEXT_PAGE_SIZE = 15;
 	public static final String SORT_BY = "notCode";
 	public static final String ACTIVE_STATUS = "Y";
 	
