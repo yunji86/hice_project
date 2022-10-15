@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.greedy.coffee.member.dto.MemberDTO;
+import com.greedy.coffee.member.entity.Member;
 import com.greedy.coffee.qna.entity.Qna;
 
 public interface  QnaRepository extends JpaRepository<Qna, Long>{
@@ -24,5 +26,7 @@ public interface  QnaRepository extends JpaRepository<Qna, Long>{
 	Qna findByQnaTitleAndQnaContent(String qnaTitle, String qnaContent);
 
 	Qna findByQnaCode(Long qnaCode);
+	
+	Page<Qna> findByQnaStatusAndWriter(String qnaStatus, Pageable pageable, Member member);
 
 }
