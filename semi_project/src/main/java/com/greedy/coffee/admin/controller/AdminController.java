@@ -66,6 +66,5 @@ public class AdminController {
 		
 		return"redirect:/";
 	}
-	//GD
 	
 }
