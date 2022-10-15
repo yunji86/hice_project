@@ -31,11 +31,10 @@
     <div class="adminMenu">
         	<ul>
         	<!-- 링크 수정 -->
-        		<h5><a onclick="location.href='/mypage/myorder'">주문 내역 조회</a></h5>
-                <h5><a onclick="location.href='/mypage/mybag'">상품 출고</a></h5>
-                <h5><a onclick="location.href='/mypage/myorder'">상품 반품</a></h5>
-                <h5><a onclick="location.href='/mypage/mypost'">상품 교환</a></h5>
-                <h5><a onclick="location.href='/mypage/mypost'">이벤트 신청 확인</a></h5>
+        		<h5><a href="/mypage/myorder">주문 내역 조회</a></h5>
+                <h5><a href="/mypage/mybag">상품 출고</a></h5>
+                <h5><a href="/admin/orderStatus">상품 반품/교환</a></h5>
+                <h5><a href="/admin/list">이벤트 신청 확인</a></h5>
         		
         	</ul>
         </div>
@@ -45,12 +44,12 @@
                 <h5 >Admin page</h5>
                 <div class="adminPage1">
                     <img src="../images/memberPage-icon-user.png" alt="user아이콘" class="iconImg">
-<pre>
-안녕하세요. <b><span sec:authentication="principal.memName"></span></b> 관리자님
-                            
-저희 하이스커피를 이용해 주셔서 감사합니다.
-</pre>
-                </div>
+					<pre>
+					안녕하세요. <b><span sec:authentication="principal.memName"></span></b> 관리자님
+					                            
+					저희 하이스커피를 이용해 주셔서 감사합니다.
+					</pre>
+					                </div>
 
                 <div class="adminPage2" align="center">
                     <button class="adminBtn" id="adminBtn1"><a onclick="location.href='/mypage/myorder'">주문 내역 조회</a></button>

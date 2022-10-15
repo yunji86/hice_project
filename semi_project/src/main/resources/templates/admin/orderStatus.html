@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta  charset="UTF-8">
+     <link rel="stylesheet" th:href="@{/css/index.css}">	
+     <link rel="stylesheet" th:href="@{/css/userPage.css}">
+     <link rel="stylesheet" th:href="@{/css/admin.css}">
+     <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
+	<title>하이스 커피</title>	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/event.js}"></script>
+	<script>
+	    const message = '[[${message}]]';
+	    message && alert(message);
+	</script> 
+</head>
+<body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+        <section class="mySection" >
+            <ul class="orExplain">
+                
+            </ul>
+            <h5 >Orders Status</h5>
+            <table id="myTeble">                
+                <tr id="myTr1">
+                    <th width="150px">주문일자</th>
+                    <th width="150px" >주문번호</th>
+                    <th width="400px">상품정보</th>
+                    <th width="100px">수량</th>
+                    <th width="150px">상품구매금액</th>
+                    <th width="150px">주문상태</th>
+                    <th width="300px">취소/교환/반품</th>
+                </tr>
+                    <tr id="myTr2" th:each="order : ${ orderList }">
+                    	
+                        <td align="center"><p th:text="${ order.ordDate }"/></td> 
+                        <td align="center"><p th:text="${ order.ordNum }"/></td>
+                        <td align="center"><p th:text="${ order.ordName }"/></td>
+                        <td align="center"><p th:text="${ order.quantity }"/></td>
+                        <td align="center"><p th:text="${ order.ordTotalamount }"/></td>
+                        <td align="center"><p th:text="${ order.ordStatus }"/></td>
+                        <td align="center">
+                            <button class="myButton" id="orTakeback">교환 / 반품 처리</button></td>
+                    </tr>
+            </table>
+
+                <div class="container"> 
+                    <div class="popup-wrap" id="popup"> 
+                      <div class="popup">	
+                        <div class="popup-head">	
+                            <span id="head-title1">교환 반품 안내</span>
+                            <span id="head-title2"> HiceCoffee</span>
+                        </div>
+                        <div class="popup-body">	
+                          <div class="body-content">
+                            <div class="body-contentbox">
+                                <h4>알림</h4>
+                                <pre> 교환/ 반품을 완료하시겠습니까?</pre>
+        
+                            <div class="refundButton"> 
+                           <!--  <form th:action="@{/admin/change}" method="post" >
+                            <input type="hidden" name="ordNum" th:value="${ order.ordNum }"/> -->
+                            <input type="submit" class="my_color_Btn" id="moButton1" value="완료하기" onclick="alert('완료 되었습니다.')"></input>
+                            </form>
+                            <button class="my_border_Btn" id="moButton2">취소</button>
+                            
+                        	</div>  
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                  </div>
+
+               
+        </section>
+        <script>
+                    
+                    
+            $("#orTakeback").click(function(){
+                $("#popup").attr("style", "display:flex");
+            });
+           
+             $("#moButton2").click(function(){
+                $("#popup").attr("style", "display:none");
+            });     
+            
+            $("#moButton1").click(function(){
+                $("#popup").attr("style", "display:none");
+            });   
+        </script>
+
+
+    <div th:replace="main/footer.html"></div>
+
+            
+
+
+
+
+</body>
+</html>

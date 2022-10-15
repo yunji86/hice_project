@@ -5,6 +5,7 @@ package com.greedy.coffee.event.repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
@@ -16,6 +17,8 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
 	Optional<Event> findByEveCodeAndMemId(Long eveCode, Member member);
 
-	Page<Event> findByEveCode(Long eveCode, Pageable pageable);
-	 
+	
+	Page<Event> findByEveStatus(String activeStatus, Pageable pageable);
+	
+
 }

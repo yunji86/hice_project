@@ -17,6 +17,7 @@ public class EventDTO {
 	private String eveRoute;
 	private String memId;
 	private Date eveDate;
+	private String eveStatus;
 	
 	/*
 	 * public EventDTO() { super(); }
