@@ -5,7 +5,7 @@ window.onload = function() {
             location.href = "/product/new";
         }
     }
-    
+   
      if(document.getElementById("deletePro")) {
         const $update = document.getElementById("deletePro");
         $update.onclick = function() {
