@@ -1,21 +1,29 @@
 package com.greedy.coffee.mypage.controller;
 
 import org.springframework.context.support.MessageSourceAccessor;
+import org.springframework.data.domain.Page;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.greedy.coffee.common.Pagenation;
+import com.greedy.coffee.common.PagingButtonInfo;
 import com.greedy.coffee.member.dto.MemberDTO;
 import com.greedy.coffee.member.service.AuthenticationService;
 import com.greedy.coffee.mypage.service.MypageService;
+import com.greedy.coffee.qna.dto.QnaDTO;
+import com.greedy.coffee.qna.service.QnaService;
+import com.greedy.coffee.review.Service.RevBoardService;
+import com.greedy.coffee.review.dto.RevBoardDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,14 +35,21 @@ public class mypageController {
 	private final MypageService mypageServcie;
 	private final AuthenticationService authenticationService;
 	private final MessageSourceAccessor messageSourceAccessor;
+	private final RevBoardService revBoardService;
+	private final QnaService qnaService;
 	
-	public mypageController(MypageService mypageServcie, AuthenticationService authenticationService,  MessageSourceAccessor messageSourceAccessor) {
+	public mypageController(MypageService mypageServcie, 
+			AuthenticationService authenticationService,  
+			MessageSourceAccessor messageSourceAccessor, 
+			QnaService qnaService, 
+			RevBoardService revBoardService) {
 
 		this.mypageServcie = mypageServcie;
 		this.authenticationService = authenticationService;
 		this.messageSourceAccessor = messageSourceAccessor;
+		this.revBoardService = revBoardService;
+		this.qnaService = qnaService;
 	}
-	
 	
 	
 	/* 회원정보수정 화면 이동 */
@@ -103,11 +118,34 @@ public class mypageController {
 	@GetMapping("/mybag")
 	public void mybagPage(){
 	}
-	
+
 	@GetMapping("/mypost")
-	public void mypostPage(){
+	public String mypostPage(Model model) {
+
+		// 현재 로그인된 유저 정보 가져오기
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		log.info("principal {}", auth.getPrincipal());
+
+		Page<QnaDTO> qnaList = null;
+		Page<RevBoardDTO> revBoardList = null;
+		String searchValue = "";
+		int page = 1;
+
+		MemberDTO member = (MemberDTO) auth.getPrincipal();
+		qnaList = mypageServcie.selectQnaListInMypage(member);
+		revBoardList = mypageServcie.selectRevBoardListInMypage(member);
+
+		PagingButtonInfo revPaging = Pagenation.getPagingButtonInfo(revBoardList);
+		PagingButtonInfo qnaPaging = Pagenation.getPagingButtonInfo(qnaList);
+
+		model.addAttribute("revBoardList", revBoardList);
+		model.addAttribute("qnaList", qnaList);
+		model.addAttribute("revBoardSize", revBoardList.getTotalElements());
+		model.addAttribute("qnaListSize", qnaList.getTotalElements());
+
+		return "mypage/mypost";
 	}
-	
+
 	@GetMapping("/myorder")
 	public void myorderPage(){
 	}
