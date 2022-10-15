@@ -48,26 +48,10 @@
 					</th:block>
 				</div>
             </div>
-						
-
-			<table align="center" id="storeResult" class="storeResult">
-					<th>매장코드</th>
-					<th>매장 명</th>
-					<th>취급 원두</th>
-					<th>주소지</th>
-					<th>등록자</th>
-					<tr id="storeBody" class="storeBody" th:each="store : ${ storeList }">
-						<td th:text="${ store.stoCode }"></td>
-		                <td th:text="${ store.stoName }"></td>
-		                <td th:text="${ store.bean.beanName }"></td>
-		                <td th:text="${ store.stoAdd }"></td>
-		                <td th:text="${ store.memId.memName }"></td>
-					</tr>
-			</table><br>
 			
 			
            	<!-- kakao - localhost view -->
-	        <div id="map" style="width:70%;height:600px;margin-left:15%;margin-bottom:15%"></div> 
+	        <div id="map" style="width:70%;height:600px;margin-left:15%;margin-bottom:10%"></div> 
             <div class="storeMap" align="center">
             <div th:each="store : ${storeList}">
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d5703a35df5262a246dbc762c939d873&libraries=services"></script>
@@ -124,7 +108,28 @@
 			</div>
 
 			
-		</div>
+		</div>			
+			
+			
+						
+
+			<table align="center" id="storeResult" class="storeResult">
+					<th>매장코드</th>
+					<th>매장 명</th>
+					<th>취급 원두</th>
+					<th>주소지</th>
+					<th>전화번호</th>
+					<tr id="storeBody" class="storeBody" th:each="store : ${ storeList }" align="center">
+						<td th:text="${ store.stoCode }"></td>
+		                <td th:text="${ store.stoName }"></td>
+		                <td th:text="${ store.bean.beanName }"></td>
+		                <td th:text="${ store.stoAdd }" align="left"></td>
+		                <td th:text="${ store.call }" style="color:#d1d1d1;"></td>
+					</tr>
+			</table><br>
+			
+			
+
 
 
 

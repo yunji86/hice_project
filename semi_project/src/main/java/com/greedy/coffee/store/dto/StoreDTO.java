@@ -20,6 +20,7 @@ public class StoreDTO {
   private Date stoDate;
   private Date stoEditDate;
   private Date stoDeleteDate;
+  private String call;
   private MemberDTO memId;
   private BeansDTO bean;
   
