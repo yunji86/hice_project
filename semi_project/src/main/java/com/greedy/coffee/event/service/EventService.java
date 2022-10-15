@@ -39,12 +39,12 @@ public class EventService {
 	}
 	
 	
-	public Page<EventDTO> selectBoardList(int page, Long eveCode) {
+	public Page<EventDTO> selectBoardList(int page) {
 		
 		Pageable pageable = PageRequest.of(page -1, TEXT_PAGE_SIZE, Sort.by(SORT_BY).descending());
-		Page<Event> eventList = eventRepository.findByEveCode(eveCode, pageable);
+		Page<Event> eventList = eventRepository.findByEveStatus(ACTIVE_STATUS, pageable);
 		return eventList.map(event -> modelMapper.map(event, EventDTO.class));
 	}
-	
+
 
 }

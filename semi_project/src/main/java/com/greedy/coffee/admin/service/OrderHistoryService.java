@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.greedy.coffee.admin.reposisoty.OrderHistoryRepository;
+import com.greedy.coffee.admin.repository.OrderHistoryRepository;
 import com.greedy.coffee.order.dto.OrderDTO;
 import com.greedy.coffee.order.entity.Order;
 
