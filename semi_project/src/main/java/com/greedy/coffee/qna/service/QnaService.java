@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +32,7 @@ public class QnaService {
 	private final QnaReplyRepository qnaReplyRepository;
 	public final ModelMapper modelMapper;
   
+	@Autowired
 	public QnaService(QnaRepository qnaRepository, QnaReplyRepository qnaReplyRepository, ModelMapper modelMapper) {
   
 		this.qnaRepository = qnaRepository;
@@ -63,20 +65,6 @@ public class QnaService {
 		
 	}
 	
-	public QnaDTO modifyQna(Long qnaCode) {
-		
-		Qna qna = qnaRepository.findByQnaCodeAndQnaStatus(qnaCode, ACTIVE_STATUS);
-		
-//		qna.setQnaTitle(qna.getQnaTitle());
-//		
-//		qna.setQnaContent(qna.getQnaContent());
-		
-		qna.setQnaEditDate(new Date(System.currentTimeMillis()));
-		
-		return modelMapper.map(qna, QnaDTO.class);
-		
-	}
-	
 	public void registQna(QnaDTO qna) {
 		
 		//qnaRepository.save(modelMapper.map(qna, Qna.class));
@@ -88,25 +76,37 @@ public class QnaService {
 		postQna.setQnaContent(qna.getQnaContent());
 		postQna.setQnaDate(new Date(System.currentTimeMillis()));
 		
+		qnaRepository.save(modelMapper.map(qna, Qna.class));
+		
 	}
 	
-
+	public QnaDTO modifyQna(Long qnaCode) {
+		
+		Qna qna = qnaRepository.findByQnaCode(qnaCode);
+		
+		qna.setQnaTitle(qna.getQnaTitle());
+		
+		qna.setQnaContent(qna.getQnaContent());
+		
+		qna.setQnaEditDate(qna.getQnaEditDate());
+		
+		return modelMapper.map(qna, QnaDTO.class);
+		
+	}
 	
 	// 완료 버튼 누른 상태. 수정에서 누르고 이동한 상태임
 	
 	public void modifyQna(QnaDTO modifyQna) {
 		
-		Qna qna = qnaRepository.findByQnaCodeAndQnaStatus(modifyQna.getQnaCode(), ACTIVE_STATUS);
+		Qna postqna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
 		
-		//qna.setQnaCode(modifyQna.getQnaCode());
+		postqna.setQnaCode(modifyQna.getQnaCode());
 		
-		qna.setQnaTitle(modifyQna.getQnaTitle());
+		postqna.setQnaTitle(modifyQna.getQnaTitle());
 		
-		qna.setQnaContent(modifyQna.getQnaContent());
+		postqna.setQnaContent(modifyQna.getQnaContent());
 		
-		//qna.setQnaEditDate(new Date(System.currentTimeMillis()));
-		
-		qna.setQnaStatus("N");
+		postqna.setQnaEditDate(modifyQna.getQnaEditDate());
 		
 		//qnaRepository.save(modelMapper.map(modifyQna, Qna.class));
 		

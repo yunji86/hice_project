@@ -136,7 +136,7 @@ public class QnaController {
 		
 		log.info("qnaModify is working ");
 
-		log.info("qnaModify qna : {} ", qna.getQnaTitle());
+		log.info("qnaModify qna : {} ", qna);
 		
 		// qna.setWriter(member);
 		qnaService.modifyQna(qna);
