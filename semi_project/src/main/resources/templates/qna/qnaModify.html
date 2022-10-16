@@ -40,15 +40,15 @@
 
                     <div class="title-box">
                     <div class="textArea1">
-                       <label>제목</label> <input class="areaInput1" type="text" th:value="${ qna.qnaTitle }">
+                       <label>제목</label> <input class="areaInput1" name="qnaContent" type="text" th:value="${ qna.qnaTitle }">
                       </div>
                       <div class="textArea2">
-                       <label class="areaLabel">내용</label> <input class="areaInput2" type="text" th:value="${ qna.qnaContent }">
+                       <label class="areaLabel">내용</label> <input class="areaInput2" name="qnaContent" type="text" th:value="${ qna.qnaContent }">
                         </div>
                     </div>
                     
                     <div class="notice-btn-box-bottom" >
-                        <button type="submit" id="btnForChange"><a href="/member/terms">완료</a></button>
+                        <button type="submit" id="qnaModify" name="qnaModify" th:onclick="|location.href='/qna/qnaList'|">완료</a></button>
                         <button type="button" th:onclick="|location.href='/qna/qnaDetail?qnaCode=${qna.qnaCode}'|">취소</button>
                     </div>
              
@@ -57,7 +57,7 @@
             </div>
         </div>
     
-	<div th:replace="main/section.html"></div>
+
     <div th:replace="main/footer.html"></div>
 
 </body>

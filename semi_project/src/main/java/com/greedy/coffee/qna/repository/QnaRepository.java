@@ -17,7 +17,7 @@ public interface  QnaRepository extends JpaRepository<Qna, Long>{
 		"WHERE q.qnaStatus = :qnaStatus " +
 			"And (q.qnaTitle LIKE '%' || :searchValue || '%' " +
 			"OR q.qnaContent LIKE '%' || :searchValue || '%')")
-	Page<Qna> findBySearchValue(@Param("qnaStatus") String activeStatus, @Param("searchValue") String searchValue, Pageable pageable);
+	Page<Qna> findBySearchValue(@Param("qnaStatus") String qnaStatus, @Param("searchValue") String searchValue, Pageable pageable);
 
 	Qna findByQnaCodeAndQnaStatus(Long qnaCode, String activeStatus);
 	

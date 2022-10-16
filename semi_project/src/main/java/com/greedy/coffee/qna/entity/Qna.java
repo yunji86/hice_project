@@ -1,6 +1,7 @@
 package com.greedy.coffee.qna.entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.greedy.coffee.member.dto.MemberDTO;
 import com.greedy.coffee.member.entity.Member;
 
 import lombok.Getter;
