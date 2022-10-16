@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" th:href="@{/css/index.css}">	  
-    <link rel="stylesheet" th:href="@{/css/notice.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">	 
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    
     <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
 	<title>하이스 커피</title>	  
 
@@ -24,29 +25,26 @@
 	<div th:replace="main/article.html"></div>
 	<div th:replace="main/nav.html"></div>
 		
-		<div class="event-main">
-			<div class="event-section">
+	
 			<h1 align="center">이벤트 신청 목록</h1>
-				<div class="table-area">
-					<table border="1">
-						<tr class="admin-eve-tr">
-							<th class="admin-eve-td1">신청 번호</th>
-							<th class="admin-eve-td2">회원 아이디</th>
-							<th class="admin-eve-td3">신청 날짜</th>
+				<ul class="orExplain">
+				</ul>
+					<table id="myTeble"> 
+						<tr id="myTr1">
+							<th width="300px">신청 번호</th>
+							<th width="300px">회원 아이디</th>
+							<th width="300px">신청 날짜</th>
 						</tr>
-						<tr th:each=" event : ${ eventList }">
-							<td th:text="${ event.eveCode }"></td>
-							<td th:text="${ event.memId }"></td>
-							<td th:text="${ event.eveDate }"></td>
+						<tr id="myTr2" th:each=" event : ${ eventList }">
+							<td align="center" th:text="${ event.eveCode }"></td>
+							<td align="center" th:text="${ event.memId }"></td>
+							<td align="center" th:text="${ event.eveDate }"></td>
 						</tr>	
 					</table>
-				</div>
-			</div>	
-		</div>	
-    	    <div id="paging" align="center" style="margin-top:20px;">
-        	
-        	
-        	<th:block th:if="${ searchValue != null }">
+			
+<!--    	    <div id="paging" align="center" style="margin-top:20px;">
+            	
+            	<th:block th:if="${ param.searchValue == null || param.searchValue.isEmpty()}">
         		
         		<button
         			th:onclick="'location.href=\'/admin/list?page=' + @{${paging.startPage}} +'\''">&lt;&lt;</button>
@@ -72,8 +70,7 @@
         			th:onclick="'location.href=\'/admin/list?page=' + @{${paging.endPage}} + '\''"> >> </button>
         	</th:block>	    
         </div>
-        		
-          
+          -->
                 
 
     <div th:replace="main/footer.html"></div>

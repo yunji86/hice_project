@@ -61,14 +61,11 @@ public class AdminController {
 		return "admin/orderStatus";
 	}
 	
-	@PostMapping("/change")
+	@GetMapping("/change")
 	public String staustChange(@ModelAttribute OrderDTO changeOrd) {
 		
 		adminService.staustChange(changeOrd);
 		
 		return"redirect:/";
-	}//주석지우기
-	
-	
-	
+
 }
