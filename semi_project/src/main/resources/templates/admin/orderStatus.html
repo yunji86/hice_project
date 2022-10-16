@@ -38,11 +38,11 @@
                     <tr id="myTr2" th:each="order : ${ orderList }">
                     	
                         <td align="center"><p th:text="${ order.ordDate }"/></td> 
-                        <td align="center"><p th:text="${ order.ordNum }"/></td>
+                        <td align="center"><p th:text="${ order.ordCode }"/></td>
                         <td align="center"><p th:text="${ order.ordName }"/></td>
                         <td align="center"><p th:text="${ order.quantity }"/></td>
                         <td align="center"><p th:text="${ order.ordTotalAmount }"/></td>
-                        <td align="center"><p th:text="${ order.ordStatus }"/></td>
+                        <td class="status" align="center"><p th:text="${ order.ordStatus }"/></td>
                         <td align="center">
                         <button class="myButton" id="orTakeback">교환 / 반품 처리</button></td>
                     </tr>
@@ -62,10 +62,10 @@
                                 <pre> 교환/ 반품을 완료하시겠습니까?</pre>
         
                             <div class="refundButton"> 
-                           <!--  <form th:action="@{/admin/change}" method="post" >
-                            <input type="hidden" name="ordNum" th:value="${ order.ordNum }"/> -->
-                            <input type="submit" class="my_color_Btn" id="moButton1" value="완료하기" onclick="alert('완료 되었습니다.')"></input>
-                            </form>
+	                        <!-- <form th:action="@{/admin/change}" method="post" >
+		                            <input type="hidden" name="ordCode" th:value="${ order.ordCode }"/>-->
+		                            <input type="submit" class="my_color_Btn" id="moButton1" value="완료하기" onclick="alert('완료 되었습니다.')"></input>
+                            	</form>
                             <button class="my_border_Btn" id="moButton2">취소</button>
                             
                         	</div>  
@@ -90,9 +90,23 @@
             
             $("#moButton1").click(function(){
                 $("#popup").attr("style", "display:none");
-            });   
+            }); 
+            
+            
         </script>
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<br>
 
     <div th:replace="main/footer.html"></div>
 

@@ -17,7 +17,7 @@
 <body>
 	<div th:replace="main/header.html"></div>
 		 <div class="rev-page">         
-	         <h1 align="center">REVIEW</h1>
+	         <h1 align="center">PHOTO REVIEW</h1>
 	            
 	            	<div class="rev-view" align="center">
 	            		<table class="rev-ditail">
@@ -70,7 +70,7 @@
 						  </table>
 						 </th:block>
 							 <!-- 댓글 출력--> 
-							 <table id="revReplyResult" style="margin:auto;"></table>
+							 <table id="revReplyResult" ></table>
 						</div>
 				 </div>			 
 		
@@ -142,6 +142,7 @@
 		 			const $writerTd  = document.createElement('td');
 		 			const $replyDateTd  = document.createElement('td');
 		 		    const $buttonTd = document.createElement('td'); 
+		 			
 		 			
 		 			$replyContentTd.textContent = reply.replyContent;
 					  $writerTd.textContent = reply.writer.memId;

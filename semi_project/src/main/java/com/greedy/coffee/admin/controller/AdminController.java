@@ -60,12 +60,11 @@ public class AdminController {
 		return "admin/orderStatus";
 	}
 	
-	@GetMapping("/change")
-	public String staustChange(@ModelAttribute OrderDTO changeOrd) {
+	@PostMapping("/change")
+	public String staustChange(Long ordCode) {
 		
-		adminService.staustChange(changeOrd);
+		adminService.staustChange(ordCode);
 		
 		return"redirect:/";
-
 	}
 }
