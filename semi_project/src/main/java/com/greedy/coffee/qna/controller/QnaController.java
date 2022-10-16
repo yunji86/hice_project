@@ -80,6 +80,7 @@ public class QnaController {
 		
 		qna.setWriter(member);
 		log.info("qnaRegist qna : {} ", qna);
+		
 		qnaService.registQna(qna);
 		
 		log.info("qnaRegist qna worked : ", qna);
@@ -130,17 +131,18 @@ public class QnaController {
 		
 	}
 	
-
-	
 	@PostMapping("/qnaModify")
-	public String qnaModify(QnaDTO qna, @AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
+	public String qnaModify(@ModelAttribute QnaDTO qna, RedirectAttributes rttr) {
 		
 		log.info("qnaModify is working ");
-		log.info("qnaModify qna : {} ", qna);
-		log.info("qnaModify member : {} ", member);
+
+		log.info("qnaModify qna : {} ", qna.getQnaTitle());
 		
 		// qna.setWriter(member);
-		qnaService.registQna(qna);
+		qnaService.modifyQna(qna);
+		
+		log.info("qnaModified qna : {} ", qna);
+		
 		
 		rttr.addAttribute("message", messageSourceAccessor.getMessage("qna.modify"));
 		

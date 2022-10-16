@@ -63,18 +63,6 @@ public class QnaService {
 		
 	}
 	
-	public void registQna(QnaDTO qna) {
-		
-		
-		
-		qnaRepository.save(modelMapper.map(qna, Qna.class));
-		
-		qna.setQnaDate(new Date(System.currentTimeMillis()));
-		
-	}
-		
-	// 수정 버튼 누른 상태. 완료 누른거 아님
-	
 	public QnaDTO modifyQna(Long qnaCode) {
 		
 		Qna qna = qnaRepository.findByQnaCodeAndQnaStatus(qnaCode, ACTIVE_STATUS);
@@ -89,16 +77,22 @@ public class QnaService {
 		
 	}
 	
+	public void registQna(QnaDTO qna) {
+		
+		//qnaRepository.save(modelMapper.map(qna, Qna.class));
+		
+		// qna.setQnaDate(new Date(System.currentTimeMillis()));
+		
+		Qna postQna = qnaRepository.findByQnaCode(qna.getQnaCode());
+		postQna.setQnaTitle(qna.getQnaTitle());
+		postQna.setQnaContent(qna.getQnaContent());
+		postQna.setQnaDate(new Date(System.currentTimeMillis()));
+		
+	}
 	
-	
-//	@Transactional
-//	public QnaDTO modify(QnaDTO modifyQna)
-	
-	
-	
+
 	
 	// 완료 버튼 누른 상태. 수정에서 누르고 이동한 상태임
-	
 	
 	public void modifyQna(QnaDTO modifyQna) {
 		
