@@ -25,7 +25,7 @@
                 
             </ul>
             <h5 >Orders Status</h5>
-            <table id="myTeble">                
+            <table id="myTable">                
                 <tr id="myTr1">
                     <th width="150px">주문일자</th>
                     <th width="150px" >주문번호</th>
@@ -41,7 +41,7 @@
                         <td align="center"><p th:text="${ order.ordNum }"/></td>
                         <td align="center"><p th:text="${ order.ordName }"/></td>
                         <td align="center"><p th:text="${ order.quantity }"/></td>
-                        <td align="center"><p th:text="${ order.ordTotalamount }"/></td>
+                        <td align="center"><p th:text="${ order.ordTotalAmount }"/></td>
                         <td align="center"><p th:text="${ order.ordStatus }"/></td>
                         <td align="center">
                         <button class="myButton" id="orTakeback">교환 / 반품 처리</button></td>
