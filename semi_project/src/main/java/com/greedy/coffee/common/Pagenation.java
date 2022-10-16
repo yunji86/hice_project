@@ -9,7 +9,7 @@ public class Pagenation {
 	public static PagingButtonInfo getPagingButtonInfo(Page page) {
 		
 		int currentPage = page.getNumber() + 1;	
-		int defaultButtonCount = 10;
+		int defaultButtonCount = 5;
 		int startPage;
 		int endPage;
 		
