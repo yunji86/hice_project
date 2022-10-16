@@ -66,5 +66,6 @@ public class AdminController {
 		adminService.staustChange(ordCode);
 		
 		return"redirect:/";
+
 	}
 }
