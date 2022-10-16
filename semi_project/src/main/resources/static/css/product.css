@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.outer{
+	background-color: yellow;
+    width: 1600px;
+    margin: 0 auto;
+    
+}
+
+h1 {
+    font-size: xxx-large;
+}
+
+.pro-main-box{
+	width: 1400px;
+	background-color: pink;
+	margin: 0 auto;
+}
+
+.pro-box{
+	display: flex;
+    width: 1400px;
+    background-color: green;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
