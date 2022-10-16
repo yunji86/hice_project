@@ -24,7 +24,7 @@
 	            			<tr class="rev-tr1"><!-- 리뷰 제목  -->
 				            	<th class="rev-th1"><p th:text="${ revBoard.revTitle }"> </p> </th> 
 				            	<th>조회수 : <p th:text="${ revBoard.revCount }"> </p><td>
-								<th><p th:text="${ revBoard.writer.memId }"></p></td> 
+								<th><p th:text="${ revBoard.writer.memId }"></p></td>
 								<th><p  th:text="${ revBoard.revDate }"></p></td>
 							</tr>  
 							<!-- <tr>
@@ -59,7 +59,8 @@
 						 
 						 <a>admin comment</a>
 					
-						 <!-- 댓글 입력  -->         
+						 <!-- 댓글 입력  --> 
+						 <th:block sec:authorize="hasRole('ROLE_ADMIN')">      
 						 <table id="revReplyWrite" >
 								<input type="hidden" id="revCode" th:value="${ revBoard.revCode }"/>
 									<tr>
@@ -68,7 +69,7 @@
 									     <td><button class="revButton1" type="button" id="registRevReply">등록</button></td>
 								    </tr>  
 						  </table>
-						  
+						 </th:block>
 							 <!-- 댓글 출력--> 
 							 <table id="revReplyResult" style="margin:auto;"></table>
 						</div>

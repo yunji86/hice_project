@@ -37,7 +37,7 @@
             	
              	<th:block sec:authorize="hasRole('ROLE_ADMIN')">
 					<li><span sec:authentication="principal.username"></span>님 환영합니다.</li>
-					<li><a onclick="location.href='/admin/adminpage'" style="cursor:pointer;">관리자페이지</a></li>
+					<li><a href="/admin/adminpage" style="cursor:pointer;">관리자페이지</a></li>
 					<li><a onclick="location.href='/member/logout'" id="logout" style="cursor:pointer;">로그아웃</a></li>
 				</th:block>                
                 

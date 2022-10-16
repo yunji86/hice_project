@@ -30,7 +30,7 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 	
-	@GetMapping("/adpage")
+	@GetMapping("/adminpage")
 	public String admin() {
 		
 		return "admin/adminpage";
