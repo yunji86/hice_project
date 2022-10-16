@@ -65,81 +65,120 @@ public class QnaService {
 	
 	public void registQna(QnaDTO qna) {
 		
-		qna.setQnaDate(new Date(System.currentTimeMillis()));
+		
+		
 		qnaRepository.save(modelMapper.map(qna, Qna.class));
 		
-		
+		qna.setQnaDate(new Date(System.currentTimeMillis()));
 		
 	}
+		
+	// 수정 버튼 누른 상태. 완료 누른거 아님
 	
 	public QnaDTO modifyQna(Long qnaCode) {
 		
-		Qna foundQna = qnaRepository.findByQnaCodeAndQnaStatus(qnaCode, ACTIVE_STATUS);
+		Qna qna = qnaRepository.findByQnaCodeAndQnaStatus(qnaCode, ACTIVE_STATUS);
 		
-		foundQna.setQnaTitle(foundQna.getQnaTitle());
+//		qna.setQnaTitle(qna.getQnaTitle());
+//		
+//		qna.setQnaContent(qna.getQnaContent());
 		
-		foundQna.setQnaContent(foundQna.getQnaContent());
+		qna.setQnaEditDate(new Date(System.currentTimeMillis()));
 		
-		foundQna.setQnaEditDate(new Date(System.currentTimeMillis()));
-		
-		return modelMapper.map(foundQna, QnaDTO.class);
+		return modelMapper.map(qna, QnaDTO.class);
 		
 	}
 	
-//	public void modifyQna(QnaDTO modifyQna) {
+	
+	
+//	@Transactional
+//	public QnaDTO modify(QnaDTO modifyQna)
+	
+	
+	
+	
+	// 완료 버튼 누른 상태. 수정에서 누르고 이동한 상태임
+	
+	
+	public void modifyQna(QnaDTO modifyQna) {
+		
+		Qna qna = qnaRepository.findByQnaCodeAndQnaStatus(modifyQna.getQnaCode(), ACTIVE_STATUS);
+		
+		//qna.setQnaCode(modifyQna.getQnaCode());
+		
+		qna.setQnaTitle(modifyQna.getQnaTitle());
+		
+		qna.setQnaContent(modifyQna.getQnaContent());
+		
+		//qna.setQnaEditDate(new Date(System.currentTimeMillis()));
+		
+		qna.setQnaStatus("N");
+		
+		//qnaRepository.save(modelMapper.map(modifyQna, Qna.class));
+		
+	}
+	
+	public void removeQna(Long qnaCode) {
+		
+		Qna qna = qnaRepository.findByQnaCode(qnaCode);
+		
+		qna.setQnaStatus("N");
+		
+		qna.setQnaDeleteDate(new Date(System.currentTimeMillis()));
+		
+	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	public void registQnaReply(ReplyDTO registReply) {
 //		
-//		Qna foundQna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
+//		qnaReplyRepository.save(modelMapper.map(registReply, Reply.class));
 //		
-//		foundQna.setQnaTitle(modifyQna.getQnaTitle());
-//		
-//		foundQna.setQnaContent(modifyQna.getQnaContent());
-//		
-//		foundQna.setQnaEditDate(new Date(System.currentTimeMillis()));
+//		Reply foundReply = qnaReplyRepository.findByReplyNo(registReply.getReplyNo());
+//		foundReply.setReplyDate(new Date(System.currentTimeMillis()));
 //		
 //	}
-	
-	public void removeQna(QnaDTO removeQna) {
-		
-		Qna foundQna = qnaRepository.findByQnaCode(removeQna.getQnaCode());
-		
-		foundQna.setQnaStatus("N");
-		
-		foundQna.setQnaDeleteDate(new Date(System.currentTimeMillis()));
-		
-	}
-	
-	public void registQnaReply(ReplyDTO registReply) {
-		
-		qnaReplyRepository.save(modelMapper.map(registReply, Reply.class));
-		
-		Reply foundReply = qnaReplyRepository.findByReplyNo(registReply.getReplyNo());
-		foundReply.setReplyDate(new Date(System.currentTimeMillis()));
-		
-	}
-	
-	public List<ReplyDTO> loadQnaReply(ReplyDTO loadReply) {
-		
-		List<Reply> replyList = qnaReplyRepository.findByReplyNoAndReplyStatus(loadReply.getReplyNo(), ACTIVE_STATUS);
-		
-		return replyList.stream().map(reply -> modelMapper.map(reply, ReplyDTO.class)).collect(Collectors.toList());
-		
-	}
-	
-	public void removeQnaReply(ReplyDTO removeReply) {
-		
-		Reply foundReply = qnaReplyRepository.findByReplyNo(removeReply.getReplyNo());
-		foundReply.setReplyDeleteDate(new Date(System.currentTimeMillis()));
-		foundReply.setReplyStatus("N");
-		
-	}
-	
-	public void modifyQnaReply(ReplyDTO modifyReply) {
-		
-		Reply foundReply = qnaReplyRepository.findByReplyNo(modifyReply.getReplyNo());
-		foundReply.setReplyEditDate(new Date(System.currentTimeMillis()));
-		foundReply.setReplyStatus("N");
-		
-	}
+//	
+//	public List<ReplyDTO> loadQnaReply(ReplyDTO loadReply) {
+//		
+//		List<Reply> replyList = qnaReplyRepository.findByReplyNoAndReplyStatus(loadReply.getReplyNo(), ACTIVE_STATUS);
+//		
+//		return replyList.stream().map(reply -> modelMapper.map(reply, ReplyDTO.class)).collect(Collectors.toList());
+//		
+//	}
+//	
+//	public void removeQnaReply(ReplyDTO removeReply) {
+//		
+//		Reply foundReply = qnaReplyRepository.findByReplyNo(removeReply.getReplyNo());
+//		foundReply.setReplyDeleteDate(new Date(System.currentTimeMillis()));
+//		foundReply.setReplyStatus("N");
+//		
+//	}
+//	
+//	public void modifyQnaReply(ReplyDTO modifyReply) {
+//		
+//		Reply foundReply = qnaReplyRepository.findByReplyNo(modifyReply.getReplyNo());
+//		foundReply.setReplyEditDate(new Date(System.currentTimeMillis()));
+//		foundReply.setReplyStatus("N");
+//		
+//	}
 
 	
 	
