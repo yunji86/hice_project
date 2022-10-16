@@ -67,5 +67,6 @@ public class AdminController {
 		adminService.staustChange(changeOrd);
 		
 		return"redirect:/";
-
+		
+	}
 }
