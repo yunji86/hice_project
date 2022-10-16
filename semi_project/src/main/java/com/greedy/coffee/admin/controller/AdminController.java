@@ -30,11 +30,13 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 	
-	@GetMapping("/adpage")
+	@GetMapping("/adminpage")
 	public String admin() {
 		
 		return "admin/adminpage";
-	}	
+	}
+
+
 	
 	@GetMapping("list")
 	public String eventBoard(@RequestParam(defaultValue="1") int page, Model model) {
@@ -66,5 +68,7 @@ public class AdminController {
 		
 		return"redirect:/";
 	}//주석지우기
+	
+	
 	
 }
