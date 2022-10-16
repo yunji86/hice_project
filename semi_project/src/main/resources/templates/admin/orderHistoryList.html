@@ -23,37 +23,12 @@
                     <td class="notice">회원ID</td>   
                 </tr>
                 
-                <tr class="notice-tr1">
-                    <td>1</td>
-                    <td><a th:href="@{\view.html}">에티오피아 예가체프</a></td>
-                    <td>5</td>
-                    <td>shin123</td>
+                <tr class="notice-tr1" th:each=" order : ${ orderHistoryList }">
+                    <td th:text="${ order.ordCode }"></td>
+                    <td th:text="${ order.ordName }"></td>
+                    <td th:text="${ order.quantity }"></td>
+                    <td th:text="${ order.member.memId }"></td>
                 </tr>
-                <tr class="notice-tr1">
-                    <td>2</td>
-                    <td><a th:href="@{\public\web.html}">가찌아 비바 프레스티지 커피머신</a></td>
-                    <td>1</td>
-                    <td>hiiiee99</td>
-                </tr>
-                <tr class="notice-tr1">
-                    <td>3</td>
-                    <td><a th:href="@{\public\web.html}">과테말라 안티구아</a></td>
-                    <td>3</td>
-                    <td>hiiiee99</td>
-                </tr>
-                <tr class="notice-tr1">
-                    <td>4</td>
-                    <td><a th:href="@{\public\web.html}">브라질 산토스</a></td>
-                    <td>6</td>
-                    <td>hiiiee99</td>
-                </tr>
-                <tr class="notice-tr1">
-                    <td>5</td>
-                    <td><a th:href="@{\public\web.html}">과테말라 안티구아</a></td>
-                    <td>3</td>
-                    <td>breeez1</td>
-                </tr>
-
                 
             </table>
         </div>
