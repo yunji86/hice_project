@@ -8,15 +8,17 @@
   align-content: center;
   margin: 0 auto;
   padding-top: 30px;
+  margin-bottom : 100px
+
 }
 
-#myTeble {
+.myTable {
   display: flex;
   justify-content: center;
   border-collapse: collapse;
 }
 
-#myTr1 {
+.myTr1 {
   border-top: 1px solid rgb(132, 87, 50);
   border-bottom: 1px solid rgb(231, 231, 231);
   background-color: rgb(248, 243, 240);
@@ -33,7 +35,7 @@
   cursor: pointer;
 }
 
-#myTr2 {
+.myTr2 {
   border-bottom: 1px solid rgb(204, 204, 204);
   font-size: small;
   /* display: none; */
@@ -273,6 +275,16 @@
   color: #3d3d3d;
   font-weight: bold;
   margin-bottom: 500px;
+}
+
+
+.myMessageEmpty {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 50px 0;
+  text-align: center;
+  color: #3d3d3d;
+  font-weight: bold;
+  margin-bottom: 50px;
 }
 
 /* ========= 장바구니 ============ */

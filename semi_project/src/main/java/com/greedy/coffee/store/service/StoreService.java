@@ -71,7 +71,7 @@ public class StoreService {
 		foundStore.setStoAdd(store.getStoAdd());
 		foundStore.setBean(modelMapper.map(store.getBean(), Beans.class));	
 		foundStore.setStoStatus(store.getStoStatus());
-		
+		foundStore.setCall(store.getCall());
 	}
 	
 

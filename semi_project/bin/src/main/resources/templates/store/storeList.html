@@ -24,33 +24,33 @@
             <div class="storeHeader">
 
                 <div class="headerTitle">
-                    <h1>매장 조회</h1>
+                    <h1>매장안내</h1>
                 </div>
 
                 
-                <div class="search-area" align="center" style="margin-top:20px;">
+                <div class="search-area" align="center" style="margin-top:30px;margin-bottom:35px;">
 					<!-- 검색 -->
 					<form id="searchForm" th:action="@{/store/storeList}" method="get" style="display: inline-block">
 						<th:block th:if="${ searchValue != null }">
-							<input type="search" id="searchValue" name="searchValue" th:value="${ searchValue }" placeholder="지역명을 입력하세요">
+							<input type="search" id="searchValue" class="searchValue" name="searchValue" th:value="${ searchValue }" placeholder="지역명을 입력하세요">
 						</th:block>
 						<th:block th:if="${ searchValue == null }">
-							<input type="search" id="searchValue" name="searchValue" placeholder="지역명을 입력하세요">
+							<input type="search" id="searchValue" class="searchValue" name="searchValue" placeholder="지역명을 입력하세요">
 						</th:block>
-						<button class="btn btn-bs" type="submit" style="cursor:pointer;">조회</button>
+						<button class="btnbtn-or" type="submit" style="cursor:pointer;">조회</button>
 					</form>
 					
 					<!-- 등록, 수정 화면넘기기 -->
 					<th:block sec:authorize="isAuthenticated()">
-						<button class="btn btn-or" id="writeStore" onclick="location.href='/store/storeRegist'" style="cursor:pointer;">등록</button>
-						<button th:onclick="'location.href=\'/store/storeUpdate\''" style="padding-left:3px; cursor:pointer;">수정</button>
-						<button th:onclick="'location.href=\'/store/storeRemove\''" style="padding-left:3px; cursor:pointer;">삭제</button>
+						<button class="btnbtn-or" id="writeStore" onclick="location.href='/store/storeRegist'" style="cursor:pointer;">등록</button>
+						<button class="btnbtn-or" th:onclick="'location.href=\'/store/storeUpdate\''" style="padding-left:3px; cursor:pointer;">수정</button>
+						<button class="btnbtn-or" th:onclick="'location.href=\'/store/storeRemove\''" style="padding-left:3px; cursor:pointer;">삭제</button>
 					</th:block>
 				</div>
             </div>
 						
 
-			<table align="center" id="storeResult">
+			<table align="center" id="storeResult" class="storeResult">
 					<th>매장코드</th>
 					<th>매장 명</th>
 					<th>취급 원두</th>
