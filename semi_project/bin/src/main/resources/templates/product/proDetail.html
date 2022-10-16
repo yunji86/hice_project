@@ -50,12 +50,14 @@
 		</tr>
 		<tr>
 			<td><button type="button" th:onclick="'location.href=\'/product/cart\''">장바구니</button></td>
-			<td><button type="button" th:onclick="'location.href=\'/product/pay\''">결 제</button></td>
-  	  		
+			<!-- <td><button type="button" th:onclick="'location.href=\'/product/pay\''">결 제</button></td> -->
+  	  	</tr>
     </table>
     
     <div align="center">
+    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
   	  <button th:onclick="|location.href='/product/modify/${product.proCode}'|">수정</button>
+  	  </th:block>
 	    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
     </div>
     
@@ -80,7 +82,7 @@
     
     
     
-    <div th:replace="main/section.html"></div>
+    
     <div th:replace="main/footer.html"></div>
 </body>
 </html>
