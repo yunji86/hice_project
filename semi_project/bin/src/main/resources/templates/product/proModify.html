@@ -11,6 +11,8 @@
 </head>
 <body>
 	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
 	
 	
 		<div class="product-modify" align="center">
@@ -47,7 +49,12 @@
 							<tr>
 							<tr>
 								<td>이미지 수정</td>
-								<td><input type>
+								<td>
+					          		<div class="image-area">
+					          			<img style="width: 100px; height: 100px;" th:src="${ product.fileList[0].fileThumPath }">      			
+					          		</div>
+					          	</td>
+				          	</tr>
 					    </table>
 					    <br><br>
 					    <div>
@@ -58,6 +65,11 @@
 					    <div align="center">
 						    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
 					    </div>
+					    
+					    <div class="thumbnail-file-area" style="display: none;">
+					      	<input type="file" name="proFile2"
+					    	accept="image/gif,image/jpeg,image/png"> 	
+					     </div>	
 					  </form>
 					  
 					  <form th:action="@{/product/delete}" method="post">
@@ -70,7 +82,7 @@
 					  
 				    	
 					</div> 
-
+	<div th:replace="main/quick.html"></div>
 	<div th:replace="main/footer.html"></div>
 </body>
 </html>

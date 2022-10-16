@@ -59,12 +59,11 @@
 						 
 						 <a>admin comment</a>
 					
-						 <!-- 댓글 입력  --> 
-						 <th:block sec:authorize="hasRole('ROLE_ADMIN')">      
+						 <!-- 댓글 입력  -->     
 						 <table id="revReplyWrite" >
 								<input type="hidden" id="revCode" th:value="${ revBoard.revCode }"/>
 									<tr>
-										<td><textarea class="reply-text" rows="2"  cols="20" id="replyContents" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
+										<td><textarea class="reply-text" rows="2"  cols="20" id="replyContent" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
 									    <br>
 									     <td><button class="revButton1" type="button" id="registRevReply">등록</button></td>
 								    </tr>  
@@ -97,19 +96,19 @@
 			if(document.getElementById("registRevReply")){
 				
 				const $registRevReply = document.getElementById("registRevReply");
-				const $replyContents = document.getElementById("replyContents");
+				const $replyContent = document.getElementById("replyContent");
 				
 				$registRevReply.onclick = function(){
 					
-					if(!$replyContents.value.trim()){
+					if(!$replyContent.value.trim()){
 						alert("댓글을 입력해주세요");
 						return;
 					}
 				
 					const revCode = document.getElementById("revCode").value;
-					const replyContents = $replyContents.value;
+					const replyContent = $replyContent.value;
 					console.log(revCode);
-					console.log(replyContents);
+					console.log(replyContent);
 					
 					fetch("/reply/registRevReply", {
 						method : "POST",
@@ -118,12 +117,12 @@
 						},
 						body: JSON.stringify({
 							revCode : revCode,
-							replyContents : replyContents
+							replyContent : replyContent
 						})
 					})
 					.then(data => {
 						console.log(data);
-						$replyContents.value = '';
+						$replyContent.value = '';
 						loadReply();
 					})
 					.catch(error => console.log(error));
@@ -139,19 +138,19 @@
 		 		
 		 		revReplyList.forEach(reply => {
 		 			const $tr = document.createElement('tr');
-		 			const $replyContentsTd = document.createElement('td');
+		 			const $replyContentTd = document.createElement('td');
 		 			const $writerTd  = document.createElement('td');
 		 			const $replyDateTd  = document.createElement('td');
 		 		    const $buttonTd = document.createElement('td'); 
 		 			
-		 			$replyContentsTd.textContent = reply.replyContents;
+		 			$replyContentTd.textContent = reply.replyContent;
 					  $writerTd.textContent = reply.writer.memId;
 					$replyDateTd.textContent = reply.replyDate;
 					
 					if('[[${#authentication.principal.memId}]]' == reply.writer.memId) {
 				    $buttonTd.innerHTML = `<button class='revButton2' type = 'button' onclick='removeReply(${reply.replyNo})'> 댓글 삭제 </button>` 
 					}
-					$tr.append($replyContentsTd, $writerTd, $replyDateTd, $buttonTd)
+					$tr.append($replyContentTd, $writerTd, $replyDateTd, $buttonTd)
 					$table.append($tr);
 		 			
 		 		});

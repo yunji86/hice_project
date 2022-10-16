@@ -13,6 +13,8 @@
 </head>
 <body>
 	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
 	  
             <h1 align="center">상품 등록</h1>
             	<div class="pro-create">
@@ -49,24 +51,16 @@
           			<img style="width: 100px; height: 100px;">      			
           		</div>
           	</td>
-          	<td>
-          		<div class="image-area">
-          			<img style="width: 100px; height: 100px;">
-          		</div>
-          	</td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="상품 등록"></td>
-			<td><input type="reset" value="취 소"></td>
+			<td><button type="button" th:onclick="'location.href=\'/product/proList\''" >취소</button></td>
 		</tr>
    	</table>
    	
 	<div class="thumbnail-file-area" style="display: none;">
       	<input type="file" name="proFile"
     	accept="image/gif,image/jpeg,image/png"> 	
-   		<input type="file" name="proFile"
-   		accept="image/gif,image/jpeg,image/png">
-      					
      </div>	
    	</form>
    </fieldset>
