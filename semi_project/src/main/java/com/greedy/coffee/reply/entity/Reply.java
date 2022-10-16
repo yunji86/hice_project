@@ -42,7 +42,7 @@ public class Reply {
 	)
 	private Long replyNo;
 	
-	@Column(name = "REPLY_CONTENTS")
+	@Column(name = "REPLY_CONTENT")
 	private String replyContent;
 	
 	@Column(name = "REPLY_STATUS")

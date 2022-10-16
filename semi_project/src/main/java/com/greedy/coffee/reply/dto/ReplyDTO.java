@@ -10,7 +10,7 @@ import lombok.Data;
 public class ReplyDTO {
 	
 	private Long replyNo;
-	private String replyContents;
+	private String replyContent;
 	private String replyStatus;
 	private Date replyDate;
 	private Date replyEditDate;
