@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
-	<title>하이스 커피</title>ㄴ
+	<title>하이스 커피</title>
 <script type="text/javascript" th:src="@{/js/review.js}"></script>
 <script>
 	const message = '[[${message}]]';
@@ -21,18 +21,16 @@
 	            
 	            	<div class="rev-view" align="center">
 	            		<table class="rev-ditail">
-	            			<tr><!-- 리뷰 제목  -->
-				            	<td><p th:text="${ revBoard.revTitle }"> </p> </td> 
-				            	<td colspan="3">조회수 : <p th:text="${ revBoard.revCount }"> </p><td>
-							</tr>
-							<tr> <!-- 리뷰 작성자  -->
-								  <td colspan="3"><p th:text="${ revBoard.writer.memId }"></p></td> 
-								  <td><p  th:text="${ revBoard.revDate }"></p></td>
+	            			<tr class="rev-tr1"><!-- 리뷰 제목  -->
+				            	<th class="rev-th1"><p th:text="${ revBoard.revTitle }"> </p> </th> 
+				            	<th>조회수 : <p th:text="${ revBoard.revCount }"> </p><td>
+								<th><p th:text="${ revBoard.writer.memId }"></p></td> 
+								<th><p  th:text="${ revBoard.revDate }"></p></td>
 							</tr>  
 							<!-- <tr>
 								<td><p  th:text="${ pro.proCode}"></p></td>
 							</tr> -->
-							<table class="rev-ditail">
+							<table class="rev-photo">
 							<tr>
 								<th:block th:if="${ revBoard.fileList.size() > 1}" th:each="index : ${ #numbers.sequence(0, revBoard.fileList.size() -1)}">
 									<td>
@@ -40,7 +38,6 @@
 											<img class="detailImg" width ="200" height="200"
 												 th:src="${ revBoard.fileList[index].filePath + revBoard.fileList[index].fileSaveName }"/>
 											<br>
-												
 										</div>
 									</td>
 								</th:block>	
@@ -51,25 +48,27 @@
 							</tr>
 						 </table>         
 			
-						 <div class="button4">   
-							   <button th:onclick="|location.href='/review/edit?revCode=${ revBoard.revCode }'|">수정</button>
+						 <div class="button-box">   
+							   <button class="revButton1" th:onclick="|location.href='/review/edit?revCode=${ revBoard.revCode }'|">수정</button>
 							   <form th:action="@{/review/delete}" method="post">
 									 <input type="hidden" name="revCode" th:value="${ revBoard.revCode }"/>
-									 <button type="submit" class="revDelete">삭제</button>
+									 <button type="submit" class="revButton2">삭제</button>
 							  </form>
-						 	
+						 </div>	
 						 		 
 						 
+						 <a>admin comment</a>
+					
 						 <!-- 댓글 입력  -->         
-						 <table id="revReplyWrite" style="margin:auto;">
+						 <table id="revReplyWrite" >
 								<input type="hidden" id="revCode" th:value="${ revBoard.revCode }"/>
 									<tr>
-										<label for="content">admin comment</label>
-										<td><textarea class="reply-text" rows="2"  cols="75" id="replyContents" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
+										<td><textarea class="reply-text" rows="2"  cols="20" id="replyContents" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
 									    <br>
-									     <td><button type="button" id="registRevReply">등록</button></td>
+									     <td><button class="revButton1" type="button" id="registRevReply">등록</button></td>
 								    </tr>  
 						  </table>
+						  
 							 <!-- 댓글 출력--> 
 							 <table id="revReplyResult" style="margin:auto;"></table>
 						</div>
@@ -149,7 +148,7 @@
 					$replyDateTd.textContent = reply.replyDate;
 					
 					if('[[${#authentication.principal.memId}]]' == reply.writer.memId) {
-				    $buttonTd.innerHTML = `<button type = 'button' onclick='removeReply(${reply.replyNo})'> 댓글 삭제 </button>` 
+				    $buttonTd.innerHTML = `<button class='revButton2' type = 'button' onclick='removeReply(${reply.replyNo})'> 댓글 삭제 </button>` 
 					}
 					$tr.append($replyContentsTd, $writerTd, $replyDateTd, $buttonTd)
 					$table.append($tr);

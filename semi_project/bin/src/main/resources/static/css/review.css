@@ -20,12 +20,10 @@ table {
     border-top: none;
     border-bottom: none;
     border-collapse: collapse;
-    width: 1400px;
     margin: 0 auto;
 }
 
 table tr {
-    text-align: center;
 }
 
 .review-tr {
@@ -130,8 +128,10 @@ table tr {
 
 .rev-page a {
     color: rgb(107, 71, 53);
-    padding-left: 80em;
     font-weight: bold;
+    font-size: 20px;
+    margin-right: 62em;
+    
 }
 
 .button2 {
@@ -208,6 +208,7 @@ h1 {
 .revContents-box {
     width: 1200px;
     height: 500px;
+   
 }
 
 .rev-tbody {
@@ -250,6 +251,7 @@ h1 {
 
 .rev-page h1{
     font-size: xxx-large;
+    margint-top: 50px
 }
 
 .button4{
@@ -259,12 +261,85 @@ h1 {
 .reply-text{
     resize:none;
     width: 1300px;
-    height: 100px;
+    height: 40px;
     float: left;
 }
 
 .revContents-box1{
     width: 1400px;
     height: 500px;
+    font-size: 20px;
+    font-weight: bold;
+    color:  #4d3829;;
+    margin-top: 150px;
+     border:none;
 }
+
+.revButton1{
+  background-color: #4d3829;
+  border: 1px solid #4d3829;
+  padding: 4px 30px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+.revButton2{ 
+  background-color: white;
+  border: 1px solid #4d3829;
+  padding: 4px 30px;
+  border-radius: 4px;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.photo-area{
+	padding: 86px 0;
+    padding-top: 80px;
+    margin-top: 50px;
+}
+
+#rev-searchForm {
+	margin-top: 30px;
+    margin-left: 1100px;
+}
+
+.button-box{
+	margin-top: 30px;
+	margin-left: 82em;
+	box-align: center;
+	display: flex;
+	
+}
+
+
+.rev-ditail{
+	background-color: rgb(244, 235, 230);
+	width: 88em;
+	color: rgb(107, 71, 53);
+	font-weight: bold;
+	border-radius: 10px;
+}
+
+.rev-tr1{
+	 border-top: 1px solid rgb(132, 87, 50);
+     border-bottom: 1px solid rgb(231, 231, 231);
+     background-color: rgb(248, 243, 240);
+     height: 100px;
+     font-weight: bold;
+}
+
+.rev-tr1 .rev-th1{
+	 color: rgb(107, 71, 53);
+	 font-size: 25px;
+	 font-weight: bold;
+}
+
+.rev-photo{
+	margin-top: 100px;
+}
+
 
