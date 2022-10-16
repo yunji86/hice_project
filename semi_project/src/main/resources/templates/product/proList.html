@@ -3,6 +3,7 @@
 	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/product.css}">
 <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
 	<title>하이스 커피</title>
 <script type="text/javascript" th:src="@{/js/product.js}"></script>
@@ -18,7 +19,7 @@
 	
 	
 	      <div class="outer product-list">                    
-            <h1 align="center">PRODUCT</h1>
+            <h1 align="center">상품</h1>
                      
             <form id="rev-searchForm" th:action="@{/product/proList}" method="get" align="center">
            		<th:block th:if="${ proSearchValue != null }">
@@ -31,7 +32,9 @@
            		<button class="pro-button" type="submit">검색</button>	
            	</form>	
                   
-                  <h1 align="center">상품</h1>       
+                      
+                  <div class="pro-main-box">
+                  <div class="pro-box">
             <th:block th:each="product : ${ productList }">
 				<div class="pro-list" align="center" style="margin: 20px; cursor:pointer;"
 				     th:onclick="|location.href='/product/detail/${product.proCode}'|">
@@ -42,18 +45,20 @@
 							th:src="${proList.FileThumPath}" width="300px" height="300px" >	
 				
 						</th:block>
-					</div> 
-									
 					<p>
 						상품명 :<label th:text="${ product.proName }"></label><br> 
 						카테고리 :<label th:text="${ product.proType }"></label><br> 
 						금액 :<label th:text="${ product.proPrice }"></label><br> 
 						조회수 :<label th:text="${ product.proCount }"></label><br> 
 					</p>
+					</div> 
+									
 					
 					
 				</div>
 			</th:block>
+			</div>
+			</div>
 		</div>
 		
 		<div id="paging" align="center">

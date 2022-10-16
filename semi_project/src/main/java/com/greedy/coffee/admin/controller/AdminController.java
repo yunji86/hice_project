@@ -34,7 +34,9 @@ public class AdminController {
 	public String admin() {
 		
 		return "admin/adminpage";
-	}	
+	}
+
+
 	
 	@GetMapping("list")
 	public String eventBoard(@RequestParam(defaultValue="1") int page, Model model) {
@@ -65,5 +67,5 @@ public class AdminController {
 		adminService.staustChange(changeOrd);
 		
 		return"redirect:/";
-	}
+
 }
