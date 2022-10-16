@@ -10,6 +10,6 @@ public interface QnaReplyRepository extends JpaRepository<Reply, Long>{
 
 	Reply findByReplyNo(Long replyNo);
 	
-	List<Reply> findByReplyNoAndReplyStatus(Long replyNo, String replyStatus);
+	List<Reply> findByReplyNoAndReplyStatus(Long replyNo, String activeStatus);
 	
 }

@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,12 +29,12 @@ import lombok.extern.slf4j.Slf4j;
 public class QnaController {
   
 	private final QnaService qnaService;
-	private final MessageSourceAccessor messageSourceAccor;
+	private final MessageSourceAccessor messageSourceAccessor;
   
-	public QnaController(QnaService qnaService, MessageSourceAccessor messageSourceAccor) { 
+	public QnaController(QnaService qnaService, MessageSourceAccessor messageSourceAccessor) { 
 		
 		this.qnaService = qnaService;
-		this.messageSourceAccor = messageSourceAccor;
+		this.messageSourceAccessor = messageSourceAccessor;
 			
 	}
 	
@@ -81,7 +82,9 @@ public class QnaController {
 		log.info("qnaRegist qna : {} ", qna);
 		qnaService.registQna(qna);
 		
-		rttr.addFlashAttribute("message", messageSourceAccor.getMessage("qna.regist"));
+		log.info("qnaRegist qna worked : ", qna);
+		
+		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("qna.regist"));
 		
 		return "redirect:/qna/qnaList";
 		
@@ -108,20 +111,26 @@ public class QnaController {
 	@GetMapping("/qnaModify")
 	public String goQnaModify(Model model, Long qnaCode) {
 		
-		log.info("qnaModify is working ");
-		log.info("qnaModify qnaCode : {} ", qnaCode);
+		log.info("GETqnaModify is working ");
+		log.info("GETqnaModify qnaCode : {} ", qnaCode);
 		
 		QnaDTO qna = qnaService.modifyQna(qnaCode);
 		
-		log.info("qnaDetail qna : {} ", qna);
+		log.info("GETqnaModify qna : {} ", qna);
 		
 		model.addAttribute("qna", qna);
 		
-		log.info("qnaDetail is worked ");
+		log.info("GETqnaModify is worked ");
+		
+		qna.setQnaCode(qna.getQnaCode());
+		
+		log.info("GETqnaModify qnaCode : {} ", qnaCode);
 		
 		return "qna/qnaModify";
 		
 	}
+	
+
 	
 	@PostMapping("/qnaModify")
 	public String qnaModify(QnaDTO qna, @AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
@@ -130,28 +139,31 @@ public class QnaController {
 		log.info("qnaModify qna : {} ", qna);
 		log.info("qnaModify member : {} ", member);
 		
-		qna.setWriter(member);
+		// qna.setWriter(member);
 		qnaService.registQna(qna);
 		
-		rttr.addAttribute("message", messageSourceAccor.getMessage("qna.modify"));
+		rttr.addAttribute("message", messageSourceAccessor.getMessage("qna.modify"));
 		
 		log.info("qnaModify is worked ");
 		
-		return "qna/qnaModify";
+		return "redirect:/qna/qnaList";
 		
 	}
 	
+
 	@PostMapping("/qnaRemove")
-	public ResponseEntity<String> removeQna(@RequestBody QnaDTO removeQna) {
+	public String removeQna(@RequestBody Long qnaRemove, RedirectAttributes rttr) {
 		
 		log.info("qnaRemove is working ");
-		log.info("qnaRemove removeQna : {}", removeQna);
+		log.info("qnaRemove qnaRemove : {}", qnaRemove);
 		
-		qnaService.removeQna(removeQna);
+		qnaService.removeQna(qnaRemove);
 		
 		log.info("qnaRemove is worked ");
 		
-		return ResponseEntity.ok("문의글 삭제 완료");
+		rttr.addFlashAttribute("Message", messageSourceAccessor.getMessage("qna.remove"));
+		
+		return "redirect:/qna/list";
 		
 	}
 	

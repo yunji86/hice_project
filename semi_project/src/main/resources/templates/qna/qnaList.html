@@ -34,14 +34,18 @@
             <div id="qna-main">
             <div id="qna-section">
                 <h1 align="center">QnA 게시판</h1>
-                <!-- 캡션 추가 BY JAYTEE-->
-
+                <!-- 캡션 추가 BY JAYTEE-->       
+                
+                <th:block sec:authorize="hasRole('ROLE_MEMBER')">
                 <div id="qna-btn-box">
-                    <div id="qna-btn1" onclick="location.href = './qnaRegist'">
+                    <div style="cursor:pointer;" id="qna-btn1" onclick="location.href = './qnaRegist'">
                         문의글 등록
                     </div>
                     <!-- <br><br><br><br> -->
                 </div>
+				</th:block> 
+
+
 
                 
 <!--                 <th:block sec:authorize="hasRole('ADMIN')">
@@ -62,6 +66,9 @@
                             <td class="qna-td3">작성자</td>
                             <td class="qna-td4">등록일</td>
                         </tr>
+                        
+                        <th:block sec:authorize.principal.memId == qna.writer.memId>
+                        
                         <tr th:each="qna : ${ qnaList }"
                         	th:onclick="|location.href='/qna/qnaDetail?qnaCode=${qna.qnaCode}'|"
                         	style="cursor:pointer;">
@@ -70,6 +77,8 @@
                             <td th:text="${ qna.writer.memId }"></td>
                             <td th:text="${ qna.qnaDate }"></td> 
                         </tr>
+                        
+                        </th:block>
 
                         <tr class="qna-tr1">
                             <td>1</td>
@@ -166,7 +175,6 @@
             </div>
         </div>
 
-     <div th:replace="main/section.html"></div>
     <div th:replace="main/footer.html"></div>
 </body>
 <footer>
