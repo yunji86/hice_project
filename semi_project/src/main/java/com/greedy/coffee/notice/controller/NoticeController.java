@@ -144,7 +144,5 @@ public class NoticeController {
 	}
 	
 	// 디테일 css
-	// 공지사항 등록 시 내용 창의 커서
-	// 리스트 페이징바 기능
 
 }
