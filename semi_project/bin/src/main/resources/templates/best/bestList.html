@@ -5,12 +5,10 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 <link rel="stylesheet" th:href="@{/css/kj.css}">
-<link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
-	<title>하이스 커피</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 ﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" th:src="@{/js/kj.js}"></script>
-
+<title>Insert title here</title>
 </head>
 <body>
     
@@ -24,33 +22,33 @@
             <div class="beanHeader">
              
                     <div class="title">
-                        <h1>베스트 원두</h1>
-                        <hr class="underLine">
+                        <h1>베스트 상품</h1>
                     </div>
         
-                   <div class="box">
-                        <div class="bStrength">
-                        	<!-- <a th:onclick="<!-- |location.href='@{js/kj.js}'| " class="sec4Bt addClasssec4Bt">ALL</a> -->
-                            <!-- <a th:onclick="<!-- |location.href='@{js/kj.js}'| " class="sec4Bt">진함</a>-->
-                           	<!-- <a th:onclick="<!-- |location.href='@{js/kj.js}'| " class="sec4Bt">보통</a>-->
-                          	<!-- <a th:onclick="<!-- |location.href='@{js/kj.js}'| " class="sec4Bt">연함</a>-->
-                        	<a id="sec4Bt" class="sec4Bt addClasssec4Bt">ALL</a>
-                            <a id="sec4Bt" class="sec4Bt">진함</a>
-                            <a id="sec4Bt" class="sec4Bt">보통</a>
-                            <a id="sec4Bt" class="sec4Bt">연함</a>
-                        </div>
-                    </div> 
+	                <div class="search-area" align="center" style="margin-top:20px;">
+						<!-- 검색 -->
+						<form id="searchForm" th:action="@{/best/bestList}" method="get" style="display: inline-block">
+							<th:block th:if="${ searchValue != null }">
+								<input type="search" id="searchValue" class="searchValue" name="searchValue" th:value="${ searchValue }" placeholder="상품명을 입력하세요">
+							</th:block>
+							<th:block th:if="${ searchValue == null }">
+								<input type="search" id="searchValue" class="searchValue" name="searchValue" placeholder="상품명을 입력하세요">
+							</th:block>
+							<button class="btnbtn-or" type="submit" style="cursor:pointer;">조회</button>
+						</form>
+						
+					</div>
                
             </div>
     
             <table id="beanBody" class="beanBody" method="get">
-            	<div class="bean" th:each="beans : ${ bestList }">
+            	<div class="bean" th:each="best : ${ bestList }">
             		<div  class="beanDetail1">
 		                <div class="beanDetail2">
-			                  <strong class="beanTitle" th:text="${ beans.beanName }"></strong>
-			                  <p th:text="${ beans.beanSolidity }" style="font-weight: bold;"></p>
-			                  <p th:text="${ beans.beanExplan }"></p>
-			                  <a th:onclick="#" style="cursor: pointer;">구매하기</a>	                	
+			                  <strong class="beanTitle" th:text="${ best.proName }"></strong>
+			                  <p th:text="${ best.proType }" style="font-weight: bold;"></p>
+			                  <p th:text="${ best.proContent }"></p>
+			                  <a th:onclick="'location.href=\'/product/proDetail\''" style="cursor: pointer;">구매하기</a>	                	
 		                </div>
 		           </div>
 	             </div>
@@ -58,7 +56,7 @@
     
             <div class="bodyUnder">
     
-                <p class="offShop"><a th:onclick="#" style="cursor: pointer;">오프라인 구매처</a></p>
+                <p class="offShop"><a th:onclick="'location.href=\'/product/proList\''"  style="cursor: pointer;">오프라인 구매처</a></p>
     
             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
     

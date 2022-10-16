@@ -1,0 +1,68 @@
+<!-- 글 조회(클릭)시 관리자에게 보여지는 화면  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https//www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}">	  
+    <link rel="stylesheet" th:href="@{/css/qnaRegist.css}">
+
+    <!-- 제이쿼리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        
+    <script>
+        // 권한부여, AJAX 통신 후 코드 수정해야함
+        const message = '[[${message}]]';
+		message && alert(message);
+    </script>
+
+    <title>Hice Coffee</title>
+</head>
+
+<body>
+
+    <div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+    <!-- 개발진행 -->
+    <div id="qna-main">
+            <div id="qna-section">
+                <h1 align="center">문의 사항 수정 / 삭제</h1>
+                <form id="qnaRegistForm" th:action="@{/qna/qnaModify}" method="post">
+
+                    <div class="title-box">
+                    <div class="textArea1">
+                       <label>제목</label> <input class="areaInput1" type="text" th:value="${ qna.qnaTitle }">
+                      </div>
+                      <div class="textArea2">
+                       <label class="areaLabel">내용</label> <input class="areaInput2" type="text" th:value="${ qna.qnaContent }">
+                        </div>
+                    </div>
+                    
+                    <div class="notice-btn-box-bottom" >
+                        <button type="submit" id="btnForChange"><a href="/member/terms">완료</a></button>
+                        <button type="button" th:onclick="|location.href='/qna/qnaDetail?qnaCode=${qna.qnaCode}'|">취소</button>
+                    </div>
+             
+                </form>
+                
+            </div>
+        </div>
+    
+	<div th:replace="main/section.html"></div>
+    <div th:replace="main/footer.html"></div>
+
+</body>
+<footer>
+    
+</footer>
+
+</html>

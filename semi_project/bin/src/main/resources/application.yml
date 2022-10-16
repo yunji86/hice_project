@@ -13,6 +13,7 @@ spring:
     generate-ddl: false
     show-sql: true
     database: oracle
+    database-platform : org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         '[format_sql]': true     

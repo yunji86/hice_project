@@ -67,8 +67,37 @@
                 </div>
             </div>
         </div>
-
-     
+        
+        <!-- 페이징바 -->
+            <div id="paging" align="center" style="margin-top:20px;">
+            	
+            	<th:block th:if="${ param.searchValue == null || param.searchValue.isEmpty()}">
+        		
+        		<button
+        			th:onclick="'location.href=\'/notice/noticeList?page=' + @{${paging.startPage}} +'\''">&lt;&lt;</button>
+        			
+        		
+        		<button
+        			th:onclick="'location.href=\'/notice/noticeList?page=' +@{${paging.currentPage - 1}} +  '\''"
+        			th:disabled = "${ noticeList.first }" >&lt;</button>    
+        		
+        		<th:block
+        			th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage )}">
+        			<button
+        				th:onclick="'location.href=\'/notice/noticeList?page=' + @{${page}} +  '\''"
+        				th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+        			</button>					
+        		</th:block>		
+        		
+        		<button
+        			th:onclick="'location.href=\'/notice/noticeList?page=' + @{${paging.currentPage + 1}} + '\''"
+        			th:disabled="${ noticeList.last}"> > </button>
+        		
+        		<button
+        			th:onclick="'location.href=\'/notice/noticeList?page=' + @{${paging.endPage}} + '\''"> >> </button>
+        	</th:block>	    
+        </div>
+        
     <div th:replace="main/footer.html"></div>
 </body>
 <footer>

@@ -58,6 +58,9 @@ public class Store {
   @Column(name = "STO_DELETE_DATE")
   private Date stoDeleteDate; 
   
+  @Column(name = "CALL")
+  private String call;
+  
   @ManyToOne
   @JoinColumn(name = "MEM_ID")
   private Member memId;

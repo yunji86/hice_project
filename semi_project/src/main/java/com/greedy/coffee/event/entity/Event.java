@@ -58,4 +58,6 @@ public class Event {
 	@Column(name = "EVE_DATE")
 	private Date eveDate;
 	
+	@Column(name = "EVE_STATUS")
+	private String eveStatus;
 }
