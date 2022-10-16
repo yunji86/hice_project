@@ -29,8 +29,10 @@
                     <input type="text" class="textBx"><br><br>-->
                     <label>주소지 : </label>
                     <input type="text" class="textBx" name="stoAdd"><br><br>
+                    <label>전화번호 : </label>
+                    <input type="text" class="textBx" name="call"><br><br>
                     <label>취급 원두</label>
-                    <select name="bean.beanCode">					<!-- 1014 추가 -->
+                    <select name="bean.beanCode" style="cursor:pointer;">					
                     	<option value="1">케냐AA</option>
                     	<option value="2">에티오피아 예가 체프</option>
                     	<option value="3">콜롬비아 수프리모</option>
@@ -39,14 +41,14 @@
                     	<option value="6">인도네시아 만델링</option>
                     </select><br><br>
 					<label>화면 표시 여부 : </label>
-					<select name="stoStatus">
+					<select name="stoStatus" style="cursor:pointer;">
 						<option value="Y">표시</option>
 						<option value="N">숨김</option>
 					</select><br><br>
 					
-					<button type="button" th:onclick="'location.href=\'/store/storeList\''">목록</button>
-                	<button type="submit">등록</button>
-                	<button type="reset">취소</button>
+					<button type="button" class="btnbtn-or" th:onclick="'location.href=\'/store/storeList\''">목록</button>
+                	<button type="submit" class="btnbtn-or">등록</button>
+                	<button type="reset" class="btnbtn-or">취소</button>
 					
             </form>
 

@@ -32,18 +32,18 @@
 	           		<th:block th:if="${ revSearchValue == null }">
 	           			<input type="search" id="revSearchValue" name="revSearchValue">
 	           		</th:block>
-	           		<button class="rev-button" type="submit">검색</button>	
+	           		<button class="revButton1" type="submit">검색</button>	
            		</form>		
          	    </div>
              </div>   
 	           
-	            <div class="Photo-area" id="PhotoArea"
+	            <div class="photo-area" id="PhotoArea"
 	            	style="width: 1080px; margin: auto; display: flex; justify-content: center; flex-wrap: wrap;">
 	            	<th:block th:each=" revBoard : ${ revBoardList }">
-	            		<div class="Photo-list" align="center" style="margin: 20px; cursor:pointer;"
+	            		<div class="photo-list" align="center" style="margin: 20px; cursor:pointer;"
 	            			 th:onclick="|location.href='/review/view?revCode=${ revBoard.revCode }'|">
 	            			
-	            				<div>
+	            				<div  class="photo-title">
 		            				<th:block th:each="revList : ${ revBoard.fileList }" >
 		            					
 		            					<img th:if="${ revList.fileType == 'REVTITLE' }"
@@ -62,8 +62,11 @@
 	            			</div>	
 	            		</th:block>	 		 
 	         		</div>
-	         		<!-- <th:block sec:authorize="isAuthenticated()"> -->
-	         		<button id="writeBoard">글쓰기</button> 
+	         		<div align="center">
+	         		<th:block sec:authorize="isAuthenticated()">
+	         		<button  class="revButton1" id="writeBoard">리뷰 작성</button> 
+	         		</th:block>
+	         		</div>
 	         		</th:block>
 		<div id="paging" align="center">
 			

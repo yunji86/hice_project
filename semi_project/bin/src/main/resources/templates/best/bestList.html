@@ -23,19 +23,18 @@
              
                     <div class="title">
                         <h1>베스트 상품</h1>
-                        <hr class="underLine">
                     </div>
         
 	                <div class="search-area" align="center" style="margin-top:20px;">
 						<!-- 검색 -->
 						<form id="searchForm" th:action="@{/best/bestList}" method="get" style="display: inline-block">
 							<th:block th:if="${ searchValue != null }">
-								<input type="search" id="searchValue" name="searchValue" th:value="${ searchValue }" placeholder="상품명을 입력하세요">
+								<input type="search" id="searchValue" class="searchValue" name="searchValue" th:value="${ searchValue }" placeholder="상품명을 입력하세요">
 							</th:block>
 							<th:block th:if="${ searchValue == null }">
-								<input type="search" id="searchValue" name="searchValue" placeholder="상품명을 입력하세요">
+								<input type="search" id="searchValue" class="searchValue" name="searchValue" placeholder="상품명을 입력하세요">
 							</th:block>
-							<button class="btn btn-bs" type="submit" style="cursor:pointer;">조회</button>
+							<button class="btnbtn-or" type="submit" style="cursor:pointer;">조회</button>
 						</form>
 						
 					</div>
