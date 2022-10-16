@@ -33,47 +33,91 @@
 	<div th:replace="main/nav.html"></div>
 
     <!-- 개발진행 -->
-
-                     
-        <h1 >문의 사항 확인</h1>
-        
-        <form id="qnaRegistForm" th:action="@{/qna/qnaRegist}" method="post">
-        	
-        <div id="qna-btn-box"  >
-        
-			<!-- <label>제목</label> -->
-			<p align="left" th:text="${qna.qnaTitle }"/>		
+	<!--  클래스명은 임의로 줄 것 -->
+        <div class="qnaDetail" >   <!-- 위드 1600  margin 0 auto-->         
+        	<h1 align="center" >문의 사항 확인</h1>
+        		<div class="qnaDetailBox" >  <!-- 위드 1400  margin 0 auto-->
+			        <form id="qnaRegistForm" th:action="@{/qna/qnaRegist}" method="post">
+			        	<div class="qnaDetailList" >
+			        	
+			        	
+			        	<div id="qna-btn-box1"  >
+			        
+						<!-- <label>제목</label> -->
+						<p  th:text="${qna.qnaTitle }"/>		
+						</div>
+						<div id="qna-btn-box2"  >
+							<!-- <label>내용</label> -->
+							<p th:text="${qna.qnaContent }"/>		
+						</div>
+				        
+				<!--         <div id="qna-btn-box" style="background-color: green;">
+				            <button type="button" style="background-color: red;" id="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</button>
+				            <button type="button" style="background-color: yellow;" id="qna-btn1" onclick="window.location.href='./qnaList'">수정</button>
+				            <button type="button" style="background-color: blue;" id="qna-btn1" onclick="window.location.href='./qnaList'">삭제</button>
+				        </div> -->
+				
+						<!-- <div id="qna-btn-box" style="background-color: green;">
+				            <button type="button" style="background-color: red;" onclick="window.location.href='./qnaList'">목록으로</button>
+				            <button type="button" style="background-color: yellow;" onclick="window.location.href='./qnaModify'">수정</button>
+				            <button type="submit" style="background-color: blue;" onclick="window.location.href='./qnaDelete'">삭제</button>
+				        </div> -->
+				        <div class="qna-btn-box-bottom">
+				        
+				        	<button type="submit" class="qnaRemove">삭제</button>
+				        	<button type="button" name="qnaModify" th:onclick="|location.href='/qna/qnaModify?qnaCode=${qna.qnaCode}'|">수정</button>
+						
+				        </div> 
+				            
+				        
+			          	</div>          
+			        
+		       
+					</form>
+					
+					
+					<br><br><br><br><br><br>
+					
+					<th:block sec:authorize="hasRole('ROLE_ADMIN')">
+					
+					<form id="replyRegistForm" th:action="@{/reply/replyRegist}" method="post">
+			        	<div class="qnaDetailList" >
+			        	
+						<div id="qna-btn-box2"  >
+							<!-- <label>내용</label> -->
+							<p th:text="${qna.qnaContent }"/>		
+						</div>
+				        
+				<!--         <div id="qna-btn-box" style="background-color: green;">
+				            <button type="button" style="background-color: red;" id="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</button>
+				            <button type="button" style="background-color: yellow;" id="qna-btn1" onclick="window.location.href='./qnaList'">수정</button>
+				            <button type="button" style="background-color: blue;" id="qna-btn1" onclick="window.location.href='./qnaList'">삭제</button>
+				        </div> -->
+				
+						<!-- <div id="qna-btn-box" style="background-color: green;">
+				            <button type="button" style="background-color: red;" onclick="window.location.href='./qnaList'">목록으로</button>
+				            <button type="button" style="background-color: yellow;" onclick="window.location.href='./qnaModify'">수정</button>
+				            <button type="submit" style="background-color: blue;" onclick="window.location.href='./qnaDelete'">삭제</button>
+				        </div> -->
+				        <div class="qna-btn-box-bottom">
+				        
+				        	<button type="submit" class="replyRegist">답변글 등록</button>
+				        	<button type="submit" class="replyRemove">답변글 삭제</button>
+				        	<button type="button" name="qnaModify" th:onclick="|location.href='/qna/qnaModify?qnaCode=${qna.qnaCode}'|">답변글 수정</button>
+						
+				        </div> 
+				            
+				        
+			          	</div>          
+			        
+		       
+					</form>
+					
+					
+			</div>
 		</div>
-		<div id="qna-btn-box" >
-			<!-- <label>내용</label> -->
-			<p th:text="${qna.qnaContent }"/>		
-		</div>
-        
-<!--         <div id="qna-btn-box" style="background-color: green;">
-            <button type="button" style="background-color: red;" id="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</button>
-            <button type="button" style="background-color: yellow;" id="qna-btn1" onclick="window.location.href='./qnaList'">수정</button>
-            <button type="button" style="background-color: blue;" id="qna-btn1" onclick="window.location.href='./qnaList'">삭제</button>
-        </div> -->
-
-		<!-- <div id="qna-btn-box" style="background-color: green;">
-            <button type="button" style="background-color: red;" onclick="window.location.href='./qnaList'">목록으로</button>
-            <button type="button" style="background-color: yellow;" onclick="window.location.href='./qnaModify'">수정</button>
-            <button type="submit" style="background-color: blue;" onclick="window.location.href='./qnaDelete'">삭제</button>
-        </div> -->
-                    
-        <div class="notice-btn-box-bottom">
-        	<button type="button" th:onclick="|location.href='/qna/qnaModify?qnaCode=${qna.qnaCode}'|">수정</button>
-        </div> 
-        
-        <div>
-        
-        </div>
-			<button type="submit" class="qnaRemove">삭제</button>    
-		</form>
-
     <br><br><br><br>
 
-	<div th:replace="main/section.html"></div>
     <div th:replace="main/footer.html"></div>
 
 </body>
