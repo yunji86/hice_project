@@ -46,7 +46,9 @@
 									
 					<p>
 						상품명 :<label th:text="${ product.proName }"></label><br> 
+						카테고리 :<label th:text="${ product.proType }"></label><br> 
 						금액 :<label th:text="${ product.proPrice }"></label><br> 
+						조회수 :<label th:text="${ product.proCount }"></label><br> 
 					</p>
 					
 					
@@ -86,11 +88,11 @@
 		
 		<div class="search-area" align="center" style="margin-top: 20px;">
 			<!-- 로그인 한 경우에만 버튼이 보여짐 -->
-			<th:block sec:authorize="isAuthenticated()">
+			<th:block sec:authorize="hasRole('ROLE_ADMIN')">
 				<button id="writeBoard">작성하기</button> 
 			</th:block>
 		</div>
-		
+	<div th:replace="main/quick.html"></div>
      <div th:replace="main/footer.html"></div>   
 </body>
 </html>

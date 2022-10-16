@@ -56,6 +56,8 @@ public class ProService {
 		
 		Product product = proRepository.findByProCodeAndProStatus(proCode, ACTIVE_STATUS);
 		
+		product.setProCount(product.getProCount() +1);
+		
 		return modelMapper.map(product, ProDTO.class);
 	}
 
