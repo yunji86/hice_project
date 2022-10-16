@@ -25,7 +25,7 @@ public class AdminService {
 	private final AdminRepository adminRepository;
 	public static final int TEXT_PAGE_SIZE = 10;
 	public static final String SORT_BY = "ordCode";
-	public static final String ACTIVE_STATUS = "Y";
+	public static final int TEXT_ORDER_TYPE = 1;
 	
 	public AdminService(ModelMapper modelMapper, AdminRepository adminRepository) {
 		this.modelMapper = modelMapper;
@@ -35,19 +35,15 @@ public class AdminService {
 	public Page<OrderDTO> selectOrderStatus(int page) {
 		
 		Pageable pageable = PageRequest.of(page -1, TEXT_PAGE_SIZE, Sort.by(SORT_BY).descending());
-		Page<Order> orederList = adminRepository.findByOrdStatus(ACTIVE_STATUS, pageable);
+		Page<Order> orederList = adminRepository.findByOrdType(TEXT_ORDER_TYPE, pageable);
 		return orederList.map(Ord -> modelMapper.map(Ord, OrderDTO.class));
 	}
 
-	public void staustChange(OrderDTO changeOrd) {
+	public void staustChange(Long ordCode) {
 		
-		Order order = adminRepository.findByOrdNum(changeOrd.getOrdNum());
+		Order order = adminRepository.findByOrdCode(ordCode);
 		order.setOrdStatus("N");
 		
 	}
-
-
-	
-	
 	
 }

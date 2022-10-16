@@ -10,9 +10,12 @@ import com.greedy.coffee.order.entity.Order;
 
 public interface AdminRepository extends JpaRepository<Order, Long>{
 
-	Page<Order> findByOrdStatus(String activeStatus, Pageable pageable);
 
-	Order findByOrdNum(int ordNum);
+
+	Order findByOrdCode(Long ordCode);
+
+
+	Page<Order> findByOrdType(int textOrderType, Pageable pageable);
 
 	
 }

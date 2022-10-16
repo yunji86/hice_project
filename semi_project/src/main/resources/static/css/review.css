@@ -192,7 +192,6 @@ h1 {
 .rev-thead {
     width: 1200px;
     margin: 0 auto;
-    
     text-align: center;
 }
 .revTitle-box {
@@ -225,10 +224,6 @@ h1 {
     margin: 0 auto;
 }
 
-.rev-button1{
-    width: 1200px;
-    margin: 0 auto;
-}
 
 /* ------------------------------------------------------------------ */
 /* 리뷰 뷰 부분 */
@@ -329,5 +324,17 @@ h1 {
 .rev-photo{
 	margin-top: 100px;
 }
+
+#revReplyResult tr td{
+	width: 500px;
+	
+}
+
+#revReplyResult {
+	margin-left: 10em;
+}
+
+
+
 
 

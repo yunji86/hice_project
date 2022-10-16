@@ -10,7 +10,7 @@
   padding-top: 30px;
 }
 
-#myTeble {
+#myTable {
   display: flex;
   justify-content: center;
   border-collapse: collapse;
@@ -35,7 +35,7 @@
 
 #myTr2 {
   border-bottom: 1px solid rgb(204, 204, 204);
-  font-size: small;
+  margin: 5px;
   /* display: none; */
 }
 
