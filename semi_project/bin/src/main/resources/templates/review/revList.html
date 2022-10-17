@@ -103,7 +103,7 @@
         	
         	
         	<!-- 리뷰 검색  -->
-        	<th:block th:if="${ serchValue != null }">
+        	<th:block th:if="${ param.revSearchValue != null }">
         		
         		<button
         			th:onclick="'location.href=\'/review/list?page=' 
@@ -123,11 +123,11 @@
         		</th:block>		
         		
         		<button
-        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.currentPage + 1}} + '&revserchValue=' + @{${revsearchValue}} + '\''"
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.currentPage + 1}} + '&revSearchValue=' + @{${revsearchValue}} + '\''"
         			th:disabled="${ revBoardList.last}"> > </button>
         		
         		<button
-        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.endPage}} + '&revserchValue=' + @{${revsearchValue}} + '\''">
+        			th:onclick="'location.href=\'/review/list?page=' + @{${paging.endPage}} + '&revSearchValue=' + @{${revsearchValue}} + '\''">
         			>> </button>
         	</th:block>	    
         </div>
