@@ -17,14 +17,14 @@
 <body>
 	<div th:replace="main/header.html"></div>
 		 <div class="rev-page">         
-	         <h1 align="center">REVIEW</h1>
+	         <h1 align="center">PHOTO REVIEW</h1>
 	            
 	            	<div class="rev-view" align="center">
 	            		<table class="rev-ditail">
 	            			<tr class="rev-tr1"><!-- 리뷰 제목  -->
 				            	<th class="rev-th1"><p th:text="${ revBoard.revTitle }"> </p> </th> 
 				            	<th>조회수 : <p th:text="${ revBoard.revCount }"> </p><td>
-								<th><p th:text="${ revBoard.writer.memId }"></p></td> 
+								<th><p th:text="${ revBoard.writer.memId }"></p></td>
 								<th><p  th:text="${ revBoard.revDate }"></p></td>
 							</tr>  
 							<!-- <tr>
@@ -59,18 +59,18 @@
 						 
 						 <a>admin comment</a>
 					
-						 <!-- 댓글 입력  -->         
+						 <!-- 댓글 입력  -->     
 						 <table id="revReplyWrite" >
 								<input type="hidden" id="revCode" th:value="${ revBoard.revCode }"/>
 									<tr>
-										<td><textarea class="reply-text" rows="2"  cols="20" id="replyContents" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
+										<td><textarea class="reply-text" rows="2"  cols="20" id="replyContent" style="resize:none;" placeholder="내용을 입력하세요."></textarea></td>
 									    <br>
 									     <td><button class="revButton1" type="button" id="registRevReply">등록</button></td>
 								    </tr>  
 						  </table>
-						  
+						 </th:block>
 							 <!-- 댓글 출력--> 
-							 <table id="revReplyResult" style="margin:auto;"></table>
+							 <table id="revReplyResult" ></table>
 						</div>
 				 </div>			 
 		
@@ -96,19 +96,19 @@
 			if(document.getElementById("registRevReply")){
 				
 				const $registRevReply = document.getElementById("registRevReply");
-				const $replyContents = document.getElementById("replyContents");
+				const $replyContent = document.getElementById("replyContent");
 				
 				$registRevReply.onclick = function(){
 					
-					if(!$replyContents.value.trim()){
+					if(!$replyContent.value.trim()){
 						alert("댓글을 입력해주세요");
 						return;
 					}
 				
 					const revCode = document.getElementById("revCode").value;
-					const replyContents = $replyContents.value;
+					const replyContent = $replyContent.value;
 					console.log(revCode);
-					console.log(replyContents);
+					console.log(replyContent);
 					
 					fetch("/reply/registRevReply", {
 						method : "POST",
@@ -117,12 +117,12 @@
 						},
 						body: JSON.stringify({
 							revCode : revCode,
-							replyContents : replyContents
+							replyContent : replyContent
 						})
 					})
 					.then(data => {
 						console.log(data);
-						$replyContents.value = '';
+						$replyContent.value = '';
 						loadReply();
 					})
 					.catch(error => console.log(error));
@@ -138,19 +138,20 @@
 		 		
 		 		revReplyList.forEach(reply => {
 		 			const $tr = document.createElement('tr');
-		 			const $replyContentsTd = document.createElement('td');
+		 			const $replyContentTd = document.createElement('td');
 		 			const $writerTd  = document.createElement('td');
 		 			const $replyDateTd  = document.createElement('td');
 		 		    const $buttonTd = document.createElement('td'); 
 		 			
-		 			$replyContentsTd.textContent = reply.replyContents;
+		 			
+		 			$replyContentTd.textContent = reply.replyContent;
 					  $writerTd.textContent = reply.writer.memId;
 					$replyDateTd.textContent = reply.replyDate;
 					
 					if('[[${#authentication.principal.memId}]]' == reply.writer.memId) {
 				    $buttonTd.innerHTML = `<button class='revButton2' type = 'button' onclick='removeReply(${reply.replyNo})'> 댓글 삭제 </button>` 
 					}
-					$tr.append($replyContentsTd, $writerTd, $replyDateTd, $buttonTd)
+					$tr.append($replyContentTd, $writerTd, $replyDateTd, $buttonTd)
 					$table.append($tr);
 		 			
 		 		});
