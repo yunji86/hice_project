@@ -170,63 +170,50 @@ h1 {
 /* ----------------------------------------------------------------- */
 /* revCreate.html 부분 */
 .rev-create {
-    /* background-color: green; */
+    
     width: 1800px;
     margin: 0 auto;
 }
-
 .rev-wirte {
     width: 1700px;
     margin: 0 auto;
-    /* background-color: yellow; */
+    
 }
-
 .rev-wirte1 {
     width: 1600px;
     margin: 0 auto;
-    /* background-color: rgb(199, 199, 114); */
+    
 }
-
 .rev-table {
     width: 1200px;
     margin: 0 auto;
-    /* background-color: red; */
+    
 }
-
 .rev-thead {
-    width: 1500px;
+    width: 1200px;
     margin: 0 auto;
-    /* background-color: rgb(230, 126, 126); */
     text-align: center;
 }
-
 .revTitle-box {
     width: 1200px;
     height: 30px;
 }
-
 .revContents-box {
     width: 1200px;
     height: 500px;
-   
 }
-
 .rev-tbody {
-    width: 1500px;
-
-    /* background-color: rgb(224, 85, 177); */
-
+    width: 1200px;
 }
-
 .rev-tfoot {
-    width: 1500px;
+    width: 1200px;
+    display: flex;
     /* background-color: rgb(85, 99, 224); */
-
 }
-
 .image-area {
     width: 100px;
     height: 100px;
+    
 }
 
 
@@ -237,10 +224,6 @@ h1 {
     margin: 0 auto;
 }
 
-.rev-button1{
-    width: 1200px;
-    margin: 0 auto;
-}
 
 /* ------------------------------------------------------------------ */
 /* 리뷰 뷰 부분 */
@@ -341,5 +324,17 @@ h1 {
 .rev-photo{
 	margin-top: 100px;
 }
+
+#revReplyResult tr td{
+	width: 500px;
+	
+}
+
+#revReplyResult {
+	margin-left: 10em;
+}
+
+
+
 
 
