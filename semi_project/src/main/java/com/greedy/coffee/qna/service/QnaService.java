@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.greedy.coffee.qna.dto.QnaDTO;
 import com.greedy.coffee.qna.entity.Qna;
@@ -67,48 +68,28 @@ public class QnaService {
 	
 	public void registQna(QnaDTO qna) {
 		
-		//qnaRepository.save(modelMapper.map(qna, Qna.class));
-		
-		// qna.setQnaDate(new Date(System.currentTimeMillis()));
-		
-		Qna postQna = qnaRepository.findByQnaCode(qna.getQnaCode());
-		postQna.setQnaTitle(qna.getQnaTitle());
-		postQna.setQnaContent(qna.getQnaContent());
-		postQna.setQnaDate(new Date(System.currentTimeMillis()));
-		
 		qnaRepository.save(modelMapper.map(qna, Qna.class));
+		
+		qna.setQnaDate(new Date(System.currentTimeMillis()));
 		
 	}
 	
-	public QnaDTO modifyQna(Long qnaCode) {
+	public QnaDTO qnaView(Long qnaCode) {
 		
 		Qna qna = qnaRepository.findByQnaCode(qnaCode);
 		
-		qna.setQnaTitle(qna.getQnaTitle());
-		
-		qna.setQnaContent(qna.getQnaContent());
-		
-		qna.setQnaEditDate(qna.getQnaEditDate());
-		
 		return modelMapper.map(qna, QnaDTO.class);
-		
 	}
+	
 	
 	// 완료 버튼 누른 상태. 수정에서 누르고 이동한 상태임
 	
-	public void modifyQna(QnaDTO modifyQna) {
+	public void modifyQna( QnaDTO modifyQna) {
+
+		Qna qna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
+		qna.setQnaTitle(modifyQna.getQnaTitle());	
+		qna.setQnaContent(modifyQna.getQnaContent());		
 		
-		Qna postqna = qnaRepository.findByQnaCode(modifyQna.getQnaCode());
-		
-		postqna.setQnaCode(modifyQna.getQnaCode());
-		
-		postqna.setQnaTitle(modifyQna.getQnaTitle());
-		
-		postqna.setQnaContent(modifyQna.getQnaContent());
-		
-		postqna.setQnaEditDate(modifyQna.getQnaEditDate());
-		
-		//qnaRepository.save(modelMapper.map(modifyQna, Qna.class));
 		
 	}
 	
@@ -118,61 +99,11 @@ public class QnaService {
 		
 		qna.setQnaStatus("N");
 		
-		qna.setQnaDeleteDate(new Date(System.currentTimeMillis()));
 		
 	}
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	public void registQnaReply(ReplyDTO registReply) {
-//		
-//		qnaReplyRepository.save(modelMapper.map(registReply, Reply.class));
-//		
-//		Reply foundReply = qnaReplyRepository.findByReplyNo(registReply.getReplyNo());
-//		foundReply.setReplyDate(new Date(System.currentTimeMillis()));
-//		
-//	}
-//	
-//	public List<ReplyDTO> loadQnaReply(ReplyDTO loadReply) {
-//		
-//		List<Reply> replyList = qnaReplyRepository.findByReplyNoAndReplyStatus(loadReply.getReplyNo(), ACTIVE_STATUS);
-//		
-//		return replyList.stream().map(reply -> modelMapper.map(reply, ReplyDTO.class)).collect(Collectors.toList());
-//		
-//	}
-//	
-//	public void removeQnaReply(ReplyDTO removeReply) {
-//		
-//		Reply foundReply = qnaReplyRepository.findByReplyNo(removeReply.getReplyNo());
-//		foundReply.setReplyDeleteDate(new Date(System.currentTimeMillis()));
-//		foundReply.setReplyStatus("N");
-//		
-//	}
-//	
-//	public void modifyQnaReply(ReplyDTO modifyReply) {
-//		
-//		Reply foundReply = qnaReplyRepository.findByReplyNo(modifyReply.getReplyNo());
-//		foundReply.setReplyEditDate(new Date(System.currentTimeMillis()));
-//		foundReply.setReplyStatus("N");
-//		
-//	}
+
+
+
 
 	
 	
