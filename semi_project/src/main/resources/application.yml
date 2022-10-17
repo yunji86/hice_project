@@ -45,8 +45,7 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
       
-
-      location: C:\Lecture\ShareFolder\semi\semi_front_door\semi_project
+      location: C:\Users\onije\git\semi_front_door333\semi_project
 
 image:
   image-dir: src/main/resources/static  
