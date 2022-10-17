@@ -14,21 +14,19 @@
 	<div th:replace="main/header.html"></div>
 	
 	
-		<div class="rev-Update" align="center">
+		<div class="rev-Update">
 			 <h1 align="center"> 리뷰 수정 </h1>
 			 	<div class="rev-Update" >
 		           <form id="revUpdateForm" th:action="@{/review/update}" method="post" enctype="multipart/form-data">
 		            	<input type="hidden" id="revCode" name="revCode" th:value="${ revBoard.revCode }"/>
-		            	<table style="margin: auto">
-		            	
+		            	<table >
 		            		 <tr>
-		            		 	<td><input type="text" name="revTitle" th:value="${ revBoard.revTitle }"></td>
+		            		 	<td><input style="width: 1000px;" type="text" name="revTitle" th:value="${ revBoard.revTitle }"></td>
 		            		 </tr>
 				             <tr>
-				            	<td><textarea name="revContents" th:text="${ revBoard.revContents }"></textarea></td>
+				            	<td><textarea  rows="40"  cols="165" name="revContents" th:text="${ revBoard.revContents }"></textarea></td>
 				             </tr>
-				            
-				             	<br>
+				             <tr>
 				              <td>
 				             	<div class="image-area">
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[0].filePath + revBoard.fileList[0].fileSaveName }"/>
@@ -54,7 +52,6 @@
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[4].filePath + revBoard.fileList[4].fileSaveName }"/>
 				             		</div>
 				             	</td>
-				             	
 				             </tr>
 						</table>
 						
@@ -79,8 +76,6 @@
 				   </form>
 				 </div> 
 	</div>
-	
-	
 	
 	<div th:replace="main/footer.html"></div>
 </body>

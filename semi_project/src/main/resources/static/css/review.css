@@ -23,8 +23,7 @@ table {
     margin: 0 auto;
 }
 
-table tr {
-}
+
 
 .review-tr {
 
@@ -208,6 +207,7 @@ h1 {
 .rev-tfoot {
     width: 1200px;
     display: flex;
+    margin-left: 40em;
     /* background-color: rgb(85, 99, 224); */
 }
 .image-area {
@@ -221,9 +221,9 @@ h1 {
 /* 리뷰 업데이트 부분 */
 .rev-Update {
     width: 1800px;
-    margin: 0 auto;
+    margin-left: 20ex;
+    
 }
-
 
 /* ------------------------------------------------------------------ */
 /* 리뷰 뷰 부분 */
