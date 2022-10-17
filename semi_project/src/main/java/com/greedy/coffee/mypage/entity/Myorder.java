@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.greedy.coffee.cart.entity.CartPro;
 import com.greedy.coffee.file.entity.File;
 import com.greedy.coffee.member.entity.Member;
 
@@ -62,6 +63,11 @@ public class Myorder {
 	@ManyToOne
 	@JoinColumn(name="MEM_ID")
 	private Member member;
+
+	public void setCartpro(CartPro p) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

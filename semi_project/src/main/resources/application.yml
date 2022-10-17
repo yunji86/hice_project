@@ -46,7 +46,7 @@ spring:
       max-request-size: 10MB
       
 
-      location: C:\Lecture\ShareFolder\semi\semi_front_door\semi_project
+      location: C:\Users\hi\git\semi_front_door\semi_project
 
 image:
   image-dir: src/main/resources/static  

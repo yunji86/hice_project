@@ -52,11 +52,8 @@
             <form th:action="@{/mypage/update}" method="post">
                 <table align="center" id="myInfoTable" >
                     <tr>
-                        <td class="infoTd1"> 아이디 </td>
+                        <td class="infoTd1"> 아이디 <span style="color : rgb(182, 0, 0);">*</span> </td>
                         <td class="infoTd2"> <p th:text="${ #authentication.principal.memId }"></p></td>
-                    </tr>
-                        <td class="infoTd1"> 비밀번호 <span style="color : rgb(182, 0, 0);">*</span></td>
-                        <td class="infoTd2">나중에 비번수정만들어야징</td>
                    <!--  <tr>
                         <td class="infoTd1"> 나중에 비번수정만들어야징 <span style="color : rgb(182, 0, 0);">*</span></td>
                         <td class="infoTd2"><input type="password" name="pass" equired="required">나중에 비번수정만들어야징</td>
@@ -69,7 +66,7 @@
                     </tr> -->
                     
                     <tr>
-                        <td class="infoTd1">이름 </td>
+                        <td class="infoTd1">이름 <span style="color : rgb(182, 0, 0);">*</span> </td>
                         <td class="infoTd2"><input type="text" name="memName" th:value="${ #authentication.principal.memName }"></p></td>
                      
                      </tr>
