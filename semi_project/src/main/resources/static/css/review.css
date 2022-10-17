@@ -23,8 +23,7 @@ table {
     margin: 0 auto;
 }
 
-table tr {
-}
+
 
 .review-tr {
 
@@ -192,7 +191,6 @@ h1 {
 .rev-thead {
     width: 1200px;
     margin: 0 auto;
-    
     text-align: center;
 }
 .revTitle-box {
@@ -209,6 +207,7 @@ h1 {
 .rev-tfoot {
     width: 1200px;
     display: flex;
+    margin-left: 40em;
     /* background-color: rgb(85, 99, 224); */
 }
 .image-area {
@@ -222,12 +221,8 @@ h1 {
 /* 리뷰 업데이트 부분 */
 .rev-Update {
     width: 1800px;
-    margin: 0 auto;
-}
-
-.rev-button1{
-    width: 1200px;
-    margin: 0 auto;
+    margin-left: 20ex;
+    
 }
 
 /* ------------------------------------------------------------------ */
@@ -329,5 +324,17 @@ h1 {
 .rev-photo{
 	margin-top: 100px;
 }
+
+#revReplyResult tr td{
+	width: 500px;
+	
+}
+
+#revReplyResult {
+	margin-left: 10em;
+}
+
+
+
 
 

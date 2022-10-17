@@ -36,7 +36,6 @@ public class AdminController {
 		return "admin/adminpage";
 	}
 
-
 	
 	@GetMapping("list")
 	public String eventBoard(@RequestParam(defaultValue="1") int page, Model model) {
@@ -62,13 +61,11 @@ public class AdminController {
 	}
 	
 	@PostMapping("/change")
-	public String staustChange(@ModelAttribute OrderDTO changeOrd) {
+	public String staustChange(Long ordCode) {
 		
-		adminService.staustChange(changeOrd);
+		adminService.staustChange(ordCode);
 		
 		return"redirect:/";
-	}//주석지우기
-	
-	
-	
+
+	}
 }
