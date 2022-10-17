@@ -34,22 +34,22 @@
 			        	<div class="qnaDetailList" >
 			        	
 			        	
-			        	<div id="qna-btn-box1"  >
-			        	<label>제목</label>		        
-						<p  th:text="${qna.qnaTitle }"/>		
-						</div>
-						<div id="qna-btn-box2"  >
-						<label>내용</label>
-							<p th:text="${qna.qnaContent }"/>		
-						</div>
-				        
-				
-				        <div class="qna-btn-box-bottom">
-				        
-				        	<button type="submit" class="qnaRemove">삭제</button>
-				        	<button th:onclick="|location.href='/qna/qnaModify/${qna.qnaCode}'|">수정</button>
-						
-				        </div> 
+				        	<div class="qna-btn-box1"  >
+				        	<label style="float: left;">제목</label>		        
+							<p  style="margin-left: 3%;" th:text="${qna.qnaTitle }"/>		
+							</div>
+							<div class="qna-btn-box2"  >
+							<label style="float: left;">내용</label>
+								<p style="margin-left: 3%;" th:text="${qna.qnaContent }"/>		
+							</div>
+					        
+					
+					        <div class="qna-btn-box-bottom">
+					        
+					        	<button type="submit" class="qnaRemove">삭제</button>
+					        	<button th:onclick="|location.href='/qna/qnaModify/${qna.qnaCode}'|">수정</button>
+							
+					        </div> 
 				            
 				        
 			          	</div>          

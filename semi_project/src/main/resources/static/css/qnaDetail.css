@@ -124,27 +124,29 @@ h1 {
   	margin: 0 auto;
   }
   
-  #qna-btn-box1{
+  .qna-btn-box1{
   	width: 1400px;	
   	margin-left: 0;
   	height: 50px;
+  	border-bottom: 1px solid black;
   }
   
   
   
   
-  #qna-btn-box2{
+  .qna-btn-box2{
   	width: 1400px;	
   	margin-left: 0;
-  	height: 250px;
+  	height: 300px;
+  	margin-top: 3%;
   }
   
   .qna-btn-box-bottom button {
   margin-bottom: 5px;
-  background-color: white;
+  background-color: #593521;
   text-align: center;
   vertical-align: middle;
-  color: #593521;
+  color: white;
   width: 150px;
   height: 40px;
   padding: 0.3rem 0.5rem;
