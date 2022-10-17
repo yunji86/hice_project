@@ -32,8 +32,8 @@ public class ProService {
 		this.proRepository = proRepository;
 	}
 
-	public static final int PRO_PAGE_SIZE = 15;
-	public static final int PRO_THUMBNAIL_PAGE_SIZE = 12;
+	public static final int PRO_PAGE_SIZE = 25;
+	public static final int PRO_THUMBNAIL_PAGE_SIZE = 20;
 	public static final String SORT_BY = "proCode";
 	public static final String ACTIVE_STATUS = "Y";
 	

@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-
 <link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
@@ -20,45 +19,51 @@
 		           <form id="revUpdateForm" th:action="@{/review/update}" method="post" enctype="multipart/form-data">
 		            	<input type="hidden" id="revCode" name="revCode" th:value="${ revBoard.revCode }"/>
 		            	<table >
+		            	<thead class="rev-thead">
 		            		 <tr>
-		            		 	<td><input style="width: 1000px;" type="text" name="revTitle" th:value="${ revBoard.revTitle }"></td>
+		            		 	<td colspan="6"><input class="revTitle-box" type="text" name="revTitle" th:value="${ revBoard.revTitle }"></td>
 		            		 </tr>
 				             <tr>
-				            	<td><textarea  rows="40"  cols="165" name="revContents" th:text="${ revBoard.revContents }"></textarea></td>
+				            	<td colspan="6"><textarea class="revContents-box" rows="40"  cols="165" name="revContents" th:text="${ revBoard.revContents }"></textarea></td>
 				             </tr>
-				             <tr>
-				             	<div class="image-area">
+				        </thead>
+				        <tfoot class="rev-tfoot">
+				             <tr style="display: flex;">
+				             	<td colspan="1">
+				             		<div class="image-area">
+				             	
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[0].filePath + revBoard.fileList[0].fileSaveName }"/>
 				             		</div>
 				             	</td>
-				              </tr>	
-				             	<td>
+				             	<td colspan="1">
 				             		<div class="image-area">
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[1].filePath + revBoard.fileList[1].fileSaveName }"/>
 				             		</div>
 				             	</td>
-				             	<td>
+				             	<td colspan="1">
 				             		<div class="image-area">
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[2].filePath + revBoard.fileList[2].fileSaveName }"/>
 				             		</div>
 				             	</td>
-				             	<td>
+				             	<td colspan="1">
 				             		<div class="image-area">
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[3].filePath + revBoard.fileList[3].fileSaveName }"/>
 				             		</div>
 				             	</td>
-				             	<td>
+				             	<td colspan="1">
 				             		<div class="image-area">
 				             			<img style="width: 100px; height: 100px;" th:src="${ revBoard.fileList[4].filePath + revBoard.fileList[4].fileSaveName }"/>
 				             		</div>
 				             	</td>
-				             </tr>
+				              </tr>	
+				              </tfoot>
+				            
 						</table>
 						
 				        <br>
 				           <div class="thumbnail-file-area" style="display: none;">
 				        	<input type="file" name="revFile"
-				        		accept="image/gif,image/jpeg,image/png"> 
+				        		accept="image/gif,image/jpeg,image/png">
 				        	<input type="file" name="revFile"
 				        		accept="image/gif,image/jpeg,image/png">
 				        	<input type="file" name="revFile"
@@ -71,10 +76,10 @@
 				        <div class="rev-button1" align="center">
 				            <button class="revButton2">취소</button>
 				            <button class="revButton1" type="submit"> 등록 </button>
-				            
+				           
 				        </div>
 				   </form>
-				 </div> 
+				 </div>
 	</div>
 	
 	<div th:replace="main/footer.html"></div>

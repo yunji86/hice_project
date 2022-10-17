@@ -21,24 +21,31 @@
     <div id="qna-main">
             <div id="qna-section">
                 <h1 align="center">문의 사항 수정 </h1>
+                
+                <div class="qnaDetailList" >
                 <form id="qnaRegistForm" th:action="@{/qna/modify}" method="post">
 					<input type="hidden"  name="qnaCode" th:value="${ qna.qnaCode } ">
+                    
+                    
                     <table class="qnaDetail" align="center">
                     	<tr>
                     		<td>제목</td>
-                    		<td><input type="text" name="qnaTitle" th:value="${ qna.qnaTitle }" >
+                    		<td><input class="qna-btn-box1" type="text" name="qnaTitle" th:value="${ qna.qnaTitle }" >
                     		</td>
                     	</tr>
                     	<tr>
-                    		<td>내용</td>
-                    		<td><input type="text" name="qnaContent" th:value="${ qna.qnaContent }">
+                    		<td >내용</td>
+                    		<td><input class="qna-btn-box2" type="text" name="qnaContent" th:value="${ qna.qnaContent }">
                     		</td>
                     </table>
-                             
+                         
+                    <div class="qna-btn-box-bottom">     
                         <input type="submit" value="완료">
-ㄴ             
+             			<button type="button" onclick="location.href='/qna/qnaList'">취소</button>
+             		</div>
+             		
                 </form>
-                
+                </div>
             </div>
 	</div>
     <div th:replace="main/footer.html"></div>
