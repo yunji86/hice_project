@@ -36,13 +36,13 @@
             	<!-- 수정 -->
             	
              	<th:block sec:authorize="hasRole('ROLE_ADMIN')">
-					<li><span sec:authentication="principal.username"></span>님 환영합니다.</li>
+					<li>관리자님 환영합니다.</li>
 					<li><a onclick="location.href='/admin/adminpage'" style="cursor:pointer;">관리자페이지</a></li>
 					<li><a onclick="location.href='/member/logout'" id="logout" style="cursor:pointer;">로그아웃</a></li>
 				</th:block>                
                 
                 <th:block sec:authorize="hasRole('ROLE_MEMBER')">
-					<li><span sec:authentication="principal.username"></span>님 환영합니다.</li>
+					<li><span sec:authentication="principal.username"/>님 환영합니다.</li>
 					<li><a onclick="location.href='/user/userpage'" style="cursor:pointer;">사용자페이지</a></li>
 					<li><a onclick="location.href='/member/logout'" id="logout" style="cursor:pointer;">로그아웃</a></li>
 

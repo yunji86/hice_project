@@ -12,6 +12,12 @@
 	    const message = '[[${message}]]';
 	    message && alert(message);
 	</script> 
+	 <!-- jQuery --> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> 
+	<!-- iamport.payment.js --> 
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	
+
 </head>
 <body>
 	<div th:replace="main/header.html"></div>
@@ -50,9 +56,13 @@
 		</tr>
 		<tr>
 			<td><button type="button" th:onclick="'location.href=\'/product/cart\''">장바구니</button></td>
-			<!-- <td><button type="button" th:onclick="'location.href=\'/product/pay\''">결 제</button></td> -->
+			 <td><button id="iamportPayment" type="button">결제</button> </td>			
   	  	</tr>
     </table>
+    
+
+    
+    
     
     <div align="center">
     <th:block sec:authorize="hasRole('ROLE_ADMIN')">
@@ -61,27 +71,7 @@
 	    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
     </div>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     <div th:replace="main/footer.html"></div>
 </body>
