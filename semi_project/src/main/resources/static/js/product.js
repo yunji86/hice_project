@@ -58,8 +58,8 @@ function payment(data) {
         pg: "kakaopay.TC0ONETIME", //pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
         pay_method: "card", //지불 방법
         merchant_uid: "merchant_hiceCoffee", //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
-        name: "과자", //결제창에 노출될 상품명
-        amount: 10000, //금액
+        name: "보만 커피메이커", //결제창에 노출될 상품명
+        amount: 130000, //금액
         buyer_name : "박천웅",
     }, function (rsp) { // callback
         if (rsp.success) {

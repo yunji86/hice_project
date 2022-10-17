@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/product.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
 	<title>하이스 커피</title>
@@ -16,11 +17,24 @@
 	
 		<div class="product-modify" align="center">
 			 <h1 align="center"> 상품 수정 </h1>
-		           <form id="proModifyForm" th:action="@{/product/modify}" method="post" enctype="multipart/form-data">
+			
+		           <form class="pro-modify-box"id="proModifyForm" th:action="@{/product/modify}" method="post" enctype="multipart/form-data">
 		            	<input type="hidden" id="proCode" name="proCode" th:value="${ product.proCode }"/>
 		            	
-		            	<h2 align="center">상품 디테일</h2>
-					    <table class="proDetail" align="center">
+		            	
+		            	<div class="product-modify1">
+					    <table class="proDetail1" align="center">
+					    <thead class="pro-thead1">
+							<tr>
+								<td>이미지 수정</td>
+								<td>
+					          		<div class="image-area">
+					          			<img style="width: 100px; height: 100px;" th:src="${ product.fileList[0].fileThumPath }">      			
+					          		</div>
+					          	</td>
+				          	</tr>
+				          	</thead>
+				          	<tbody class="pro-tbody1">
 					    	<tr>
 					    		<td>상품명</td>
 					    		<td><input type="text" name="proName" th:value="${ product.proName }"></td>
@@ -45,42 +59,37 @@
 							<tr>
 								<td>판매상태</td>
 								<td th:text="${ product.proStatus }"></td>
-							<tr>
-							<tr>
-								<td>이미지 수정</td>
-								<td>
-					          		<div class="image-area">
-					          			<img style="width: 100px; height: 100px;" th:src="${ product.fileList[0].fileThumPath }">      			
-					          		</div>
-					          	</td>
-				          	</tr>
+							</tr>
+							</tbody>
 					    </table>
 					    <br><br>
-					    <div>
-					    	<input type="reset" value="취소">
-					    	<input type="submit" value="수정완료">						
+						    <div class="pro-modify-btn">
+						    	<input class="pro-detail-btn1" type="reset" value="취소">
+						    	<input class="pro-detail-btn2" type="submit" value="수정완료">						
+						    </div>
 					    </div>
 					    <br><br>
-					    <div align="center">
-						    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
+					    <div class="pro-modify-btn1" align="center">
+						    <button class="pro-detail-btn4" type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
 					    </div>
-					    
+					   
 					    <div class="thumbnail-file-area" style="display: none;">
 					      	<input type="file" name="proFile2"
 					    	accept="image/gif,image/jpeg,image/png"> 	
 					     </div>	
 					  </form>
-					  
-					  <form th:action="@{/product/delete}" method="post">
+					 
+					  <form class="pro-detail-btn5" th:action="@{/product/delete}" method="post">
 				           	 <input type="hidden" name="proCode" th:value="${product.proCode}"/>
-				           	 <button type="submit" class="proDelete">삭제</button>
+				           	 <button  type="submit" class="proDelete">삭제</button>
 			           </form>
 					  	
-					   
-					 
 					  
+					
+					 
 				    	
-					</div> 
+					</div>
+					<br><br><br><br><br>
 	<div th:replace="main/quick.html"></div>
 	<div th:replace="main/footer.html"></div>
 </body>

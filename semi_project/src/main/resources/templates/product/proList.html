@@ -18,21 +18,18 @@
 	<div th:replace="main/nav.html"></div>
 	
 	
-	      <div class="outer product-list">                    
+	      <div class="outer product-list">
             <h1 align="center">상품</h1>
-                     
             <form id="rev-searchForm" th:action="@{/product/proList}" method="get" align="center">
            		<th:block th:if="${ proSearchValue != null }">
            			<input type="search" id="proSearchValue" name="proSearchValue"
            				th:value="${ proSearchValue }">
            		</th:block>
            		<th:block th:if="${ proSearchValue == null }">
-           			<input type="search" id="proSearchValue" name="proSearchValue">
+           			<input class="pro-input" type="search" id="proSearchValue" name="proSearchValue">
            		</th:block>
            		<button class="pro-button" type="submit">검색</button>	
            	</form>	
-                  
-                      
                   <div class="pro-main-box">
                   <div class="pro-box">
             <th:block th:each="product : ${ productList }">
@@ -41,17 +38,17 @@
 					
 					 <div>
 						<th:block th:each="proList : ${ product.fileList }">						
-							<img th:if="${ proList.fileType == 'PROFILE' }" 
+							<img th:if="${ proList.fileType == 'PROFILE' }"
 							th:src="${proList.FileThumPath}" width="300px" height="300px" >	
 				
 						</th:block>
 					<p>
-						상품명 :<label th:text="${ product.proName }"></label><br> 
-						카테고리 :<label th:text="${ product.proType }"></label><br> 
-						금액 :<label th:text="${ product.proPrice }"></label><br> 
-						조회수 :<label th:text="${ product.proCount }"></label><br> 
+						상품명 :<label th:text="${ product.proName }"></label><br>
+						카테고리 :<label th:text="${ product.proType }"></label><br>
+						금액 :<label th:text="${ product.proPrice }"></label><br>
+						조회수 :<label th:text="${ product.proCount }"></label><br>
 					</p>
-					</div> 
+					</div>
 									
 					
 					
@@ -60,11 +57,15 @@
 			</div>
 			</div>
 		</div>
-
+		<div class="pro-regist-btn">
+			
 			<th:block sec:authorize="hasRole('ROLE_ADMIN')">
-				<button id="writeBoard">작성하기</button> 
+				<button class="pro-regist-btn1" id="writeBoard">작성하기</button>
 			</th:block>
+		</div>
+		
+		<br><br><br><br>
 	<div th:replace="main/quick.html"></div>
-     <div th:replace="main/footer.html"></div>   
+     <div th:replace="main/footer.html"></div>
 </body>
 </html>

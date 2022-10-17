@@ -31,13 +31,15 @@
                 <h1 align="center">QnA 게시판</h1>
                 <!-- 캡션 추가 BY JAYTEE-->       
                 
-                <th:block >
+                <th:block sec:authorize="hasRole('ROLE_MEMBER')" >
                 <div id="qna-btn-box">
                     <div style="cursor:pointer;" id="qna-btn1" onclick="location.href = './qnaRegist'">
                         문의글 등록
                     </div>
                 </div>
 
+
+				</th:block>
 
                 <div id="qna-potn">
                     <table border="1">
@@ -60,7 +62,7 @@
                             <td th:text="${ qna.qnaDate }"></td> 
                         </tr>
                         
-                    </th:block>
+                    
 
 
 		
