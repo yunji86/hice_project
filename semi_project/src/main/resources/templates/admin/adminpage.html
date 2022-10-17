@@ -4,7 +4,7 @@
 <head>
 <meta  charset="UTF-8">
      <link rel="stylesheet" th:href="@{/css/index.css}">
-     <link rel="stylesheet" th:href="@{/css/adminPage.css}">		  
+     <link rel="stylesheet" th:href="@{/css/admin.css}">		  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" th:src="@{/js/event.js}"></script>
     <script type="text/javascript" th:src="@{/js/mypage.js}"></script>
@@ -31,7 +31,7 @@
     <div class="adminMenu">
         	<ul>
         	<!-- 링크 수정 -->
-        		<h5><a href="/mypage/myorder">주문 내역 조회</a></h5>
+        		<h5><a href="/admin/orderHistoryList">주문 내역 조회</a></h5>
                 <h5><a href="/mypage/mybag">상품 출고</a></h5>
                 <h5><a href="/admin/orderStatus">상품 반품/교환</a></h5>
                 <h5><a href="/admin/list">이벤트 신청 확인</a></h5>
@@ -52,11 +52,10 @@
 					                </div>
 
                 <div class="adminPage2" align="center">
-                    <button class="adminBtn" id="adminBtn1"><a onclick="location.href='/mypage/myorder'">주문 내역 조회</a></button>
-                    <button class="adminBtn"><a onclick="location.href='/mypage/mybag'">상품 출고</a></button>
-                    <button class="adminBtn"><a onclick="location.href='/mypage/myorder'">상품 반품</a></button>
-                    <button class="adminBtn"><a onclick="location.href='/mypage/mypost'">상품 교환</a></button>
-                    <button class="adminBtn"><a onclick="location.href='/mypage/mypost'">이벤트 신청 확인</a></button>
+                    <button class="adminBtn" id="adminBtn1"><a href="/admin/orderHistoryList">주문 내역 조회</a></button>
+                    <button class="adminBtn"><a href="/mypage/mybag">상품 출고</a></button>
+                    <button class="adminBtn"><a href="/admin/orderStatus">상품 반품/교환</a></button>
+                    <button class="adminBtn"><a href="/admin/list">이벤트 신청 확인</a></button>
                 </div>        
         
         </section>

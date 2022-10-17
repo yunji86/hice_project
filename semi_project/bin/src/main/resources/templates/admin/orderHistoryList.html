@@ -4,26 +4,73 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/kj.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">	  
+<link rel="stylesheet" th:href="@{/css/admin.css}">
 <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
+<script type="text/javascript" th:src="@{/js/event.js}"></script>
+<script type="text/javascript" th:src="@{/js/mypage.js}"></script>
 	<title>하이스 커피</title>
 </head>
 <body>
+	<div th:replace="main/header.html"></div>
+	<div th:replace="main/article.html"></div>
+	<div th:replace="main/nav.html"></div>
+
+    <div class="adminMenu">
+        	<ul>
+        	<!-- 링크 수정 -->
+        		<h5><a href="/mypage/myorder">주문 내역 조회</a></h5>
+                <h5><a href="/mypage/mybag">상품 출고</a></h5>
+                <h5><a href="/admin/orderStatus">상품 반품/교환</a></h5>
+                <h5><a href="/admin/list">이벤트 신청 확인</a></h5>
+        		
+        	</ul>
+        </div>
+	       
+       <section class="adminSection">
+		
+                <h5 >Admin page</h5>
+                <div class="adminPage1">
+                    <img src="../images/memberPage-icon-user.png" alt="user아이콘" class="iconImg">
+					<pre>
+					안녕하세요. <b><span sec:authentication="principal.memName"></span></b> 관리자님
+					                            
+					저희 하이스커피를 이용해 주셔서 감사합니다.
+					</pre>
+					                </div>
+
+                <div class="adminPage2" align="center">
+                    <button class="adminBtn" id="adminBtn1"><a onclick="location.href='/admin/orderHistoryList'" style="cursor:pointer;">주문 내역 조회</a></button>
+                    <button class="adminBtn"><a onclick="location.href='/mypage/mybag'" style="cursor:pointer;">상품 출고</a></button>
+                    <button class="adminBtn"><a onclick="location.href='/mypage/myorder'" style="cursor:pointer;">상품 반품</a></button>
+                    <button class="adminBtn"><a onclick="location.href='/mypage/mypost'" style="cursor:pointer;">상품 교환</a></button>
+                    <button class="adminBtn"><a onclick="location.href='/mypage/mypost'" style="cursor:pointer;">이벤트 신청 확인</a></button>
+                </div>        
+        
+        </section>
+
+
+
+
+
+
+	<!-- 개발 -->
 
 	  <div class="notice">
                      
-        <h1>주문 내역 조회</h1>
+        <p class="adminSection"><b>Order History</b></p><br>
         
-        <div>
-            <table class="orderTable" align="center">
+
+            <table id="myTeble" align="center">
                 
-                <tr class="notice-tr10">
-                    <td class="notice">NO</td>
-                    <td class="notice">상품명</td>
-                    <td class="notice">수량</td>
-                    <td class="notice">회원ID</td>   
+                <tr id="myTr1" class="myTr1">
+                    <td width="150px">NO</td>
+                    <td width="500px">상품명</td>
+                    <td width="150px">수량</td>
+                    <td width="400px">회원ID</td>
                 </tr>
                 
-                <tr class="notice-tr1" th:each=" order : ${ orderHistoryList }">
+                <tr id="myTr2" th:each=" order : ${ orderHistoryList } " style="height:60px">
                     <td th:text="${ order.ordCode }"></td>
                     <td th:text="${ order.ordName }"></td>
                     <td th:text="${ order.quantity }"></td>
@@ -31,23 +78,13 @@
                 </tr>
                 
             </table>
-        </div>
-
-        <div class="pageNumber">
-            <p><a th:href="@{/}"><<</a></p>
-            <p><a th:href="@{/}"><</a></p>
-            <p><a th:href="@{/}">1</a></p>
-            <p><a th:href="@{/}">2</a></p>
-            <p><a th:href="@{/}">3</a></p>
-            <p><a th:href="@{/}">4</a></p>
-            <p><a th:href="@{/}">5</a></p>
-            <p><a th:href="@{/}">></a></p>
-            <p><a th:href="@{/}">>></a></p>
-        </div>
+  
+       
+       
         
     </div>
     <br><br><br><br>
 
-
+    <div th:replace="main/footer.html"></div>
 </body>
 </html>
