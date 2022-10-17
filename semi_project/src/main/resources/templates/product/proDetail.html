@@ -13,76 +13,63 @@
 	    const message = '[[${message}]]';
 	    message && alert(message);
 	</script> 
+	 <!-- jQuery --> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> 
+	<!-- iamport.payment.js --> 
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	
+
 </head>
 <body>
 	<div th:replace="main/header.html"></div>
 	<div th:replace="main/article.html"></div>
 	<div th:replace="main/nav.html"></div>
-	
-    <div class="detailArea" style="background-color:yellow;">
-	    <table class="proDetail" align="center">
-			<tr>
-				<td>썸네일</td>
-				<td>
-					<div id="titleImgArea" align="center">
-						<th:block th:if="${ product.fileList[0].fileThumPath != null }">
-							<img width="500" height="300"
-								th:src="${ product.fileList[0].fileThumPath }"/>
-							<br>
-						</th:block>
-					</div>
-				</td>
-			</tr>
-	    	<tr>
-	    		<td>상품명</td>
-	    		<td th:text="${ product.proName }"></td>
-	   		<tr>
-	   		<tr>
-	   			<td>종류</td>
-	   			<td th:text="${ product.proType }"></td>
-			</tr>
-			<tr>
-				<td>가격</td>
-				<td th:text="${ product.proPrice }"></td>
-			</tr>
-			<tr>
-				<td>상품설명</td>
-				<td th:text="${ product.proContent }"></td>
-			</tr>
-			<tr>
-				<td><button type="button" th:onclick="'location.href=\'/mypage/mybag\''">장바구니</button></td>
-	  	  	</tr>
-	    </table>
-    </div>
+  <div th:replace="main/quick.html"></div>
+
+    <h2 align="center">상품 디테일</h2>
+    <table class="proDetail" align="center">
+    	<tr>
+    		<td>상품명</td>
+    		<td th:text="${ product.proName }"></td>
+   		<tr>
+   		<tr>
+   			<td>종류</td>
+   			<td th:text="${ product.proType }"></td>
+		</tr>
+		<tr>
+			<td>가격</td>
+			<td th:text="${ product.proPrice }"></td>
+		</tr>
+		<tr>
+			<td>상품설명</td>
+			<td th:text="${ product.proContent }"></td>
+		</tr>
+		<tr>
+			<td>썸네일</td>
+			<td>
+				<div id="titleImgArea" align="center">
+					<th:block th:if="${ product.fileList[0].fileThumPath != null }">
+						<img width="500" height="300"
+							th:src="${ product.fileList[0].fileThumPath }"/>
+						<br>
+					</th:block>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><button type="button" th:onclick="'location.href=\'/mypage/mybag\''">장바구니</button></td>
+			 <td><button id="iamportPayment" type="button">결제</button> </td>			
+  	  	</tr>
+    </table>
+
+
     <div align="center">
     <th:block sec:authorize="hasRole('ROLE_ADMIN')">
   	  <button th:onclick="|location.href='/product/modify/${product.proCode}'|">수정</button>
   	  </th:block>
 	    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div th:replace="main/quick.html"></div>
+
     <div th:replace="main/footer.html"></div>
 </body>
 </html>

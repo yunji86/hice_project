@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,8 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaList")
-	public String qnaList(@RequestParam(defaultValue = "1") int page, @RequestParam(required = false) String searchValue, Model model) {
+	public String qnaList(@RequestParam(defaultValue = "1") int page, 
+			@RequestParam(required = false) String searchValue, Model model) {
 		
 		log.info("qnaList is working ");
 		log.info("qnaList page : {}", page);		
@@ -66,6 +68,7 @@ public class QnaController {
 		
 	}
 
+	// 등록 페이지
 	@GetMapping("/qnaRegist")
 	public String goQnaRegist() {
 		
@@ -73,6 +76,7 @@ public class QnaController {
 		
 	}
 	
+	// 등록
 	@PostMapping("/qnaRegist")
 	public String registQna(QnaDTO qna, @AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
 		
@@ -80,6 +84,7 @@ public class QnaController {
 		
 		qna.setWriter(member);
 		log.info("qnaRegist qna : {} ", qna);
+		
 		qnaService.registQna(qna);
 		
 		log.info("qnaRegist qna worked : ", qna);
@@ -90,8 +95,9 @@ public class QnaController {
 		
 	}
 	
-	@GetMapping("/qnaDetail")
-	public String selectQnaDetail(Model model, Long qnaCode) {
+	//상품 디테일
+	@GetMapping("/qnaDetail/{qnaCode}")
+	public String selectQnaDetail(Model model, @PathVariable("qnaCode") Long qnaCode) {
 		
 		log.info("qnaDetail is working ");
 		log.info("qnaDetail qnaCode : {} ", qnaCode);
@@ -108,39 +114,29 @@ public class QnaController {
 		
 	}
 	
-	@GetMapping("/qnaModify")
-	public String goQnaModify(Model model, Long qnaCode) {
-		
-		log.info("GETqnaModify is working ");
-		log.info("GETqnaModify qnaCode : {} ", qnaCode);
-		
-		QnaDTO qna = qnaService.modifyQna(qnaCode);
-		
-		log.info("GETqnaModify qna : {} ", qna);
-		
+	//수정하러가기
+	@GetMapping("/qnaModify/{qnaCode}")
+	public String goQnaModify(@PathVariable("qnaCode") Long qnaCode ,Model model) {
+				
+		QnaDTO qna = qnaService.qnaView(qnaCode);
 		model.addAttribute("qna", qna);
-		
-		log.info("GETqnaModify is worked ");
-		
-		qna.setQnaCode(qna.getQnaCode());
-		
-		log.info("GETqnaModify qnaCode : {} ", qnaCode);
-		
+
 		return "qna/qnaModify";
 		
 	}
 	
-
-	
-	@PostMapping("/qnaModify")
-	public String qnaModify(QnaDTO qna, @AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
+	//수정
+	@PostMapping("/modify")
+	public String qnaModify(@ModelAttribute QnaDTO qna, RedirectAttributes rttr) {
 		
 		log.info("qnaModify is working ");
 		log.info("qnaModify qna : {} ", qna);
-		log.info("qnaModify member : {} ", member);
 		
 		// qna.setWriter(member);
-		qnaService.registQna(qna);
+		qnaService.modifyQna(qna);
+		
+		log.info("qnaModified qna : {} ", qna);
+		
 		
 		rttr.addAttribute("message", messageSourceAccessor.getMessage("qna.modify"));
 		
