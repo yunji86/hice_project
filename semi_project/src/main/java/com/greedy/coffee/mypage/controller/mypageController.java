@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.greedy.coffee.cart.dto.CartProDTO;
+import com.greedy.coffee.cart.dto.MyCartDTO;
+import com.greedy.coffee.cart.service.CartService;
 import com.greedy.coffee.common.Pagenation;
 import com.greedy.coffee.common.PagingButtonInfo;
 import com.greedy.coffee.member.dto.MemberDTO;
@@ -40,15 +43,17 @@ public class mypageController {
 	private final MessageSourceAccessor messageSourceAccessor;
 	private final RevBoardService revBoardService;
 	private final QnaService qnaService;
+	private final CartService cartService;
 
 	public mypageController(MypageService mypageServcie, AuthenticationService authenticationService,
-			MessageSourceAccessor messageSourceAccessor, QnaService qnaService, RevBoardService revBoardService) {
+			MessageSourceAccessor messageSourceAccessor, QnaService qnaService, RevBoardService revBoardService, CartService cartService) {
 
 		this.mypageServcie = mypageServcie;
 		this.authenticationService = authenticationService;
 		this.messageSourceAccessor = messageSourceAccessor;
 		this.revBoardService = revBoardService;
 		this.qnaService = qnaService;
+		this.cartService = cartService;
 	}
 
 	/* 회원정보수정 화면 이동 */
@@ -107,9 +112,6 @@ public class mypageController {
 		return "redirect:/"; // 메인화면에서알럿창 띄워줌
 	}
 
-	@GetMapping("/mybag")
-	public void mybagPage() {
-	}
 
 	@GetMapping("/mypost")
 	public String mypostPage(Model model) {
@@ -186,6 +188,32 @@ public class mypageController {
 		mypageServcie.takeBackOrder(orderDTO);
 
 		return "redirect:/mypage/myorder";
+	}
+	
+	@GetMapping("/mybag")
+	public String cartList(@RequestParam(defaultValue = "1") int page, 
+			Model model ) {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		log.info("principal {}", auth.getPrincipal());
+		MemberDTO member = (MemberDTO) auth.getPrincipal();
+		
+		MyCartDTO dto = cartService.selectCartList(page, member.getMemId());
+		
+		Page<CartProDTO> cartList = dto.getPagingCartProDTO();
+		int sum = dto.getSum();
+		
+		PagingButtonInfo paging = Pagenation.getPagingButtonInfo(cartList);
+		
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartListSize", cartList.getTotalElements());
+		model.addAttribute("paging", paging);
+		model.addAttribute("cartSum", sum);
+  
+		log.info("cartList is worked ");
+		
+		return "/mypage/mybag";
+		
 	}
 
 	/* createNewAuthentication메소드정의 */
