@@ -6,23 +6,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
-    <link rel="stylesheet" th:href="@{/css/qnaRegist.css}">
-
-    <!-- 제이쿼리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-        
-    <script>
-        // 권한부여, AJAX 통신 후 코드 수정해야함
-        const message = '[[${message}]]';
-		message && alert(message);
-    </script>
-
+    <link rel="stylesheet" th:href="@{/css/qnaRegist.css}">        
     <title>Hice Coffee</title>
 </head>
 
@@ -35,34 +20,28 @@
     <!-- 개발진행 -->
     <div id="qna-main">
             <div id="qna-section">
-                <h1 align="center">문의 사항 수정 / 삭제</h1>
-                <form id="qnaRegistForm" th:action="@{/qna/qnaModify}" method="post">
-
-                    <div class="title-box">
-                    <div class="textArea1">
-                       <label>제목</label> <input class="areaInput1" name="qnaContent" type="text" th:value="${ qna.qnaTitle }">
-                      </div>
-                      <div class="textArea2">
-                       <label class="areaLabel">내용</label> <input class="areaInput2" name="qnaContent" type="text" th:value="${ qna.qnaContent }">
-                        </div>
-                    </div>
-                    
-                    <div class="notice-btn-box-bottom" >
-                        <button type="submit" id="qnaModify" name="qnaModify" th:onclick="|location.href='/qna/qnaList'|">완료</a></button>
-                        <button type="button" th:onclick="|location.href='/qna/qnaDetail?qnaCode=${qna.qnaCode}'|">취소</button>
-                    </div>
-             
+                <h1 align="center">문의 사항 수정 </h1>
+                <form id="qnaRegistForm" th:action="@{/qna/modify}" method="post">
+					<input type="hidden"  name="qnaCode" th:value="${ qna.qnaCode } ">
+                    <table class="qnaDetail" align="center">
+                    	<tr>
+                    		<td>제목</td>
+                    		<td><input type="text" name="qnaTitle" th:value="${ qna.qnaTitle }" >
+                    		</td>
+                    	</tr>
+                    	<tr>
+                    		<td>내용</td>
+                    		<td><input type="text" name="qnaContent" th:value="${ qna.qnaContent }">
+                    		</td>
+                    </table>
+                             
+                        <input type="submit" value="완료">
+ㄴ             
                 </form>
                 
             </div>
-        </div>
-    
-
+	</div>
     <div th:replace="main/footer.html"></div>
 
 </body>
-<footer>
-    
-</footer>
-
 </html>
