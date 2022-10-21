@@ -36,13 +36,13 @@
                     <th width="300px">취소/교환/반품</th>
                 </tr>
                     <tr id="myTr2" th:each="order : ${ orderList }">
-                    	
+                    	<input type="hidden" id="ordCode" th:value="${ order.ordCode }"/>
                         <td align="center"><p th:text="${ order.ordDate }"/></td> 
-                        <td align="center"><p th:text="${ order.ordCode }"/></td>
+                        <td align="center"><p th:text="${ order.ordNum }"/></td>
                         <td align="center"><p th:text="${ order.ordName }"/></td>
                         <td align="center"><p th:text="${ order.quantity }"/></td>
                         <td align="center"><p th:text="${ order.ordTotalAmount }"/></td>
-                        <td class="status" align="center"><p th:text="${ order.ordStatus }"/></td>
+                        <td id="status" align="center"><p th:text="${ order.ordStatus }"/></td>
                         <td align="center">
                         <button class="myButton" id="orTakeback">교환 / 반품 처리</button></td>
                     </tr>
@@ -62,8 +62,8 @@
                                 <pre> 교환/ 반품을 완료하시겠습니까?</pre>
         
                             <div class="refundButton"> 
-	                        <!-- <form th:action="@{/admin/change}" method="post" >
-		                            <input type="hidden" name="ordCode" th:value="${ order.ordCode }"/>-->
+	                        <!--  <form th:action="@{/admin/change}" method="post" >
+		                            <input type="hidden" name="ordCode" th:value="${ order.ordCode }"/> -->
 		                            <input type="submit" class="my_color_Btn" id="moButton1" value="완료하기" onclick="alert('완료 되었습니다.')"></input>
                             	</form>
                             <button class="my_border_Btn" id="moButton2">취소</button>
@@ -92,7 +92,19 @@
                 $("#popup").attr("style", "display:none");
             }); 
             
-            
+		 	  /* if(document.getElementById("moButton1")){
+				
+				const $status = document.getElementById("status").value;
+				const $moButton1 = document.getElementById("moButton1");
+				console.log(status)
+				$moButton1.onclick = function(){
+					
+					if(status == "Y"){
+						status = "N";
+					  	
+					}
+				}
+            }*/
         </script>
 	<br>
 	<br>

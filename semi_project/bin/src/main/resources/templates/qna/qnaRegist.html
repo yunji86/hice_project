@@ -37,14 +37,14 @@
                 <h1 align="center">문의 사항 작성</h1>
                 <form id="qnaRegistForm" th:action="@{/qna/qnaRegist}" method="post">
                     <div class="title-box">
-                        <input class="qna-title" type="text" name="qnaTitle">
+                        <input class="qna-title" type="text" name="qnaTitle" placeholder="내용을 입력해주세요.">
                     </div>
                     <div class="content-box">
                         <textarea class="qna-content" name="qnaContent" placeholder="내용을 입력해주세요."></textarea>
                     </div>
                     
                     <div class="qna-btn-box-bottom">
-                        <button type="submit" id="btnForChange">등록</button>
+                        <button class="qna-regist-btn" type="submit" id="btnForChange" style="background-color: #593521; color: white;">등록</button>
 
                     	<!-- <button type="reset" onclick="location.href='qna/qnaList'">취소</button> -->
 

@@ -6,25 +6,26 @@
      <link rel="stylesheet" th:href="@{/css/index.css}">
      <link rel="stylesheet" type="text/css" th:href="@{/css/product.css}">
      <link rel="shortcut icon" type="image/x-icon" href="/images/파비콘2.png"/>
-	<title>하이스 커피</title>	  
+	<title>하이스 커피</title>	 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" th:src="@{/js/product.js}"></script>
 	<script>
 	    const message = '[[${message}]]';
 	    message && alert(message);
-	</script> 
+	</script>
 </head>
 <body>
 	<div th:replace="main/header.html"></div>
 	<div th:replace="main/article.html"></div>
 	<div th:replace="main/nav.html"></div>
 	
-    <div class="detailArea" style="background-color:yellow;">
+    <div class="detailArea">
 	    <table class="proDetail" align="center">
+	    <thead class="pro-thead">	
 			<tr>
-				<td>썸네일</td>
+				<td></td>
 				<td>
-					<div id="titleImgArea" align="center">
+					<div id="titleImgArea">
 						<th:block th:if="${ product.fileList[0].fileThumPath != null }">
 							<img width="500" height="300"
 								th:src="${ product.fileList[0].fileThumPath }"/>
@@ -33,56 +34,39 @@
 					</div>
 				</td>
 			</tr>
-	    	<tr>
-	    		<td>상품명</td>
-	    		<td th:text="${ product.proName }"></td>
-	   		<tr>
-	   		<tr>
-	   			<td>종류</td>
-	   			<td th:text="${ product.proType }"></td>
-			</tr>
+		</thead>
+			<tbody class="pro-tbody">
+				
+			    	<tr>
+			    		<td>상품명</td>
+			    		<td th:text="${ product.proName }"></td>
+			   		</tr>
+			   		<tr>
+			   			<td>종류</td>
+			   			<td th:text="${ product.proType }"></td>
+					</tr>
+					<tr>
+						<td>가격</td>
+						<td th:text="${ product.proPrice }"></td>
+					</tr>
+					<tr>
+						<td>상품설명</td>
+						<td th:text="${ product.proContent }"></td>
+					</tr>
+				
+			</tbody>
 			<tr>
-				<td>가격</td>
-				<td th:text="${ product.proPrice }"></td>
-			</tr>
-			<tr>
-				<td>상품설명</td>
-				<td th:text="${ product.proContent }"></td>
-			</tr>
-			<tr>
-				<td><button type="button" th:onclick="'location.href=\'/product/cart\''">장바구니</button></td>
+				<td><button><a href="/mypage/mybag" onclick="return confirm('장바구니에 담겠습니까?');">장바구니</a></button></td>
 				<!-- <td><button type="button" th:onclick="'location.href=\'/product/pay\''">결 제</button></td> -->
 	  	  	</tr>
 	    </table>
     </div>
-    <div align="center">
+    <div class="pro-detail-btn" align="center">
     <th:block sec:authorize="hasRole('ROLE_ADMIN')">
-  	  <button th:onclick="|location.href='/product/modify/${product.proCode}'|">수정</button>
+  	  <button  class="pro-detail-btn1" th:onclick="|location.href='/product/modify/${product.proCode}'|">수정</button>
   	  </th:block>
-	    <button type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
+	    <button class="pro-detail-btn2" type="button" th:onclick="'location.href=\'/product/proList\''">목록으로</button>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div th:replace="main/quick.html"></div>
     <div th:replace="main/footer.html"></div>
 </body>

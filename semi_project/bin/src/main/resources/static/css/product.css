@@ -1,33 +1,190 @@
 @charset "UTF-8";
-
 .outer{
-	background-color: yellow;
     width: 1600px;
     margin: 0 auto;
-    
 }
-
 h1 {
     font-size: xxx-large;
 }
-
+.pro-input{
+	width: 500px;
+	height: 40px;
+	border: 2px solid rgb(115, 114, 114);
+	margin-bottom: 4px;
+}
+.pro-button{
+  background-color: #593521;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  width: 150px;
+  height: 40px;
+  margin-top: 2px;
+  border: 2px solid rgb(115, 114, 114);
+  cursor: pointer;
+  margin-left: 25px;
+  margin-right: 25px;
+}
 .pro-main-box{
 	width: 1400px;
-	background-color: pink;
 	margin: 0 auto;
 }
-
 .pro-box{
 	display: flex;
     width: 1400px;
-    background-color: green;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-
-
+.pro-regist-btn{
+	width: 1600px;
+	margin: 0 auto;
+	
+}
+.pro-regist-btn1{
+	float: right;
+	background-color: #593521;
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	width: 150px;
+	height: 40px;
+	margin-top: 2px;
+	border: 2px solid rgb(115, 114, 114);
+	cursor: pointer;
+	 
+	
+}
+/* 디테일 부분*/
 .detailArea{
 	
 	margin-top: 5%;
-    
+}
+.proDetail{
+	width: 1400px;
+}
+.titleImgArea{
+	float: left;
+}
+.pro-thead{
+	
+	float: left;
+	width: 600px;
+	margin-left: 5%;
+	border-right: 1px solid black;
+}
+.pro-tbody{
+	float: right;
+	width: 600px;
+	margin-left: 5%;
+}
+.pro-tbody tr{
+	
+	    font-size: xxx-large;
+}
+.pro-tbody td{
+	
+	    font-size: xxx-large;
+}
+.pro-detail-btn1{
+	background-color: #593521;
+	
+	vertical-align: middle;
+	color: white;
+	width: 150px;
+	height: 40px;
+	margin-top: 2px;
+	border: 2px solid rgb(115, 114, 114);
+	cursor: pointer;
+}
+.pro-detail-btn2{
+	background-color: white;
+	
+	vertical-align: middle;
+	color: #593521;
+	width: 150px;
+	height: 40px;
+	margin-top: 2px;
+	border: 2px solid rgb(115, 114, 114);
+	cursor: pointer;
+}
+.pro-detail-btn3{
+	background-color: #593521;
+	float: right;
+	vertical-align: middle;
+	color: white;
+	width: 150px;
+	height: 40px;
+	margin-top: 2px;
+	border: 2px solid rgb(115, 114, 114);
+	cursor: pointer;
+}
+.pro-detail-btn4{
+	background-color: #593521;
+	float: left;
+	vertical-align: middle;
+	color: white;
+	width: 150px;
+	height: 40px;
+	margin-top: 2px;
+	border: 2px solid rgb(115, 114, 114);
+	cursor: pointer;
+}
+.pro-detail-btn5{
+	width: 1400px;
+	margin: 0 auto;
+}
+.pro-modify-btn1{
+	width: 1400px;
+	margin: 0 auto;
+}
+.pro-modify-box{
+	width: 1600px;
+	margin: 0 auto;
+}
+.product-modify1{
+	width: 1600px;
+	margin: 0 auto;
+}
+.pro-modify-btn{
+	float: right;
+}
+.proDelete{
+	background-color: #593521;
+	
+	vertical-align: middle;
+	color: white;
+	width: 150px;
+	height: 40px;
+	
+	border: 2px solid rgb(115, 114, 114);
+	cursor: pointer;
+	margin-right: 1070px;
+}
+.pro-thead1{
+	
+	float: left;
+	width: 600px;
+	margin-left: 5%;
+	height: 300px;
+	border-right: 1px solid black;
+}
+.pro-tbody1{
+	float: right;
+	width: 600px;
+	margin-left: 5%;
+	
+	
+}
+.pro-tbody1 tr{
+	
+	    font-size: xxx-large;
+}
+.pro-tbody1 td{
+	
+	    font-size: xxx-large;
+}
+.proDetail1{
+	width: 1400px;
+	margin: 0 auto;
+	
 }

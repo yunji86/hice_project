@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/store")
 public class StoreController {
 	
-	//의존성 
+	//의존성 주입
 	private final StoreService storeService;
 	private final MessageSourceAccessor messageSourceAccesor;
 	
@@ -39,7 +39,7 @@ public class StoreController {
 
 	
 	
-	//storeList 보여주기
+	//store - List
 	@GetMapping("/storeList")
 	public String storeList(@RequestParam(defaultValue="1") int page, 
 			@RequestParam(required=false) String searchValue, Model model) {
@@ -61,7 +61,7 @@ public class StoreController {
 	
 	
 	
-	//sotre 작성하기
+	//store - Regist
 	@GetMapping("/storeRegist")
 	public String goRegistStore() {
 		
@@ -81,7 +81,7 @@ public class StoreController {
 	
 	
 	
-	//sotre 수정
+	//sotre - Update
 	@GetMapping("/storeUpdate")
 	public String goUpdateStore(){
         
@@ -102,7 +102,7 @@ public class StoreController {
 	
 	
 	
-	//store 삭제
+	//store - Delete
 	@GetMapping("/storeRemove")
 	public String goRemoveStore(){
 		

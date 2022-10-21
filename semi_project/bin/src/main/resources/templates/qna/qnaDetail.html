@@ -10,13 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/index.css}">	  
     <link rel="stylesheet" th:href="@{/css/qnaDetail.css}">
-
-    <!-- 제이쿼리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-        
+      
     <script>
         // 권한부여, AJAX 통신 후 코드 수정해야함
         const message = '[[${message}]]';
@@ -37,68 +31,55 @@
         <div class="qnaDetail" >   <!-- 위드 1600  margin 0 auto-->         
         	<h1 align="center" >문의 사항 확인</h1>
         		<div class="qnaDetailBox" >  <!-- 위드 1400  margin 0 auto-->
-			        <form id="qnaRegistForm" th:action="@{/qna/qnaRegist}" method="post">
 			        	<div class="qnaDetailList" >
 			        	
 			        	
-			        	<div id="qna-btn-box1"  >
-			        
-						<!-- <label>제목</label> -->
-						<p  th:text="${qna.qnaTitle }"/>		
-						</div>
-						<div id="qna-btn-box2"  >
-							<!-- <label>내용</label> -->
-							<p th:text="${qna.qnaContent }"/>		
-						</div>
-				        
-				<!--         <div id="qna-btn-box" style="background-color: green;">
-				            <button type="button" style="background-color: red;" id="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</button>
-				            <button type="button" style="background-color: yellow;" id="qna-btn1" onclick="window.location.href='./qnaList'">수정</button>
-				            <button type="button" style="background-color: blue;" id="qna-btn1" onclick="window.location.href='./qnaList'">삭제</button>
-				        </div> -->
-				
-						<!-- <div id="qna-btn-box" style="background-color: green;">
-				            <button type="button" style="background-color: red;" onclick="window.location.href='./qnaList'">목록으로</button>
-				            <button type="button" style="background-color: yellow;" onclick="window.location.href='./qnaModify'">수정</button>
-				            <button type="submit" style="background-color: blue;" onclick="window.location.href='./qnaDelete'">삭제</button>
-				        </div> -->
-				        <div class="qna-btn-box-bottom">
-				        
-				        	<button type="submit" class="qnaRemove">삭제</button>
-				        	<button type="button" name="qnaModify" th:onclick="|location.href='/qna/qnaModify?qnaCode=${qna.qnaCode}'|">수정</button>
-						
-				        </div> 
+				        	<div class="qna-btn-box1"  >
+				        	<label style="float: left;">제목</label>		        
+							<p  style="margin-left: 3%;" th:text="${qna.qnaTitle }"/>		
+							</div>
+							<div class="qna-btn-box2"  >
+							<label style="float: left;">내용</label>
+								<p style="margin-left: 3%;" th:text="${qna.qnaContent }"/>		
+							</div>
+					        
+					
+					        <div class="qna-btn-box-bottom">
+					        
+					        	<button type="submit" class="qnaRemove">삭제</button>
+					        	<button th:onclick="|location.href='/qna/qnaModify/${qna.qnaCode}'|">수정</button>
+							
+					        </div> 
 				            
 				        
 			          	</div>          
 			        
 		       
-					</form>
 					
 					
 					<br><br><br><br><br><br>
 					
-					<th:block sec:authorize="hasRole('ROLE_ADMIN')">
+					<!-- <th:block sec:authorize="hasRole('ROLE_ADMIN')"> -->
 					
-					<form id="replyRegistForm" th:action="@{/reply/replyRegist}" method="post">
+					<!-- <form id="replyRegistForm" th:action="@{/reply/replyRegist}" method="post">
 			        	<div class="qnaDetailList" >
 			        	
 						<div id="qna-btn-box2"  >
-							<!-- <label>내용</label> -->
+							<label>내용</label>
 							<p th:text="${qna.qnaContent }"/>		
 						</div>
 				        
-				<!--         <div id="qna-btn-box" style="background-color: green;">
+				        <div id="qna-btn-box" style="background-color: green;">
 				            <button type="button" style="background-color: red;" id="qna-btn1" onclick="window.location.href='./qnaList'">목록으로</button>
 				            <button type="button" style="background-color: yellow;" id="qna-btn1" onclick="window.location.href='./qnaList'">수정</button>
 				            <button type="button" style="background-color: blue;" id="qna-btn1" onclick="window.location.href='./qnaList'">삭제</button>
-				        </div> -->
+				        </div>
 				
-						<!-- <div id="qna-btn-box" style="background-color: green;">
+						<div id="qna-btn-box" style="background-color: green;">
 				            <button type="button" style="background-color: red;" onclick="window.location.href='./qnaList'">목록으로</button>
 				            <button type="button" style="background-color: yellow;" onclick="window.location.href='./qnaModify'">수정</button>
 				            <button type="submit" style="background-color: blue;" onclick="window.location.href='./qnaDelete'">삭제</button>
-				        </div> -->
+				        </div>
 				        <div class="qna-btn-box-bottom">
 				        
 				        	<button type="submit" class="replyRegist">답변글 등록</button>
@@ -111,18 +92,14 @@
 			          	</div>          
 			        
 		       
-					</form>
+					</form> -->
 					
 					
 			</div>
 		</div>
-    <br><br><br><br>
+    <br><br><br><br> 
 
     <div th:replace="main/footer.html"></div>
 
 </body>
-<footer>
-    
-</footer>
-
 </html>

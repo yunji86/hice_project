@@ -94,3 +94,75 @@ h1{
 	height: 500px;
 	margin-top: 20px;
 }
+
+.qnaDetail {
+   /* background-color:rgb(121, 89, 89); */
+  	width: 1800px;	
+  	margin: 0 auto;
+  }
+  
+  .qna-btn-box1{
+  	width: 1400px;	
+  	margin-left: 0;
+  	height: 50px;
+  }
+  
+  
+  
+  
+  .qna-btn-box2{
+  	width: 1400px;	
+  	margin-left: 0;
+  	height: 500px;
+  }
+  
+  .qna-btn-box-bottom button {
+  margin-bottom: 5px;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  color: #593521;
+  width: 150px;
+  height: 40px;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid rgb(115, 114, 114);
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
+  float: right;
+}
+
+.qna-btn-box-bottom input {
+  margin-bottom: 5px;
+  background-color: #593521;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  width: 150px;
+  height: 40px;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid rgb(115, 114, 114);
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 61%;
+  margin-right: 25px;
+  float: right;
+}
+
+.qna-regist-btn{
+	margin-bottom: 5px;
+  background-color: #593521;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  width: 150px;
+  height: 40px;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid rgb(115, 114, 114);
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 61%;
+  margin-right: 25px;
+  float: right;
+}

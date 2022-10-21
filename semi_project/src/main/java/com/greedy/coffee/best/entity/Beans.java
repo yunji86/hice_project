@@ -53,13 +53,6 @@ import lombok.Setter;
   @Column(name = "BEAN_STATUS")
   private String beanStatus;
   
-//  @ManyToOne
-//  @JoinColumn(name = "PRO_CODE") 
-//  private Product proCode; 
-  
-//  @OneToMany(cascade=CascadeType.PERSIST)
-//  @JoinColumn(name = "QNA_REFER_CODE")
-//  private List<FileDTO> fileList;
   
   }
  

@@ -21,9 +21,9 @@ import com.greedy.coffee.store.repository.StoreRepository;
 public class StoreService {
 
 	public static final int TEXT_PAGE_SIZE = 10;		//잘라올 컨텐츠 갯수
-	public static final int TEXT_STORE_TYPE = 1;		//보드타입(text)
-	public static final String SORT_BY = "stoName";		//정렬기준
-	public static final char ACTIVE_STATUS = 'Y';		//보여질상태
+	public static final int TEXT_STORE_TYPE = 1;		//보드 타입
+	public static final String SORT_BY = "stoName";		//정렬 기준
+	public static final char ACTIVE_STATUS = 'Y';		//보여질 기본 상태
 
 
 	private final StoreRepository storeRepository;
@@ -35,7 +35,7 @@ public class StoreService {
 		this.modelMapper = modelMapper;
 	}
 
-	//storeList
+	//store - List
 	public Page<StoreDTO> selectStoreList(int page, String searchValue) {
 
 		Pageable pageable = PageRequest.of(page - 1, TEXT_PAGE_SIZE, Sort.by(SORT_BY));
@@ -54,7 +54,7 @@ public class StoreService {
 	}
 
 	
-	//storeRegist
+	//store - Regist
 	public void registStore(StoreDTO store) {
 
 		store.setStoType(TEXT_STORE_TYPE);
@@ -63,19 +63,19 @@ public class StoreService {
 	}
 
 
-	//storeUpdate
+	//store - Update
 	public void updateStore(StoreDTO store) {
 			
 		Store foundStore = storeRepository.findById(store.getStoCode()).get();
 		foundStore.setStoName(store.getStoName());
 		foundStore.setStoAdd(store.getStoAdd());
-		foundStore.setBean(modelMapper.map(store.getBean(), Beans.class));	
+		foundStore.setBean(modelMapper.map(store.getBean(), Beans.class));	//joinColumn은 modelMapper 처리
 		foundStore.setStoStatus(store.getStoStatus());
 		foundStore.setCall(store.getCall());
 	}
 	
 
-	//storeRemove
+	//store - Remove
 	public void removeStore(StoreDTO removeStore) {
 		
 		Store foundStore = storeRepository.findById(removeStore.getStoCode()).get();
