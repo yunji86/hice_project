@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.util.List;
 
 import com.greedy.coffee.best.dto.BeansDTO;
-import com.greedy.coffee.best.dto.BeansListDTO;
 import com.greedy.coffee.member.dto.MemberDTO;
 
 import lombok.Data;

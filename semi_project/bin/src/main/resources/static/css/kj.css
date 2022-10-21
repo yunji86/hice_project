@@ -13,7 +13,7 @@
 
 .beanMain {
     text-align: center;
-    height: 1700px;
+    height: auto;
 }
 
 /* 타이틀 */
@@ -79,7 +79,11 @@
     font-weight: 1000;
 }
 .offShop:hover {
-	
+	font-weight: bold;
+}
+
+.bodyUnder {
+	margin-bottom: 40px;
 }
 
 
@@ -93,7 +97,7 @@
 
 /*상단*/
 .storeHeader {
-    margin-top: 50px;
+    margin-top: 60px;
     text-align: center;
 }
 .headerTitle>h1 {
@@ -136,7 +140,8 @@
 /* 매장 정보 테이블 */
 .storeResult {
 	width: 70%;
-    margin-left: 20%;
+    margin-left: 15%;
+    margin-bottom: 5%;
     padding: 15px;
     border-top: 3px solid #444444;
 }

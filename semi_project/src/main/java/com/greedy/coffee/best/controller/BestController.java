@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 public class BestController {
 	
 	
-	//의존성 
+	//의존성 부여
 	private final BestService bestService;
 	
 	public BestController(BestService bestService) {
@@ -28,7 +28,7 @@ public class BestController {
 	}
 
 	
-	//select List
+	//select - List
 	@GetMapping("/bestList")
 	public String bestList(@RequestParam(defaultValue="1") int page, 
 			@RequestParam(required=false) String searchValue, Model model) {

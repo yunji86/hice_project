@@ -14,9 +14,12 @@ import com.greedy.coffee.store.entity.Store;
 
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
-	//@EntityGraph(attributePaths = {})
+	// N+1 방지
+	@EntityGraph(attributePaths = {"bean"})
 	Page<Store> findByStoTypeAndStoStatus(int stoType, char stoStatus, Pageable pageable);
 	
+	// N+1 방지
+	@EntityGraph(attributePaths = {"bean"})
 	@Query("SELECT s " +
 	          "FROM Store s " +
 	         "WHERE s.stoType = :stoType " +

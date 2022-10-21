@@ -23,8 +23,7 @@ table {
     margin: 0 auto;
 }
 
-table tr {
-}
+
 
 .review-tr {
 
@@ -174,46 +173,59 @@ h1 {
     width: 1800px;
     margin: 0 auto;
 }
+
 .rev-wirte {
     width: 1700px;
     margin: 0 auto;
-    
+    /* background-color: yellow; */
 }
+
 .rev-wirte1 {
     width: 1600px;
     margin: 0 auto;
-    
+    /* background-color: rgb(199, 199, 114); */
 }
+
 .rev-table {
     width: 1200px;
     margin: 0 auto;
     
 }
+
 .rev-thead {
     width: 1200px;
     margin: 0 auto;
+    
     text-align: center;
 }
+
 .revTitle-box {
     width: 1200px;
     height: 30px;
 }
+
 .revContents-box {
     width: 1200px;
     height: 500px;
+   
 }
+
 .rev-tbody {
     width: 1200px;
+
+    /* background-color: rgb(224, 85, 177); */
+
 }
+
 .rev-tfoot {
     width: 1200px;
-    display: flex;
     /* background-color: rgb(85, 99, 224); */
+
 }
+
 .image-area {
     width: 100px;
     height: 100px;
-    
 }
 
 
@@ -221,9 +233,9 @@ h1 {
 /* 리뷰 업데이트 부분 */
 .rev-Update {
     width: 1800px;
-    margin: 0 auto;
+    margin-left: 20ex;
+    
 }
-
 
 /* ------------------------------------------------------------------ */
 /* 리뷰 뷰 부분 */

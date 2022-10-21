@@ -13,7 +13,5 @@ public class BeansDTO {
 	private String beanExplan;
 	private int beanType;
 	private String beanStatus;
-	//private ProDTO proCode;
-	//private List<FileDTO> fileList;
 	
 }

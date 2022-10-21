@@ -2,6 +2,7 @@ package com.greedy.coffee.best.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,11 +11,7 @@ import com.greedy.coffee.product.entity.Product;
 
 public interface BestRepository extends JpaRepository<Product, Long>  {
 	
-	@Query("SELECT p " +
-	          "FROM Product p " +
-	         "WHERE p.proType = :proType " +
-	           "AND p.proStatus = :proStatus " +
-	           "AND p.proCount >= 10 ")
+
 	Page<Product> findByProTypeAndProStatus(String proType, String proStatus, Pageable pageable);
 	
 	@Query("SELECT p " +
